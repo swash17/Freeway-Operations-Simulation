@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Highway Capacity Manual Overview | CGN 4905/TTE 6205: Freeway Operations and Simulation</title>
+  <meta name="description" content="eBook for Freeway Operations and Simulation course" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Highway Capacity Manual Overview | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="eBook for Freeway Operations and Simulation course" />
+  <meta name="github-repo" content="swash17/FreewayOpsSim" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Highway Capacity Manual Overview | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
+  
+  <meta name="twitter:description" content="eBook for Freeway Operations and Simulation course" />
+  
+
+<meta name="author" content="Dr. Scott S. Washburn" />
+<meta name="author" content="Civil and Coastal Engineering" />
+<meta name="author" content="University of Florida" />
+<meta name="author" content="https://swash.essie.ufl.edu" />
+
+
+<meta name="date" content="2023-01-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="02-TrafficStreamParameters.html"/>
+<link rel="next" href="04-HCM_BasicFwySeg.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Freeway Operations and Simulation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html"><i class="fa fa-check"></i><b>2</b> Fundamentals of Uninterrupted Traffic Flow and Queuing Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#traffic-stream-parameters"><i class="fa fa-check"></i><b>2.1</b> Traffic Stream Parameters</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-1"><i class="fa fa-check"></i><b>2.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.1.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#flow-classification"><i class="fa fa-check"></i><b>2.1.2</b> Flow Classification</a></li>
+<li class="chapter" data-level="2.1.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#parameter-classification"><i class="fa fa-check"></i><b>2.1.3</b> Parameter Classification</a></li>
+<li class="chapter" data-level="2.1.4" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#microscopic-parameters"><i class="fa fa-check"></i><b>2.1.4</b> Microscopic Parameters</a></li>
+<li class="chapter" data-level="2.1.5" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#flow"><i class="fa fa-check"></i><b>2.1.5</b> Flow</a></li>
+<li class="chapter" data-level="2.1.6" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#speed"><i class="fa fa-check"></i><b>2.1.6</b> Speed</a></li>
+<li class="chapter" data-level="2.1.7" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#density"><i class="fa fa-check"></i><b>2.1.7</b> Density</a></li>
+<li class="chapter" data-level="2.1.8" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#variable-relationships"><i class="fa fa-check"></i><b>2.1.8</b> Variable Relationships</a></li>
+<li class="chapter" data-level="2.1.9" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-density"><i class="fa fa-check"></i><b>2.1.9</b> Basic Traffic Stream Models: Speed vs. Density</a></li>
+<li class="chapter" data-level="2.1.10" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-density"><i class="fa fa-check"></i><b>2.1.10</b> Basic Traffic Stream Models: Flow vs. Density</a></li>
+<li class="chapter" data-level="2.1.11" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-flow"><i class="fa fa-check"></i><b>2.1.11</b> Basic Traffic Stream Models: Speed vs. Flow</a></li>
+<li class="chapter" data-level="2.1.12" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-speed-vs.-density"><i class="fa fa-check"></i><b>2.1.12</b> Basic Traffic Stream Models: Flow vs. Speed vs. Density</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#models-of-traffic-flow"><i class="fa fa-check"></i><b>2.2</b> Models of Traffic Flow</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-2"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#arrival-patterns"><i class="fa fa-check"></i><b>2.2.2</b> Arrival Patterns</a></li>
+<li class="chapter" data-level="2.2.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#uniform"><i class="fa fa-check"></i><b>2.2.3</b> Uniform</a></li>
+<li class="chapter" data-level="2.2.4" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#poisson"><i class="fa fa-check"></i><b>2.2.4</b> Poisson</a></li>
+<li class="chapter" data-level="2.2.5" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#negative-exponential"><i class="fa fa-check"></i><b>2.2.5</b> Negative Exponential</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#freeway-queuing"><i class="fa fa-check"></i><b>2.3</b> Freeway Queuing</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-3"><i class="fa fa-check"></i><b>2.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.3.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#traffic-analysis-at-freeway-bottlenecks"><i class="fa fa-check"></i><b>2.3.2</b> Traffic Analysis at Freeway Bottlenecks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html"><i class="fa fa-check"></i><b>3</b> Highway Capacity Manual Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#what-is-the-highway-capacity-manual"><i class="fa fa-check"></i><b>3.1</b> What is the Highway Capacity Manual?</a></li>
+<li class="chapter" data-level="3.2" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#purpose-and-objectives"><i class="fa fa-check"></i><b>3.2</b> Purpose and Objectives</a></li>
+<li class="chapter" data-level="3.3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#intended-use"><i class="fa fa-check"></i><b>3.3</b> Intended Use</a></li>
+<li class="chapter" data-level="3.4" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#target-users"><i class="fa fa-check"></i><b>3.4</b> Target Users</a></li>
+<li class="chapter" data-level="3.5" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#versions-of-the-hcm"><i class="fa fa-check"></i><b>3.5</b> Versions of the HCM</a></li>
+<li class="chapter" data-level="3.6" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#who-oversees-development-and-maintenance-of-the-hcm"><i class="fa fa-check"></i><b>3.6</b> Who Oversees Development and Maintenance of the HCM?</a></li>
+<li class="chapter" data-level="3.7" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#hcm-6th-edition-revisions"><i class="fa fa-check"></i><b>3.7</b> HCM 6th Edition Revisions</a></li>
+<li class="chapter" data-level="3.8" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#structure-of-the-hcm"><i class="fa fa-check"></i><b>3.8</b> Structure of the HCM</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-1---concepts"><i class="fa fa-check"></i><b>3.8.1</b> Volume 1 - Concepts</a></li>
+<li class="chapter" data-level="3.8.2" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-2-uninterrupted-flow"><i class="fa fa-check"></i><b>3.8.2</b> Volume 2 – Uninterrupted Flow</a></li>
+<li class="chapter" data-level="3.8.3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-3-interrupted-flow"><i class="fa fa-check"></i><b>3.8.3</b> Volume 3 – Interrupted Flow</a></li>
+<li class="chapter" data-level="3.8.4" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-4-online-concepts-supplemental"><i class="fa fa-check"></i><b>3.8.4</b> Volume 4 (Online) – Concepts Supplemental</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#future-updates"><i class="fa fa-check"></i><b>3.9</b> Future Updates</a></li>
+<li class="chapter" data-level="3.10" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#software"><i class="fa fa-check"></i><b>3.10</b> Software</a></li>
+<li class="chapter" data-level="3.11" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#resources"><i class="fa fa-check"></i><b>3.11</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html"><i class="fa fa-check"></i><b>4</b> HCM Basic Freeway Segments</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#IntroBasicFreewaySeg"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#BasicFwySegImage"><i class="fa fa-check"></i><b>4.2</b> Basic Freeway Segment</a></li>
+<li class="chapter" data-level="4.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#performance-measures"><i class="fa fa-check"></i><b>4.3</b> Performance Measures</a></li>
+<li class="chapter" data-level="4.4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#service-measure"><i class="fa fa-check"></i><b>4.4</b> Service Measure</a></li>
+<li class="chapter" data-level="4.5" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#level-of-service"><i class="fa fa-check"></i><b>4.5</b> Level of Service</a></li>
+<li class="chapter" data-level="4.6" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#speed-flow-relationship"><i class="fa fa-check"></i><b>4.6</b> Speed-Flow Relationship</a></li>
+<li class="chapter" data-level="4.7" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#analysis-procedure"><i class="fa fa-check"></i><b>4.7</b> Analysis Procedure</a></li>
+<li class="chapter" data-level="4.8" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#base-conditions"><i class="fa fa-check"></i><b>4.8</b> Base Conditions</a></li>
+<li class="chapter" data-level="4.9" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#free-flow-speed"><i class="fa fa-check"></i><b>4.9</b> Free-Flow Speed</a></li>
+<li class="chapter" data-level="4.10" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#estimating-ffs"><i class="fa fa-check"></i><b>4.10</b> Estimating FFS</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#lane-width-adjustment-factor"><i class="fa fa-check"></i><b>4.10.1</b> Lane Width Adjustment Factor</a></li>
+<li class="chapter" data-level="4.10.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#lateral-clearance-adj.-factor"><i class="fa fa-check"></i><b>4.10.2</b> Lateral Clearance Adj. Factor</a></li>
+<li class="chapter" data-level="4.10.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#total-ramp-density"><i class="fa fa-check"></i><b>4.10.3</b> Total Ramp Density</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#calculate-analysis-flow-rate"><i class="fa fa-check"></i><b>4.11</b> Calculate Analysis Flow Rate</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#peak-hour-factor"><i class="fa fa-check"></i><b>4.11.1</b> Peak Hour Factor</a></li>
+<li class="chapter" data-level="4.11.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#passenger-car-equivalency-pce-factor"><i class="fa fa-check"></i><b>4.11.2</b> Passenger Car Equivalency (PCE) Factor</a></li>
+<li class="chapter" data-level="4.11.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#extended-general-freeway-segments"><i class="fa fa-check"></i><b>4.11.3</b> Extended General Freeway Segments</a></li>
+<li class="chapter" data-level="4.11.4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#specific-grades"><i class="fa fa-check"></i><b>4.11.4</b> Specific Grades</a></li>
+<li class="chapter" data-level="4.11.5" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#heavy-vehicle-factor"><i class="fa fa-check"></i><b>4.11.5</b> Heavy Vehicle Factor</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#calculate-density"><i class="fa fa-check"></i><b>4.12</b> Calculate Density</a></li>
+<li class="chapter" data-level="4.13" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#service-volumesflow-rates"><i class="fa fa-check"></i><b>4.13</b> Service Volumes/Flow Rates</a></li>
+<li class="chapter" data-level="4.14" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#driver-population-adjustment"><i class="fa fa-check"></i><b>4.14</b> Driver Population Adjustment</a></li>
+<li class="chapter" data-level="4.15" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#references"><i class="fa fa-check"></i><b>4.15</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html"><i class="fa fa-check"></i><b>5</b> HCM Weaving Segment Analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#IntroWeaving"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-length"><i class="fa fa-check"></i><b>5.2</b> Weaving Segment Length</a></li>
+<li class="chapter" data-level="5.3" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-width"><i class="fa fa-check"></i><b>5.3</b> Weaving Segment Width</a></li>
+<li class="chapter" data-level="5.4" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-configuration"><i class="fa fa-check"></i><b>5.4</b> Weaving Segment Configuration</a></li>
+<li class="chapter" data-level="5.5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#analysis-procedure-1"><i class="fa fa-check"></i><b>5.5</b> Analysis Procedure</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-1"><i class="fa fa-check"></i><b>5.5.1</b> Step 1</a></li>
+<li class="chapter" data-level="5.5.2" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-2"><i class="fa fa-check"></i><b>5.5.2</b> Step 2</a></li>
+<li class="chapter" data-level="5.5.3" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-3"><i class="fa fa-check"></i><b>5.5.3</b> Step 3</a></li>
+<li class="chapter" data-level="5.5.4" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-4"><i class="fa fa-check"></i><b>5.5.4</b> Step 4</a></li>
+<li class="chapter" data-level="5.5.5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-5"><i class="fa fa-check"></i><b>5.5.5</b> Step 5</a></li>
+<li class="chapter" data-level="5.5.6" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-6"><i class="fa fa-check"></i><b>5.5.6</b> Step 6</a></li>
+<li class="chapter" data-level="5.5.7" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-7"><i class="fa fa-check"></i><b>5.5.7</b> Step 7</a></li>
+<li class="chapter" data-level="5.5.8" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-8"><i class="fa fa-check"></i><b>5.5.8</b> Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#references-1"><i class="fa fa-check"></i><b>5.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html"><i class="fa fa-check"></i><b>6</b> HCM Merge/Diverge Segments</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#IntroRampJunctionsSeg"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#on--and-off-ramp-influence-areas"><i class="fa fa-check"></i><b>6.2</b> On- and Off-ramp Influence Areas</a></li>
+<li class="chapter" data-level="6.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#acceldecel-lanes"><i class="fa fa-check"></i><b>6.3</b> Accel/Decel Lanes</a></li>
+<li class="chapter" data-level="6.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#analysis-methodology"><i class="fa fa-check"></i><b>6.4</b> Analysis Methodology</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-1-volume-conversion"><i class="fa fa-check"></i><b>6.4.1</b> Step 1: Volume Conversion</a></li>
+<li class="chapter" data-level="6.4.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12"><i class="fa fa-check"></i><b>6.4.2</b> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps"><i class="fa fa-check"></i><b>6.4.3</b> Step 2: Model Structure (On-ramps)</a></li>
+<li class="chapter" data-level="6.4.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps"><i class="fa fa-check"></i><b>6.4.4</b> Step 2: Model Structure (Off-ramps)</a></li>
+<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps</a></li>
+<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps</a></li>
+<li class="chapter" data-level="6.4.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-3-estimate-capacity-of-ramp-freeway-junction"><i class="fa fa-check"></i><b>6.4.7</b> Step 3: Estimate Capacity of Ramp-Freeway Junction</a></li>
+<li class="chapter" data-level="6.4.8" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los"><i class="fa fa-check"></i><b>6.4.8</b> Step 4: Estimate Density and Determine LOS</a></li>
+<li class="chapter" data-level="6.4.9" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-5-estimation-of-speed"><i class="fa fa-check"></i><b>6.4.9</b> Step 5: Estimation of Speed</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#variable-definitions-1"><i class="fa fa-check"></i><b>6.5</b> Variable Definitions (1)</a></li>
+<li class="chapter" data-level="6.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#variable-definitions-2"><i class="fa fa-check"></i><b>6.6</b> Variable Definitions (2)</a></li>
+<li class="chapter" data-level="6.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#references-2"><i class="fa fa-check"></i><b>6.7</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html"><i class="fa fa-check"></i><b>7</b> HCM Freeway Facility</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#HCMFreewayFacilityUndersat"><i class="fa fa-check"></i><b>7.1</b> Undersaturated Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#IntroFreewayUndersat"><i class="fa fa-check"></i><b>7.1.1</b> Overview</a></li>
+<li class="chapter" data-level="7.1.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#analysis-procedure-2"><i class="fa fa-check"></i><b>7.1.2</b> Analysis Procedure</a></li>
+<li class="chapter" data-level="7.1.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#facility-segmentation"><i class="fa fa-check"></i><b>7.1.3</b> Facility Segmentation</a></li>
+<li class="chapter" data-level="7.1.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#time-space-domain-of-freeway-facility"><i class="fa fa-check"></i><b>7.1.4</b> Time-Space Domain of Freeway Facility</a></li>
+<li class="chapter" data-level="7.1.5" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#facility-segmentation-considerations"><i class="fa fa-check"></i><b>7.1.5</b> Facility Segmentation Considerations</a></li>
+<li class="chapter" data-level="7.1.6" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#demand-flow-rates"><i class="fa fa-check"></i><b>7.1.6</b> Demand Flow Rates</a></li>
+<li class="chapter" data-level="7.1.7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#segment-capacity-estimation-and-adjustment"><i class="fa fa-check"></i><b>7.1.7</b> Segment Capacity Estimation and Adjustment</a></li>
+<li class="chapter" data-level="7.1.8" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#compute-dc-ratios"><i class="fa fa-check"></i><b>7.1.8</b> Compute d/c Ratios</a></li>
+<li class="chapter" data-level="7.1.9" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#downstream-speed-constraint"><i class="fa fa-check"></i><b>7.1.9</b> Downstream Speed Constraint</a></li>
+<li class="chapter" data-level="7.1.10" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#density-1"><i class="fa fa-check"></i><b>7.1.10</b> Density</a></li>
+<li class="chapter" data-level="7.1.11" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#los"><i class="fa fa-check"></i><b>7.1.11</b> LOS</a></li>
+<li class="chapter" data-level="7.1.12" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#other-measures-reported"><i class="fa fa-check"></i><b>7.1.12</b> Other Measures Reported</a></li>
+<li class="chapter" data-level="7.1.13" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#supporting-calculations-segment"><i class="fa fa-check"></i><b>7.1.13</b> Supporting Calculations (Segment)</a></li>
+<li class="chapter" data-level="7.1.14" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#supporting-calculations-facility"><i class="fa fa-check"></i><b>7.1.14</b> Supporting Calculations (Facility)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#HCMFreewayFacilityOversat"><i class="fa fa-check"></i><b>7.2</b> Oversaturated Analysis</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#compute-dc-ratios-1"><i class="fa fa-check"></i><b>7.2.1</b> Compute d/c Ratios</a></li>
+<li class="chapter" data-level="7.2.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#freeway-facility-oversaturated-analysis-methodology-capabilities"><i class="fa fa-check"></i><b>7.2.2</b> Freeway Facility Oversaturated Analysis Methodology Capabilities</a></li>
+<li class="chapter" data-level="7.2.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#general-limitations-of-methodology"><i class="fa fa-check"></i><b>7.2.3</b> General Limitations of Methodology</a></li>
+<li class="chapter" data-level="7.2.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#additional-considerations"><i class="fa fa-check"></i><b>7.2.4</b> Additional Considerations</a></li>
+<li class="chapter" data-level="7.2.5" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#time-space-domain"><i class="fa fa-check"></i><b>7.2.5</b> Time-Space Domain</a></li>
+<li class="chapter" data-level="7.2.6" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#key-analysis-concepts"><i class="fa fa-check"></i><b>7.2.6</b> Key Analysis Concepts</a></li>
+<li class="chapter" data-level="7.2.7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#methodology-flow-chart"><i class="fa fa-check"></i><b>7.2.7</b> Methodology Flow Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#travel-time-reliability"><i class="fa fa-check"></i><b>7.3</b> Travel Time Reliability</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#overview"><i class="fa fa-check"></i><b>7.3.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#references-3"><i class="fa fa-check"></i><b>7.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html"><i class="fa fa-check"></i><b>8</b> Managed Lanes Overview</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#high-occupancy-vehicle-hov-lanes"><i class="fa fa-check"></i><b>8.2</b> High Occupancy Vehicle (HOV) Lanes</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#what-are-hov-lanes"><i class="fa fa-check"></i><b>8.2.1</b> What are HOV Lanes?</a></li>
+<li class="chapter" data-level="8.2.2" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#why-implement-hov-lanes"><i class="fa fa-check"></i><b>8.2.2</b> Why Implement HOV Lanes?</a></li>
+<li class="chapter" data-level="8.2.3" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hov-lane-design-considerations"><i class="fa fa-check"></i><b>8.2.3</b> HOV Lane Design Considerations</a></li>
+<li class="chapter" data-level="8.2.4" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hov-lane-operation-considerations"><i class="fa fa-check"></i><b>8.2.4</b> HOV Lane Operation Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#high-occupancy-toll-hot-lanes"><i class="fa fa-check"></i><b>8.3</b> High Occupancy Toll (HOT) Lanes</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#what-are-hot-lanes"><i class="fa fa-check"></i><b>8.3.1</b> What are HOT Lanes?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#reversible-lanes"><i class="fa fa-check"></i><b>8.4</b> Reversible Lanes</a></li>
+<li class="chapter" data-level="8.5" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#other-special-lanes"><i class="fa fa-check"></i><b>8.5</b> Other Special Lanes</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#truck-lane-restrictions"><i class="fa fa-check"></i><b>8.5.1</b> Truck Lane Restrictions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hcm-analysis"><i class="fa fa-check"></i><b>8.6</b> HCM Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html"><i class="fa fa-check"></i><b>9</b> Introduction to Ramp Metering</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#what-is-ramp-metering"><i class="fa fa-check"></i><b>9.1</b> What is Ramp Metering?</a></li>
+<li class="chapter" data-level="9.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#why-meter-ramps"><i class="fa fa-check"></i><b>9.2</b> Why Meter Ramps?</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#conceptual-background-of-ramp-metering"><i class="fa fa-check"></i><b>9.2.1</b> Conceptual Background of Ramp Metering</a></li>
+<li class="chapter" data-level="9.2.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#system-benefits-of-ramp-metering"><i class="fa fa-check"></i><b>9.2.2</b> System Benefits of Ramp Metering</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#consequences-of-ramp-metering"><i class="fa fa-check"></i><b>9.3</b> Consequences of Ramp Metering</a></li>
+<li class="chapter" data-level="9.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-metering-hardwareinfrustructure"><i class="fa fa-check"></i><b>9.4</b> Ramp Metering Hardware/Infrustructure</a></li>
+<li class="chapter" data-level="9.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#example-ramp-meter-control-strategies"><i class="fa fa-check"></i><b>9.5</b> Example Ramp Meter Control Strategies</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-closure"><i class="fa fa-check"></i><b>9.5.1</b> Ramp Closure</a></li>
+<li class="chapter" data-level="9.5.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#pre-timed"><i class="fa fa-check"></i><b>9.5.2</b> Pre-Timed</a></li>
+<li class="chapter" data-level="9.5.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#traffic-responsive"><i class="fa fa-check"></i><b>9.5.3</b> Traffic Responsive</a></li>
+<li class="chapter" data-level="9.5.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#gap-acceptance"><i class="fa fa-check"></i><b>9.5.4</b> Gap Acceptance</a></li>
+<li class="chapter" data-level="9.5.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#integrated-ramp-control"><i class="fa fa-check"></i><b>9.5.5</b> Integrated Ramp Control</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#practical-considerations"><i class="fa fa-check"></i><b>9.6</b> Practical Considerations</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-queuing-storage"><i class="fa fa-check"></i><b>9.6.1</b> Ramp Queuing Storage</a></li>
+<li class="chapter" data-level="9.6.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#hov-bypass-lanes"><i class="fa fa-check"></i><b>9.6.2</b> HOV Bypass Lanes</a></li>
+<li class="chapter" data-level="9.6.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#minmax-metering-rates"><i class="fa fa-check"></i><b>9.6.3</b> Min/Max Metering Rates</a></li>
+<li class="chapter" data-level="9.6.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#violation-enforcement"><i class="fa fa-check"></i><b>9.6.4</b> Violation Enforcement</a></li>
+<li class="chapter" data-level="9.6.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#equity-issues"><i class="fa fa-check"></i><b>9.6.5</b> Equity Issues</a></li>
+<li class="chapter" data-level="9.6.6" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#detection-capabilities"><i class="fa fa-check"></i><b>9.6.6</b> Detection Capabilities</a></li>
+<li class="chapter" data-level="9.6.7" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#system-capabilities"><i class="fa fa-check"></i><b>9.6.7</b> System Capabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#utah-dot-video"><i class="fa fa-check"></i><b>9.7</b> Utah DOT video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-Simulation.html"><a href="10-Simulation.html"><i class="fa fa-check"></i><b>10</b> Introduction to Traffic Simulation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10-Simulation.html"><a href="10-Simulation.html#what-is-simulation"><i class="fa fa-check"></i><b>10.1</b> What is Simulation?</a></li>
+<li class="chapter" data-level="10.2" data-path="10-Simulation.html"><a href="10-Simulation.html#terminology"><i class="fa fa-check"></i><b>10.2</b> Terminology</a></li>
+<li class="chapter" data-level="10.3" data-path="10-Simulation.html"><a href="10-Simulation.html#why-use-simulation"><i class="fa fa-check"></i><b>10.3</b> Why use simulation?</a></li>
+<li class="chapter" data-level="10.4" data-path="10-Simulation.html"><a href="10-Simulation.html#simulation-modeling-approaches"><i class="fa fa-check"></i><b>10.4</b> Simulation Modeling Approaches</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="10-Simulation.html"><a href="10-Simulation.html#spatial-and-temporal-level-of-detail"><i class="fa fa-check"></i><b>10.4.1</b> Spatial and Temporal Level of Detail</a></li>
+<li class="chapter" data-level="10.4.2" data-path="10-Simulation.html"><a href="10-Simulation.html#stochastic"><i class="fa fa-check"></i><b>10.4.2</b> Stochastic</a></li>
+<li class="chapter" data-level="10.4.3" data-path="10-Simulation.html"><a href="10-Simulation.html#deterministic"><i class="fa fa-check"></i><b>10.4.3</b> Deterministic</a></li>
+<li class="chapter" data-level="10.4.4" data-path="10-Simulation.html"><a href="10-Simulation.html#potential-analytical-models-within-simulation-program"><i class="fa fa-check"></i><b>10.4.4</b> Potential Analytical Models within Simulation Program</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="10-Simulation.html"><a href="10-Simulation.html#considerations-for-applying-simulation"><i class="fa fa-check"></i><b>10.5</b> Considerations for applying Simulation</a></li>
+<li class="chapter" data-level="10.6" data-path="10-Simulation.html"><a href="10-Simulation.html#conceptual-differences-between-the-hcm-and-microscopic-simulation-modeling"><i class="fa fa-check"></i><b>10.6</b> Conceptual Differences between the HCM and Microscopic Simulation Modeling</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="10-Simulation.html"><a href="10-Simulation.html#introduction-5"><i class="fa fa-check"></i><b>10.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.6.2" data-path="10-Simulation.html"><a href="10-Simulation.html#capacity-hcm"><i class="fa fa-check"></i><b>10.6.2</b> Capacity (HCM)</a></li>
+<li class="chapter" data-level="10.6.3" data-path="10-Simulation.html"><a href="10-Simulation.html#capacity-simulation"><i class="fa fa-check"></i><b>10.6.3</b> Capacity (Simulation)</a></li>
+<li class="chapter" data-level="10.6.4" data-path="10-Simulation.html"><a href="10-Simulation.html#lane-distribution-hcm"><i class="fa fa-check"></i><b>10.6.4</b> Lane Distribution (HCM)</a></li>
+<li class="chapter" data-level="10.6.5" data-path="10-Simulation.html"><a href="10-Simulation.html#lane-distribution-simulation"><i class="fa fa-check"></i><b>10.6.5</b> Lane Distribution (Simulation)</a></li>
+<li class="chapter" data-level="10.6.6" data-path="10-Simulation.html"><a href="10-Simulation.html#traffic-stream-composition-hcm"><i class="fa fa-check"></i><b>10.6.6</b> Traffic Stream Composition (HCM)</a></li>
+<li class="chapter" data-level="10.6.7" data-path="10-Simulation.html"><a href="10-Simulation.html#traffic-stream-composition-simulation"><i class="fa fa-check"></i><b>10.6.7</b> Traffic Stream Composition (Simulation)</a></li>
+<li class="chapter" data-level="10.6.8" data-path="10-Simulation.html"><a href="10-Simulation.html#comparison-of-hcm-results-to-simulation-results"><i class="fa fa-check"></i><b>10.6.8</b> Comparison of HCM Results to Simulation Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="11-References.html"><a href="11-References.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/swash17/FreightCurriculum" target="blank">Freight Transportation Curriculum</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CGN 4905/TTE 6205: Freeway Operations and Simulation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="highway-capacity-manual-overview" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Highway Capacity Manual Overview<a href="03-HCM_Overview.html#highway-capacity-manual-overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-the-highway-capacity-manual" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> What is the Highway Capacity Manual?<a href="03-HCM_Overview.html#what-is-the-highway-capacity-manual" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Highway Capacity Manual (HCM) serves as a fundamental reference on concepts, performance measures, and analysis techniques for evaluating the multimodal operation of streets, highways, freeways, and off-street pathways.</p>
+<p>The following is excerpted directly from Chapter 1 of the HCM (p. 1-4)</p>
+</div>
+<div id="purpose-and-objectives" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Purpose and Objectives<a href="03-HCM_Overview.html#purpose-and-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The purpose of the HCM is to provide methodologies and associated application procedures for evaluating the multimodal performance of highway and street facilities in terms of operational measures and one or more quality-of-service indicators.</p>
+<p>The objectives of the HCM are to:<br />
+1. Define performance measures and describe survey methods for key traffic characteristics,<br />
+2. Provide methodologies for estimating and predicting performance measures, and<br />
+3. Explain methodologies at a level of detail that allows readers to understand the factors affecting multimodal operation.</p>
+<p>The HCM presents the best available techniques at the time of publishing for determining capacity and LOS. However, it does not establish a legal standard for highway design or construction.</p>
+</div>
+<div id="intended-use" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Intended Use<a href="03-HCM_Overview.html#intended-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The HCM is intended to be used primarily for the analysis areas listed below, to the extent that they are supported by the individual analysis methodologies.</p>
+<ul>
+<li>Levels of analysis: operations, design, preliminary engineering, and planning.<br />
+</li>
+<li>Travel modes: motorized vehicles, pedestrian, and bicycle, plus transit when it is part of a multimodal urban street facility.<br />
+</li>
+<li>Spatial coverage: points, segments, and facilities.<br />
+</li>
+<li>Temporal coverage: undersaturated and oversaturated conditions.</li>
+</ul>
+</div>
+<div id="target-users" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Target Users<a href="03-HCM_Overview.html#target-users" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The HCM is prepared for use by (a) engineers who work in the field of traffic operations or highway geometric design and (b) transportation planners who work in the field of transportation system management. To use the manual effectively and to apply its methodologies, some technical background is desirable—typically university-level training or technical work in a public agency or consulting firm.</p>
+<p>The HCM is also useful to management personnel, educators, air quality specialists, noise specialists, elected officials, regional land use planners, and interest groups representing special users.</p>
+</div>
+<div id="versions-of-the-hcm" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Versions of the HCM<a href="03-HCM_Overview.html#versions-of-the-hcm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The first HCM was published in 1950. Since that time, new editions of the HCM have been published every 10-20 years. Previous HCM editions have had a year in the title, although they have also been referred to with an “edition” number. The previous HCM editions are listed below.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HCM1950Image"></span>
+<img src="Images/HCMoverview/HCM1950.png" alt="1950 HCM: Only 160 pages long, and focused on capacity related to the U.S. roadway network expansion after World War II.   1965: Introduction of the level of service (LOS) concept and bus transit chapter." width="35%" />
+<p class="caption">
+Figure 3.1: 1950 HCM: Only 160 pages long, and focused on capacity related to the U.S. roadway network expansion after World War II. 1965: Introduction of the level of service (LOS) concept and bus transit chapter.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HCM1965Image"></span>
+<img src="Images/HCMoverview/HCM1965.JPG" alt="1965 HCM: Introduction of the level of service (LOS) concept and bus transit chapter." width="35%" />
+<p class="caption">
+Figure 3.2: 1965 HCM: Introduction of the level of service (LOS) concept and bus transit chapter.
+</p>
+</div>
+<p>Starting with the 1985 edition, results of new research on highway capacity and quality of service were presented for measuring roadway performance.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HCM1985Image"></span>
+<img src="Images/HCMoverview/HCM1985.jpg" alt="1985 HCM: Significant research incorporated adding pedestrians and bicycles chapters. Updates to this edition were made in 1992, 1994, and 1997." width="35%" />
+<p class="caption">
+Figure 3.3: 1985 HCM: Significant research incorporated adding pedestrians and bicycles chapters. Updates to this edition were made in 1992, 1994, and 1997.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HCM2000Image"></span>
+<img src="Images/HCMoverview/HCM2000.jpg" alt="2000 HCM: Added new research with increase in volume and breadth." width="35%" />
+<p class="caption">
+Figure 3.4: 2000 HCM: Added new research with increase in volume and breadth.
+</p>
+</div>
+<p>In order to make the material in the HCM 2000 easier to understand and follow, the HCM 2010 was reorganized with new material added from research projects. A broader range of performance measures were introduced for assessing the performance of transportation facilities and all roadway users.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HCM2010Image"></span>
+<img src="Images/HCMoverview/HCM2010.jpg" alt="2010 HCM: New research added, additional focus on non-automobile modes, four volumes. It was reorganized to make it more clear and understandable." width="35%" />
+<p class="caption">
+Figure 3.5: 2010 HCM: New research added, additional focus on non-automobile modes, four volumes. It was reorganized to make it more clear and understandable.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HCM2016"></span>
+<img src="Images/HCMoverview/HCM2016.jpg" alt="The Highway Capacity Manual, 6th Edition: A Guide for Multimodal Mobility Analysis." width="50%" />
+<p class="caption">
+Figure 3.6: The Highway Capacity Manual, 6th Edition: A Guide for Multimodal Mobility Analysis.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HCM2022"></span>
+<img src="Images/HCMoverview/HCM2022.png" alt="The current version, The Highway Capacity Manual, 7th Edition: A Guide for Multimodal Mobility Analysis." width="50%" />
+<p class="caption">
+Figure 3.7: The current version, The Highway Capacity Manual, 7th Edition: A Guide for Multimodal Mobility Analysis.
+</p>
+</div>
+</div>
+<div id="who-oversees-development-and-maintenance-of-the-hcm" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Who Oversees Development and Maintenance of the HCM?<a href="03-HCM_Overview.html#who-oversees-development-and-maintenance-of-the-hcm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Transportation Research Board’s Highway Capacity and Quality of Service Committee (HCQSC) is responsible for development and maintenance of the HCM. The HCQSC is comprised of the following subcommittees:</p>
+<ul>
+<li>interrupted flow,<br />
+</li>
+<li>uninterrupted flow,<br />
+</li>
+<li>cross-cutting issues,<br />
+</li>
+<li>applications, and<br />
+</li>
+<li>technology transfer.</li>
+</ul>
+<p>Membership</p>
+<ul>
+<li>Typically 30-32 Full committee members<br />
+</li>
+<li>Generally a member can serve a maximum of 3 consecutive 3-year terms</li>
+<li>Organizations represented
+<ul>
+<li>Public Agency<br />
+</li>
+<li>Private Consulting<br />
+</li>
+<li>Academia<br />
+</li>
+<li>Broad geographic diversity<br />
+</li>
+<li>Subcommittee membership
+<ul>
+<li>No official limit, controlled by subcommittee chairs</li>
+</ul></li>
+</ul></li>
+<li>Meetings
+<ul>
+<li>TRB Annual Meeting
+<ul>
+<li>Typical meeting schedule:
+<ul>
+<li>Saturday 1:00 pm – 8:00 pm<br />
+</li>
+<li>Sunday 8:00 am – 8:00 pm<br />
+</li>
+<li>Monday 8:00 am - 12:00 PM<br />
+</li>
+</ul></li>
+</ul></li>
+<li>Mid-year Meeting
+<ul>
+<li>Typically held in June or July<br />
+</li>
+<li>Rotates locations</li>
+<li>Every 5 or 6 years it is held in an international location<br />
+Last 3: Berlin (2016), Stockholm (2011), Tokyo (2006)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>My involvement with committee…</p>
+<ul>
+<li>Actively involved with the HCQS committee since 2000<br />
+</li>
+<li>Full committee member, 2006-2016<br />
+</li>
+<li>Freeways/Multilane Highways subcommittee chair, 2006-2011<br />
+</li>
+<li>User Liaison subcommittee chair, 2011-2016<br />
+</li>
+<li>Focus of my involvement with the committee has primarily been with the uninterrupted-flow analysis methodologies and content</li>
+</ul>
+</div>
+<div id="hcm-6th-edition-revisions" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> HCM 6th Edition Revisions<a href="03-HCM_Overview.html#hcm-6th-edition-revisions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The new HCM consists of four dimensions:</p>
+<ul>
+<li>Quantity of travel, the magnitude of use of a transportation facility or service;<br />
+</li>
+<li>Quality of travel, users’ perceptions of travel on a transportation facility or service with respect to their expectations;<br />
+</li>
+<li>Accessibility, the ease with which travelers can engage in desired activities;
+and<br />
+</li>
+<li>Capacity, the ability of a transportation facility or service to meet the quantity of travel demanded of it.</li>
+</ul>
+<p>Revisions include:</p>
+<ul>
+<li>New title, to reflect how HCM content has expanded considerably beyond simply “highway capacity”<br />
+</li>
+<li>Multiple performance measures<br />
+</li>
+<li>Many facility types<br />
+</li>
+<li>Multimodal analysis (autos, trucks, peds, bikes, buses)<br />
+</li>
+<li>Added travel time reliability, and managed lane, work zone, and alternative intersection operations.</li>
+</ul>
+</div>
+<div id="structure-of-the-hcm" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Structure of the HCM<a href="03-HCM_Overview.html#structure-of-the-hcm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The HCM is divided into four volumes: three printed and one online.</p>
+<ul>
+<li>Volume 1 houses concepts material,</li>
+<li>Volume 2 describes the methodologies for freeways and highways,</li>
+<li>Volume 3 describes the methodologies for urban streets and off-street pedestrian and bicycle facilities, and</li>
+<li>Volume 4 provides additional resources that support the material in the printed HCM.</li>
+</ul>
+<p>General highway capacity and quality of service concepts were addressed in Volume 1. The typical Volumes 2 and 3 section layout consists of:</p>
+<ul>
+<li>Detailed chapter-specific concepts, such as service volume tables, have been added.</li>
+<li>Methodological chapters begin with a short introduction describing the purpose of the chapter, the information found within it, and cross-references to related material in other chapters.</li>
+<li>The core motorized vehicle methodology (e.g., two-lane highway analysis for motor vehicles) is presented next, including the method’s strengths and limitations, circumstances when alternative tools might be considered, the method’s required input data (and potential sources), and a description of the flow of calculations.</li>
+<li>Mode-specific methodologies (e.g., bicycle travel on two-lane highways), to better highlight the existence of these methods, are provided after the motorized vehicle methodology</li>
+<li>An applications section provides information about applying the chapter’s method to planning and preliminary engineering, operations, and design analyses; often provides example results; and discusses the use of the method in conjunction with alternative tools, when available.</li>
+<li>A reference section for each chapter is provided.</li>
+</ul>
+<div id="volume-1---concepts" class="section level3 hasAnchor" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Volume 1 - Concepts<a href="03-HCM_Overview.html#volume-1---concepts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Volume 1 introduces concepts that all HCM users should be familiar with before applying the manual. The chapter structure of Volume 1 is the same as the HCM 2010. Chapter 36 in online Volume 4 provides supplemental information that supports Volume 1; new information in this chapter includes guidance on measuring travel time reliability in the field and listings of reliability values for selected U.S. facilities.</p>
+<table>
+<colgroup>
+<col width="53%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Printed Chapters</th>
+<th align="left">Online Chapters (Volume 4)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1. HCM User’s Guide</td>
+<td align="left">36. Concepts: Supplemental</td>
+</tr>
+<tr class="even">
+<td align="left">2. Applications</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">3. Modal Characteristics</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">4. Traffic Operations and Capacity Concepts</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">5. Quality-of-Service Concepts</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">6. HCM and Alternative Analysis Tools</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">7. Interpreting HCM and Alternative Tool Results</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">8. HCM Primer</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">9. Glossary and Symbols</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="volume-2-uninterrupted-flow" class="section level3 hasAnchor" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> Volume 2 – Uninterrupted Flow<a href="03-HCM_Overview.html#volume-2-uninterrupted-flow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>HCM Volume 2 provides concepts, performance measures, and analysis methodologies specific to uninterrupted-flow facilities such as freeways. Chapter 11 on freeway reliability analysis is new. In addition, the HCM 2010 chapters on basic freeway segments and multilane highways have been merged into a single chapter (Chapter 12), as these roadways share many similar characteristics. Chapters 25-28 in online Volume 4 provide material that supplements the Volume 2 chapters. In particular, the example problems for uninterrupted-flow facilities have been moved into the Volume 4 chapters.</p>
+<table>
+<colgroup>
+<col width="53%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Printed Chapters</th>
+<th align="left">Online Chapters (Volume 4)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">10. Freeway Facilities Core Methodology</td>
+<td align="left">25. Freeway Facilities: Supplemental</td>
+</tr>
+<tr class="even">
+<td align="left">11. Freeway Reliability Analysis (New)</td>
+<td align="left">26. Freeway and Highway Segments: Supplemental</td>
+</tr>
+<tr class="odd">
+<td align="left">12. Basic Freeway and Multilane Highway Segments</td>
+<td align="left">27. Freeway Weaving: Supplemental</td>
+</tr>
+<tr class="even">
+<td align="left">13. Freeway Weaving Segments)</td>
+<td align="left">28. Freeway Merges and Diverges: Supplemental</td>
+</tr>
+<tr class="odd">
+<td align="left">14. Freeway Merge and Diverge Segments</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">15. Two-Lane Highways</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="volume-3-interrupted-flow" class="section level3 hasAnchor" number="3.8.3">
+<h3><span class="header-section-number">3.8.3</span> Volume 3 – Interrupted Flow<a href="03-HCM_Overview.html#volume-3-interrupted-flow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>HCM Volume 3 provides concepts, performance measures, and analysis methodologies specific to interrupted-flow facilities such as urban streets and the intersections found along them. Chapter 17, presenting methods for evaluating travel time reliability on urban streets and analyzing the effects of ATDM strategies, is new in the sixth edition. In addition, Chapter 23 has been expanded to cover alternative intersection and interchange types, such as diverging diamond interchanges and median U-turn intersections. Chapters 29-35 in online Volume 4 provide supplemental information, including example problems.</p>
+<table>
+<colgroup>
+<col width="53%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Printed Chapters</th>
+<th align="left">Online Chapters (Volume 4)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">16. Urban Street Facilities</td>
+<td align="left">29. Urban Street Facilities: Supplemental</td>
+</tr>
+<tr class="even">
+<td align="left">17. Urban Street Reliability and ATDM</td>
+<td align="left">30. Urban Street Segments: Supplemental</td>
+</tr>
+<tr class="odd">
+<td align="left">18. Urban Street Segments</td>
+<td align="left">31. Signalized Intersections: Supplemental</td>
+</tr>
+<tr class="even">
+<td align="left">19. Signalized Intersections</td>
+<td align="left">32. Stop-Controlled Intersections: Supplemental</td>
+</tr>
+<tr class="odd">
+<td align="left">20. Two-Way Stop-Controlled Intersections</td>
+<td align="left">33. Roundabouts: Supplemental</td>
+</tr>
+<tr class="even">
+<td align="left">21. All-Way Stop-Controlled Intersections</td>
+<td align="left">34. Interchange Ramp Terminals: Supplemental</td>
+</tr>
+<tr class="odd">
+<td align="left">22. Roundabouts</td>
+<td align="left">35. Pedestrians and Bicycles: Supplemental</td>
+</tr>
+<tr class="even">
+<td align="left">23. Ramp Terminals and Alternative Intersections</td>
+<td align="left">37. ATDM: Supplemental</td>
+</tr>
+<tr class="odd">
+<td align="left">24. Off-Street Pedestrian and Bicycle Facilities</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="volume-4-online-concepts-supplemental" class="section level3 hasAnchor" number="3.8.4">
+<h3><span class="header-section-number">3.8.4</span> Volume 4 (Online) – Concepts Supplemental<a href="03-HCM_Overview.html#volume-4-online-concepts-supplemental" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Volume 4 is open to all, including those who do not have a personal copy of the HCM. A free user account is required for access. It is available online at <a href="http://www.hcmvolume4.org/" class="uri">http://www.hcmvolume4.org/</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HCMVolume4Image"></span>
+<img src="Images/HCMoverview/HCMVolume4.png" alt="HCM 6th Edition, Volume 4: Application Guide"  />
+<p class="caption">
+Figure 3.8: HCM 6th Edition, Volume 4: Application Guide
+</p>
+</div>
+<p>Source: Transportation Research Board</p>
+<p>Volume 4 provides more than just access to supplemental chapters. The HCQSC periodically issues interpretations and errata for the HCM that result from user questions and feedback. These errata are posted in Volume 4. The technical reference library provides access to many of the source research reports that form the basis for the HCM analysis methods, including:</p>
+<ul>
+<li>The HCM Applications Guidebook: This is an online tool that demonstrates how the HCM can be applied to a project as it evolves from concept to design to implementation.</li>
+<li>The Planning and Preliminary Engineering Applications Guide: This demonstrates how HCM concepts and methods can be incorporated into planning-level evaluations.<br />
+</li>
+<li>Discussion Forum: This allows HCM users to ask questions of the broader HCM community on proper application of the HCM methodologies, technical interpretations, provide feedback about the HCM, etc. Committee members monitor and respond to the forum.</li>
+</ul>
+</div>
+</div>
+<div id="future-updates" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Future Updates<a href="03-HCM_Overview.html#future-updates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Looking ahead, there are several areas the HCQS committee will be focused on for potential additions/revisions to the HCM, such as:</p>
+<ul>
+<li>Impacts on capacity and operations as a function of advances in connected and autonomous vehicles. For example, see SunCam course 208-Future Highways – Automated Vehicles (<a href="https://www.suncam.com/courses/100250-01.html" class="uri">https://www.suncam.com/courses/100250-01.html</a>.)<br />
+</li>
+<li>Capacity measurement: Many default values for capacity, and methods for estimating capacity, have been included in the HCM over the years. However, little guidance was provided for methods/techniques for measuring capacity from the field. Some improvement in this area was made for the HCM 6th edition, but this will continue to be a major focus for the committee, so that transportation agencies can determine capacity values most appropriate for their region.<br />
+</li>
+<li>ATDM adjustment values: Many of the adjustment factor values provided for the ATDM methodology are based on minimal research and/or expert opinion. The FHWA is putting considerable resources into quantifying the impacts of various ATDM strategies, and the HCQS committee will update the HCM with these results as they become available.<br />
+</li>
+<li>Planning methods: Many of the operational analysis methods in the HCM have become quite complicated and difficult, if not impossible, to solve without software. Many transportation agencies, particularly those that include large rural areas, still desire simple-to-apply analysis methods that will give reasonably accurate results for planning purposes. The HCQS committee is focused on the continued development of planning methods, derived from the full operations methods.<br />
+</li>
+<li>Simulation: While the HCM methods are not intended to compete, per se, with simulation methods, the increased complexity of the HCM methods over the last 15 years, combined with the near ubiquity of simulation, has blurred the line on which approach is most applicable for a given analysis situation. Some guidance to help practitioners determine when simulation might be a more appropriate approach than the HCM was provided in the HCM 2010 and 6th editions, but there is still much more room for improvement in this area. This will be a continued area of focus for the HCQS committee.<br />
+</li>
+<li>Two-lane highway analysis: The new two-lane highway analysis methodology, developed from NCHRP Project 17-65 (<a href="https://www.nap.edu/catalog/25179/improved-analysis-of-two-lane-highway-capacity-and-operational-performance" class="uri">https://www.nap.edu/catalog/25179/improved-analysis-of-two-lane-highway-capacity-and-operational-performance</a>), has just been released in the Version 6.1 update to the HCM.</li>
+</ul>
+<p>While previous HCM edition titles included the publication year, the new HCM omits this element, with the intent that chapters will have their own version number, starting with 6.0. Version numbers will be incremented as errata are released and as new research is incorporated. This approach will allow the HCM to continue to present state-of-the-art methods, while allowing analysts to tie their analysis to a specific version of a methodology.</p>
+<p>Examples of future updates include:</p>
+<ul>
+<li>Connected and autonomous vehicles</li>
+<li>Capacity measurement methods</li>
+<li>Planning methods</li>
+<li>Advances in ATDM</li>
+<li>Simulation guidance</li>
+<li>Rural highway analysis (combinations of two-lane segments, multilane highway segments, and occasional intersections). Being addressed in NCHRP Project 08-135 (<a href="https://apps.trb.org/cmsfeed/TRBNetProjectDisplay.asp?ProjectID=4747" class="uri">https://apps.trb.org/cmsfeed/TRBNetProjectDisplay.asp?ProjectID=4747</a>)</li>
+</ul>
+</div>
+<div id="software" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> Software<a href="03-HCM_Overview.html#software" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Improvements in computing power over time have resulted in increased use of technology to control the road system (e.g., more advanced signal systems), the ability to create more sophisticated models of roadway capacity and quality of service, and the development of software packages to perform HCM analyses. Today, most HCM users apply the HCM methods via software.</p>
+<p>Even though the majority of HCM users apply HCM methods through software, there is still a need for analysts to understand how a method works, even though they may not be performing step-by-step calculations. They need to know what inputs are required, how variations in those inputs may impact the results, the research foundation for the method, the basic flow of calculations, the range of likely results, and resources to turn to in case of questions. In addition, a subset of users (including analysts who want to explore the reason behind a particular result) still require in-depth information about each method.</p>
+<p>Originally, HCM methods could be applied with pencil and paper techniques. Today, the HCM is typically applied through software, which provides the capability for:</p>
+<ul>
+<li>faster analysis and a reduction in computational mistakes</li>
+<li>larger study areas</li>
+<li>modeling of more complex phenomena</li>
+<li>highly iterative calculations</li>
+</ul>
+<p>It should be noted that there is no official software product for the HCM. This point is made in Chapter 1, Section 3 (p. 1-9) of the HCM, as follows…</p>
+<p>“To assist users in implementing the methodologies in the manual, commercial software is available (and has been since the publication of the 1985 HCM) to perform the numerical calculations for the more computationally intensive methods. A variety of commercial software products are available that implement HCM techniques and provide sophisticated user interfaces and data manipulation tools. TRB does not review or endorse commercial products.”</p>
+</div>
+<div id="resources" class="section level2 hasAnchor" number="3.11">
+<h2><span class="header-section-number">3.11</span> Resources<a href="03-HCM_Overview.html#resources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Transportation Research Board (2022). <em>Highway Capacity Manual, 7th Edition: A Guide for Multimodal Mobility Analysis</em>. Transportation Research Board, Washington, DC. <a href="https://nap.nationalacademies.org/catalog/26432/highway-capacity-manual-7th-edition-a-guide-for-multimodal-mobility" class="uri">https://nap.nationalacademies.org/catalog/26432/highway-capacity-manual-7th-edition-a-guide-for-multimodal-mobility</a></p>
+<p>Free Volume 4 Online <a href="http://www.hcmvolume4.org/" class="uri">http://www.hcmvolume4.org/</a></p>
+<p><a href="https://app.knovel.com/kn/resources/kpHCMEAGM2/toc" class="uri">https://app.knovel.com/kn/resources/kpHCMEAGM2/toc</a></p>
+<p>Transportation Research Board Highway Capacity and Quality of Service Committee ID: ACP40
+<a href="https://www.mytrb.org/OnlineDirectory/Committee/Details/1526" class="uri">https://www.mytrb.org/OnlineDirectory/Committee/Details/1526</a>
+<a href="https://www.hcqstrb.org" class="uri">https://www.hcqstrb.org</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="02-TrafficStreamParameters.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="04-HCM_BasicFwySeg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/swash17/FreightCurriculum/edit/main/03-HCM_Overview.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["FreewaysOperationsSimulation.pdf", "FreewaysOperationsSimulation.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

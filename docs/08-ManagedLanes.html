@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Managed Lanes Overview | CGN 4905/TTE 6205: Freeway Operations and Simulation</title>
+  <meta name="description" content="eBook for Freeway Operations and Simulation course" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Managed Lanes Overview | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="eBook for Freeway Operations and Simulation course" />
+  <meta name="github-repo" content="swash17/FreewayOpsSim" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Managed Lanes Overview | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
+  
+  <meta name="twitter:description" content="eBook for Freeway Operations and Simulation course" />
+  
+
+<meta name="author" content="Dr. Scott S. Washburn" />
+<meta name="author" content="Civil and Coastal Engineering" />
+<meta name="author" content="University of Florida" />
+<meta name="author" content="https://swash.essie.ufl.edu" />
+
+
+<meta name="date" content="2023-01-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="07-HCM_FwyFacility.html"/>
+<link rel="next" href="09-Ramp_Metering.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Freeway Operations and Simulation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html"><i class="fa fa-check"></i><b>2</b> Fundamentals of Uninterrupted Traffic Flow and Queuing Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#traffic-stream-parameters"><i class="fa fa-check"></i><b>2.1</b> Traffic Stream Parameters</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-1"><i class="fa fa-check"></i><b>2.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.1.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#flow-classification"><i class="fa fa-check"></i><b>2.1.2</b> Flow Classification</a></li>
+<li class="chapter" data-level="2.1.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#parameter-classification"><i class="fa fa-check"></i><b>2.1.3</b> Parameter Classification</a></li>
+<li class="chapter" data-level="2.1.4" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#microscopic-parameters"><i class="fa fa-check"></i><b>2.1.4</b> Microscopic Parameters</a></li>
+<li class="chapter" data-level="2.1.5" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#flow"><i class="fa fa-check"></i><b>2.1.5</b> Flow</a></li>
+<li class="chapter" data-level="2.1.6" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#speed"><i class="fa fa-check"></i><b>2.1.6</b> Speed</a></li>
+<li class="chapter" data-level="2.1.7" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#density"><i class="fa fa-check"></i><b>2.1.7</b> Density</a></li>
+<li class="chapter" data-level="2.1.8" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#variable-relationships"><i class="fa fa-check"></i><b>2.1.8</b> Variable Relationships</a></li>
+<li class="chapter" data-level="2.1.9" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-density"><i class="fa fa-check"></i><b>2.1.9</b> Basic Traffic Stream Models: Speed vs. Density</a></li>
+<li class="chapter" data-level="2.1.10" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-density"><i class="fa fa-check"></i><b>2.1.10</b> Basic Traffic Stream Models: Flow vs. Density</a></li>
+<li class="chapter" data-level="2.1.11" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-flow"><i class="fa fa-check"></i><b>2.1.11</b> Basic Traffic Stream Models: Speed vs. Flow</a></li>
+<li class="chapter" data-level="2.1.12" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-speed-vs.-density"><i class="fa fa-check"></i><b>2.1.12</b> Basic Traffic Stream Models: Flow vs. Speed vs. Density</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#models-of-traffic-flow"><i class="fa fa-check"></i><b>2.2</b> Models of Traffic Flow</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-2"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#arrival-patterns"><i class="fa fa-check"></i><b>2.2.2</b> Arrival Patterns</a></li>
+<li class="chapter" data-level="2.2.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#uniform"><i class="fa fa-check"></i><b>2.2.3</b> Uniform</a></li>
+<li class="chapter" data-level="2.2.4" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#poisson"><i class="fa fa-check"></i><b>2.2.4</b> Poisson</a></li>
+<li class="chapter" data-level="2.2.5" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#negative-exponential"><i class="fa fa-check"></i><b>2.2.5</b> Negative Exponential</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#freeway-queuing"><i class="fa fa-check"></i><b>2.3</b> Freeway Queuing</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-3"><i class="fa fa-check"></i><b>2.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.3.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#traffic-analysis-at-freeway-bottlenecks"><i class="fa fa-check"></i><b>2.3.2</b> Traffic Analysis at Freeway Bottlenecks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html"><i class="fa fa-check"></i><b>3</b> Highway Capacity Manual Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#what-is-the-highway-capacity-manual"><i class="fa fa-check"></i><b>3.1</b> What is the Highway Capacity Manual?</a></li>
+<li class="chapter" data-level="3.2" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#purpose-and-objectives"><i class="fa fa-check"></i><b>3.2</b> Purpose and Objectives</a></li>
+<li class="chapter" data-level="3.3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#intended-use"><i class="fa fa-check"></i><b>3.3</b> Intended Use</a></li>
+<li class="chapter" data-level="3.4" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#target-users"><i class="fa fa-check"></i><b>3.4</b> Target Users</a></li>
+<li class="chapter" data-level="3.5" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#versions-of-the-hcm"><i class="fa fa-check"></i><b>3.5</b> Versions of the HCM</a></li>
+<li class="chapter" data-level="3.6" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#who-oversees-development-and-maintenance-of-the-hcm"><i class="fa fa-check"></i><b>3.6</b> Who Oversees Development and Maintenance of the HCM?</a></li>
+<li class="chapter" data-level="3.7" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#hcm-6th-edition-revisions"><i class="fa fa-check"></i><b>3.7</b> HCM 6th Edition Revisions</a></li>
+<li class="chapter" data-level="3.8" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#structure-of-the-hcm"><i class="fa fa-check"></i><b>3.8</b> Structure of the HCM</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-1---concepts"><i class="fa fa-check"></i><b>3.8.1</b> Volume 1 - Concepts</a></li>
+<li class="chapter" data-level="3.8.2" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-2-uninterrupted-flow"><i class="fa fa-check"></i><b>3.8.2</b> Volume 2 – Uninterrupted Flow</a></li>
+<li class="chapter" data-level="3.8.3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-3-interrupted-flow"><i class="fa fa-check"></i><b>3.8.3</b> Volume 3 – Interrupted Flow</a></li>
+<li class="chapter" data-level="3.8.4" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-4-online-concepts-supplemental"><i class="fa fa-check"></i><b>3.8.4</b> Volume 4 (Online) – Concepts Supplemental</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#future-updates"><i class="fa fa-check"></i><b>3.9</b> Future Updates</a></li>
+<li class="chapter" data-level="3.10" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#software"><i class="fa fa-check"></i><b>3.10</b> Software</a></li>
+<li class="chapter" data-level="3.11" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#resources"><i class="fa fa-check"></i><b>3.11</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html"><i class="fa fa-check"></i><b>4</b> HCM Basic Freeway Segments</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#IntroBasicFreewaySeg"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#BasicFwySegImage"><i class="fa fa-check"></i><b>4.2</b> Basic Freeway Segment</a></li>
+<li class="chapter" data-level="4.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#performance-measures"><i class="fa fa-check"></i><b>4.3</b> Performance Measures</a></li>
+<li class="chapter" data-level="4.4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#service-measure"><i class="fa fa-check"></i><b>4.4</b> Service Measure</a></li>
+<li class="chapter" data-level="4.5" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#level-of-service"><i class="fa fa-check"></i><b>4.5</b> Level of Service</a></li>
+<li class="chapter" data-level="4.6" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#speed-flow-relationship"><i class="fa fa-check"></i><b>4.6</b> Speed-Flow Relationship</a></li>
+<li class="chapter" data-level="4.7" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#analysis-procedure"><i class="fa fa-check"></i><b>4.7</b> Analysis Procedure</a></li>
+<li class="chapter" data-level="4.8" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#base-conditions"><i class="fa fa-check"></i><b>4.8</b> Base Conditions</a></li>
+<li class="chapter" data-level="4.9" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#free-flow-speed"><i class="fa fa-check"></i><b>4.9</b> Free-Flow Speed</a></li>
+<li class="chapter" data-level="4.10" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#estimating-ffs"><i class="fa fa-check"></i><b>4.10</b> Estimating FFS</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#lane-width-adjustment-factor"><i class="fa fa-check"></i><b>4.10.1</b> Lane Width Adjustment Factor</a></li>
+<li class="chapter" data-level="4.10.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#lateral-clearance-adj.-factor"><i class="fa fa-check"></i><b>4.10.2</b> Lateral Clearance Adj. Factor</a></li>
+<li class="chapter" data-level="4.10.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#total-ramp-density"><i class="fa fa-check"></i><b>4.10.3</b> Total Ramp Density</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#calculate-analysis-flow-rate"><i class="fa fa-check"></i><b>4.11</b> Calculate Analysis Flow Rate</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#peak-hour-factor"><i class="fa fa-check"></i><b>4.11.1</b> Peak Hour Factor</a></li>
+<li class="chapter" data-level="4.11.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#passenger-car-equivalency-pce-factor"><i class="fa fa-check"></i><b>4.11.2</b> Passenger Car Equivalency (PCE) Factor</a></li>
+<li class="chapter" data-level="4.11.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#extended-general-freeway-segments"><i class="fa fa-check"></i><b>4.11.3</b> Extended General Freeway Segments</a></li>
+<li class="chapter" data-level="4.11.4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#specific-grades"><i class="fa fa-check"></i><b>4.11.4</b> Specific Grades</a></li>
+<li class="chapter" data-level="4.11.5" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#heavy-vehicle-factor"><i class="fa fa-check"></i><b>4.11.5</b> Heavy Vehicle Factor</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#calculate-density"><i class="fa fa-check"></i><b>4.12</b> Calculate Density</a></li>
+<li class="chapter" data-level="4.13" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#service-volumesflow-rates"><i class="fa fa-check"></i><b>4.13</b> Service Volumes/Flow Rates</a></li>
+<li class="chapter" data-level="4.14" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#driver-population-adjustment"><i class="fa fa-check"></i><b>4.14</b> Driver Population Adjustment</a></li>
+<li class="chapter" data-level="4.15" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#references"><i class="fa fa-check"></i><b>4.15</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html"><i class="fa fa-check"></i><b>5</b> HCM Weaving Segment Analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#IntroWeaving"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-length"><i class="fa fa-check"></i><b>5.2</b> Weaving Segment Length</a></li>
+<li class="chapter" data-level="5.3" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-width"><i class="fa fa-check"></i><b>5.3</b> Weaving Segment Width</a></li>
+<li class="chapter" data-level="5.4" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-configuration"><i class="fa fa-check"></i><b>5.4</b> Weaving Segment Configuration</a></li>
+<li class="chapter" data-level="5.5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#analysis-procedure-1"><i class="fa fa-check"></i><b>5.5</b> Analysis Procedure</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-1"><i class="fa fa-check"></i><b>5.5.1</b> Step 1</a></li>
+<li class="chapter" data-level="5.5.2" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-2"><i class="fa fa-check"></i><b>5.5.2</b> Step 2</a></li>
+<li class="chapter" data-level="5.5.3" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-3"><i class="fa fa-check"></i><b>5.5.3</b> Step 3</a></li>
+<li class="chapter" data-level="5.5.4" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-4"><i class="fa fa-check"></i><b>5.5.4</b> Step 4</a></li>
+<li class="chapter" data-level="5.5.5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-5"><i class="fa fa-check"></i><b>5.5.5</b> Step 5</a></li>
+<li class="chapter" data-level="5.5.6" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-6"><i class="fa fa-check"></i><b>5.5.6</b> Step 6</a></li>
+<li class="chapter" data-level="5.5.7" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-7"><i class="fa fa-check"></i><b>5.5.7</b> Step 7</a></li>
+<li class="chapter" data-level="5.5.8" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-8"><i class="fa fa-check"></i><b>5.5.8</b> Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#references-1"><i class="fa fa-check"></i><b>5.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html"><i class="fa fa-check"></i><b>6</b> HCM Merge/Diverge Segments</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#IntroRampJunctionsSeg"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#on--and-off-ramp-influence-areas"><i class="fa fa-check"></i><b>6.2</b> On- and Off-ramp Influence Areas</a></li>
+<li class="chapter" data-level="6.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#acceldecel-lanes"><i class="fa fa-check"></i><b>6.3</b> Accel/Decel Lanes</a></li>
+<li class="chapter" data-level="6.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#analysis-methodology"><i class="fa fa-check"></i><b>6.4</b> Analysis Methodology</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-1-volume-conversion"><i class="fa fa-check"></i><b>6.4.1</b> Step 1: Volume Conversion</a></li>
+<li class="chapter" data-level="6.4.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12"><i class="fa fa-check"></i><b>6.4.2</b> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps"><i class="fa fa-check"></i><b>6.4.3</b> Step 2: Model Structure (On-ramps)</a></li>
+<li class="chapter" data-level="6.4.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps"><i class="fa fa-check"></i><b>6.4.4</b> Step 2: Model Structure (Off-ramps)</a></li>
+<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps</a></li>
+<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps</a></li>
+<li class="chapter" data-level="6.4.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-3-estimate-capacity-of-ramp-freeway-junction"><i class="fa fa-check"></i><b>6.4.7</b> Step 3: Estimate Capacity of Ramp-Freeway Junction</a></li>
+<li class="chapter" data-level="6.4.8" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los"><i class="fa fa-check"></i><b>6.4.8</b> Step 4: Estimate Density and Determine LOS</a></li>
+<li class="chapter" data-level="6.4.9" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-5-estimation-of-speed"><i class="fa fa-check"></i><b>6.4.9</b> Step 5: Estimation of Speed</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#variable-definitions-1"><i class="fa fa-check"></i><b>6.5</b> Variable Definitions (1)</a></li>
+<li class="chapter" data-level="6.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#variable-definitions-2"><i class="fa fa-check"></i><b>6.6</b> Variable Definitions (2)</a></li>
+<li class="chapter" data-level="6.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#references-2"><i class="fa fa-check"></i><b>6.7</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html"><i class="fa fa-check"></i><b>7</b> HCM Freeway Facility</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#HCMFreewayFacilityUndersat"><i class="fa fa-check"></i><b>7.1</b> Undersaturated Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#IntroFreewayUndersat"><i class="fa fa-check"></i><b>7.1.1</b> Overview</a></li>
+<li class="chapter" data-level="7.1.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#analysis-procedure-2"><i class="fa fa-check"></i><b>7.1.2</b> Analysis Procedure</a></li>
+<li class="chapter" data-level="7.1.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#facility-segmentation"><i class="fa fa-check"></i><b>7.1.3</b> Facility Segmentation</a></li>
+<li class="chapter" data-level="7.1.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#time-space-domain-of-freeway-facility"><i class="fa fa-check"></i><b>7.1.4</b> Time-Space Domain of Freeway Facility</a></li>
+<li class="chapter" data-level="7.1.5" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#facility-segmentation-considerations"><i class="fa fa-check"></i><b>7.1.5</b> Facility Segmentation Considerations</a></li>
+<li class="chapter" data-level="7.1.6" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#demand-flow-rates"><i class="fa fa-check"></i><b>7.1.6</b> Demand Flow Rates</a></li>
+<li class="chapter" data-level="7.1.7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#segment-capacity-estimation-and-adjustment"><i class="fa fa-check"></i><b>7.1.7</b> Segment Capacity Estimation and Adjustment</a></li>
+<li class="chapter" data-level="7.1.8" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#compute-dc-ratios"><i class="fa fa-check"></i><b>7.1.8</b> Compute d/c Ratios</a></li>
+<li class="chapter" data-level="7.1.9" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#downstream-speed-constraint"><i class="fa fa-check"></i><b>7.1.9</b> Downstream Speed Constraint</a></li>
+<li class="chapter" data-level="7.1.10" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#density-1"><i class="fa fa-check"></i><b>7.1.10</b> Density</a></li>
+<li class="chapter" data-level="7.1.11" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#los"><i class="fa fa-check"></i><b>7.1.11</b> LOS</a></li>
+<li class="chapter" data-level="7.1.12" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#other-measures-reported"><i class="fa fa-check"></i><b>7.1.12</b> Other Measures Reported</a></li>
+<li class="chapter" data-level="7.1.13" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#supporting-calculations-segment"><i class="fa fa-check"></i><b>7.1.13</b> Supporting Calculations (Segment)</a></li>
+<li class="chapter" data-level="7.1.14" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#supporting-calculations-facility"><i class="fa fa-check"></i><b>7.1.14</b> Supporting Calculations (Facility)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#HCMFreewayFacilityOversat"><i class="fa fa-check"></i><b>7.2</b> Oversaturated Analysis</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#compute-dc-ratios-1"><i class="fa fa-check"></i><b>7.2.1</b> Compute d/c Ratios</a></li>
+<li class="chapter" data-level="7.2.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#freeway-facility-oversaturated-analysis-methodology-capabilities"><i class="fa fa-check"></i><b>7.2.2</b> Freeway Facility Oversaturated Analysis Methodology Capabilities</a></li>
+<li class="chapter" data-level="7.2.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#general-limitations-of-methodology"><i class="fa fa-check"></i><b>7.2.3</b> General Limitations of Methodology</a></li>
+<li class="chapter" data-level="7.2.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#additional-considerations"><i class="fa fa-check"></i><b>7.2.4</b> Additional Considerations</a></li>
+<li class="chapter" data-level="7.2.5" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#time-space-domain"><i class="fa fa-check"></i><b>7.2.5</b> Time-Space Domain</a></li>
+<li class="chapter" data-level="7.2.6" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#key-analysis-concepts"><i class="fa fa-check"></i><b>7.2.6</b> Key Analysis Concepts</a></li>
+<li class="chapter" data-level="7.2.7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#methodology-flow-chart"><i class="fa fa-check"></i><b>7.2.7</b> Methodology Flow Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#travel-time-reliability"><i class="fa fa-check"></i><b>7.3</b> Travel Time Reliability</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#overview"><i class="fa fa-check"></i><b>7.3.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#references-3"><i class="fa fa-check"></i><b>7.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html"><i class="fa fa-check"></i><b>8</b> Managed Lanes Overview</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#high-occupancy-vehicle-hov-lanes"><i class="fa fa-check"></i><b>8.2</b> High Occupancy Vehicle (HOV) Lanes</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#what-are-hov-lanes"><i class="fa fa-check"></i><b>8.2.1</b> What are HOV Lanes?</a></li>
+<li class="chapter" data-level="8.2.2" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#why-implement-hov-lanes"><i class="fa fa-check"></i><b>8.2.2</b> Why Implement HOV Lanes?</a></li>
+<li class="chapter" data-level="8.2.3" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hov-lane-design-considerations"><i class="fa fa-check"></i><b>8.2.3</b> HOV Lane Design Considerations</a></li>
+<li class="chapter" data-level="8.2.4" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hov-lane-operation-considerations"><i class="fa fa-check"></i><b>8.2.4</b> HOV Lane Operation Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#high-occupancy-toll-hot-lanes"><i class="fa fa-check"></i><b>8.3</b> High Occupancy Toll (HOT) Lanes</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#what-are-hot-lanes"><i class="fa fa-check"></i><b>8.3.1</b> What are HOT Lanes?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#reversible-lanes"><i class="fa fa-check"></i><b>8.4</b> Reversible Lanes</a></li>
+<li class="chapter" data-level="8.5" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#other-special-lanes"><i class="fa fa-check"></i><b>8.5</b> Other Special Lanes</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#truck-lane-restrictions"><i class="fa fa-check"></i><b>8.5.1</b> Truck Lane Restrictions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hcm-analysis"><i class="fa fa-check"></i><b>8.6</b> HCM Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html"><i class="fa fa-check"></i><b>9</b> Introduction to Ramp Metering</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#what-is-ramp-metering"><i class="fa fa-check"></i><b>9.1</b> What is Ramp Metering?</a></li>
+<li class="chapter" data-level="9.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#why-meter-ramps"><i class="fa fa-check"></i><b>9.2</b> Why Meter Ramps?</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#conceptual-background-of-ramp-metering"><i class="fa fa-check"></i><b>9.2.1</b> Conceptual Background of Ramp Metering</a></li>
+<li class="chapter" data-level="9.2.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#system-benefits-of-ramp-metering"><i class="fa fa-check"></i><b>9.2.2</b> System Benefits of Ramp Metering</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#consequences-of-ramp-metering"><i class="fa fa-check"></i><b>9.3</b> Consequences of Ramp Metering</a></li>
+<li class="chapter" data-level="9.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-metering-hardwareinfrustructure"><i class="fa fa-check"></i><b>9.4</b> Ramp Metering Hardware/Infrustructure</a></li>
+<li class="chapter" data-level="9.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#example-ramp-meter-control-strategies"><i class="fa fa-check"></i><b>9.5</b> Example Ramp Meter Control Strategies</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-closure"><i class="fa fa-check"></i><b>9.5.1</b> Ramp Closure</a></li>
+<li class="chapter" data-level="9.5.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#pre-timed"><i class="fa fa-check"></i><b>9.5.2</b> Pre-Timed</a></li>
+<li class="chapter" data-level="9.5.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#traffic-responsive"><i class="fa fa-check"></i><b>9.5.3</b> Traffic Responsive</a></li>
+<li class="chapter" data-level="9.5.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#gap-acceptance"><i class="fa fa-check"></i><b>9.5.4</b> Gap Acceptance</a></li>
+<li class="chapter" data-level="9.5.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#integrated-ramp-control"><i class="fa fa-check"></i><b>9.5.5</b> Integrated Ramp Control</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#practical-considerations"><i class="fa fa-check"></i><b>9.6</b> Practical Considerations</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-queuing-storage"><i class="fa fa-check"></i><b>9.6.1</b> Ramp Queuing Storage</a></li>
+<li class="chapter" data-level="9.6.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#hov-bypass-lanes"><i class="fa fa-check"></i><b>9.6.2</b> HOV Bypass Lanes</a></li>
+<li class="chapter" data-level="9.6.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#minmax-metering-rates"><i class="fa fa-check"></i><b>9.6.3</b> Min/Max Metering Rates</a></li>
+<li class="chapter" data-level="9.6.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#violation-enforcement"><i class="fa fa-check"></i><b>9.6.4</b> Violation Enforcement</a></li>
+<li class="chapter" data-level="9.6.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#equity-issues"><i class="fa fa-check"></i><b>9.6.5</b> Equity Issues</a></li>
+<li class="chapter" data-level="9.6.6" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#detection-capabilities"><i class="fa fa-check"></i><b>9.6.6</b> Detection Capabilities</a></li>
+<li class="chapter" data-level="9.6.7" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#system-capabilities"><i class="fa fa-check"></i><b>9.6.7</b> System Capabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#utah-dot-video"><i class="fa fa-check"></i><b>9.7</b> Utah DOT video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-Simulation.html"><a href="10-Simulation.html"><i class="fa fa-check"></i><b>10</b> Introduction to Traffic Simulation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10-Simulation.html"><a href="10-Simulation.html#what-is-simulation"><i class="fa fa-check"></i><b>10.1</b> What is Simulation?</a></li>
+<li class="chapter" data-level="10.2" data-path="10-Simulation.html"><a href="10-Simulation.html#terminology"><i class="fa fa-check"></i><b>10.2</b> Terminology</a></li>
+<li class="chapter" data-level="10.3" data-path="10-Simulation.html"><a href="10-Simulation.html#why-use-simulation"><i class="fa fa-check"></i><b>10.3</b> Why use simulation?</a></li>
+<li class="chapter" data-level="10.4" data-path="10-Simulation.html"><a href="10-Simulation.html#simulation-modeling-approaches"><i class="fa fa-check"></i><b>10.4</b> Simulation Modeling Approaches</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="10-Simulation.html"><a href="10-Simulation.html#spatial-and-temporal-level-of-detail"><i class="fa fa-check"></i><b>10.4.1</b> Spatial and Temporal Level of Detail</a></li>
+<li class="chapter" data-level="10.4.2" data-path="10-Simulation.html"><a href="10-Simulation.html#stochastic"><i class="fa fa-check"></i><b>10.4.2</b> Stochastic</a></li>
+<li class="chapter" data-level="10.4.3" data-path="10-Simulation.html"><a href="10-Simulation.html#deterministic"><i class="fa fa-check"></i><b>10.4.3</b> Deterministic</a></li>
+<li class="chapter" data-level="10.4.4" data-path="10-Simulation.html"><a href="10-Simulation.html#potential-analytical-models-within-simulation-program"><i class="fa fa-check"></i><b>10.4.4</b> Potential Analytical Models within Simulation Program</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="10-Simulation.html"><a href="10-Simulation.html#considerations-for-applying-simulation"><i class="fa fa-check"></i><b>10.5</b> Considerations for applying Simulation</a></li>
+<li class="chapter" data-level="10.6" data-path="10-Simulation.html"><a href="10-Simulation.html#conceptual-differences-between-the-hcm-and-microscopic-simulation-modeling"><i class="fa fa-check"></i><b>10.6</b> Conceptual Differences between the HCM and Microscopic Simulation Modeling</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="10-Simulation.html"><a href="10-Simulation.html#introduction-5"><i class="fa fa-check"></i><b>10.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.6.2" data-path="10-Simulation.html"><a href="10-Simulation.html#capacity-hcm"><i class="fa fa-check"></i><b>10.6.2</b> Capacity (HCM)</a></li>
+<li class="chapter" data-level="10.6.3" data-path="10-Simulation.html"><a href="10-Simulation.html#capacity-simulation"><i class="fa fa-check"></i><b>10.6.3</b> Capacity (Simulation)</a></li>
+<li class="chapter" data-level="10.6.4" data-path="10-Simulation.html"><a href="10-Simulation.html#lane-distribution-hcm"><i class="fa fa-check"></i><b>10.6.4</b> Lane Distribution (HCM)</a></li>
+<li class="chapter" data-level="10.6.5" data-path="10-Simulation.html"><a href="10-Simulation.html#lane-distribution-simulation"><i class="fa fa-check"></i><b>10.6.5</b> Lane Distribution (Simulation)</a></li>
+<li class="chapter" data-level="10.6.6" data-path="10-Simulation.html"><a href="10-Simulation.html#traffic-stream-composition-hcm"><i class="fa fa-check"></i><b>10.6.6</b> Traffic Stream Composition (HCM)</a></li>
+<li class="chapter" data-level="10.6.7" data-path="10-Simulation.html"><a href="10-Simulation.html#traffic-stream-composition-simulation"><i class="fa fa-check"></i><b>10.6.7</b> Traffic Stream Composition (Simulation)</a></li>
+<li class="chapter" data-level="10.6.8" data-path="10-Simulation.html"><a href="10-Simulation.html#comparison-of-hcm-results-to-simulation-results"><i class="fa fa-check"></i><b>10.6.8</b> Comparison of HCM Results to Simulation Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="11-References.html"><a href="11-References.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/swash17/FreightCurriculum" target="blank">Freight Transportation Curriculum</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CGN 4905/TTE 6205: Freeway Operations and Simulation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="managed-lanes-overview" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Managed Lanes Overview<a href="08-ManagedLanes.html#managed-lanes-overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-4" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Introduction<a href="08-ManagedLanes.html#introduction-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A managed lane is a type of highway lane that is operated with a management scheme, such as lane use restrictions or variable tolling, to optimize traffic flow, vehicle throughput, or both. Examples of managed lanes include:</p>
+<ul>
+<li>High Occupancy Vehicle (HOV) lanes</li>
+<li>High Occupancy Toll (HOT) lanes</li>
+<li>Reversible lanes</li>
+<li>Lane Restrictions (e.g., no trucks, transit vehicles only)</li>
+</ul>
+</div>
+<div id="high-occupancy-vehicle-hov-lanes" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> High Occupancy Vehicle (HOV) Lanes<a href="08-ManagedLanes.html#high-occupancy-vehicle-hov-lanes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="Images/ManagedLanes/2_HOVsign.png" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVsignImage1"></span>
+<img src="Images/ManagedLanes/1_HOVsign.png" alt="High Occupancy Vehicle (HOV) Lane Signs"  />
+<p class="caption">
+Figure 8.1: High Occupancy Vehicle (HOV) Lane Signs
+</p>
+</div>
+<div id="what-are-hov-lanes" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> What are HOV Lanes?<a href="08-ManagedLanes.html#what-are-hov-lanes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>HOV lanes are exclusive lanes for…</p>
+<ul>
+<li>Passenger vehicles carrying multiple people</li>
+<li>Special vehicles
+<ul>
+<li>transit</li>
+<li>motorcycles</li>
+<li>emergency</li>
+<li>hybrid/electric</li>
+</ul></li>
+<li>Also sometimes used at on-ramps for ramp meter bypass (discussed in next chapter)</li>
+</ul>
+</div>
+<div id="why-implement-hov-lanes" class="section level3 hasAnchor" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Why Implement HOV Lanes?<a href="08-ManagedLanes.html#why-implement-hov-lanes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Increase person throughput</li>
+<li>Reduce total number of vehicles on roadway</li>
+<li>Improve transit operations and schedule reliability</li>
+<li>Reduce energy consumption and improve air quality by reducing overall number of vehicles and improving traffic flow</li>
+</ul>
+</div>
+<div id="hov-lane-design-considerations" class="section level3 hasAnchor" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> HOV Lane Design Considerations<a href="08-ManagedLanes.html#hov-lane-design-considerations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="placement" class="section level4 hasAnchor" number="8.2.3.1">
+<h4><span class="header-section-number">8.2.3.1</span> Placement<a href="08-ManagedLanes.html#placement" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Inside (left side)</li>
+<li>Outside (right side)</li>
+<li>Decision usually needs to consider factors such as:
+<ul>
+<li>desired capacity (usually higher for left side)</li>
+<li>ingress and egress issues</li>
+<li>number of lanes to cross if on left side versus interaction with on-/off-ramp traffic if on right side</li>
+<li>transit service (buses may not cross over to the left side unless distance to exit point is long)</li>
+</ul></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVaerialImage6"></span>
+<img src="Images/ManagedLanes/6_HOVaerial.png" alt="Outside HOV Lane"  />
+<p class="caption">
+Figure 8.2: Outside HOV Lane
+</p>
+</div>
+</div>
+<div id="separation-methods" class="section level4 hasAnchor" number="8.2.3.2">
+<h4><span class="header-section-number">8.2.3.2</span> Separation Methods<a href="08-ManagedLanes.html#separation-methods" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Barrier Separation</p>
+<ul>
+<li>Physical barrier (concrete, pylons) in between HOV lane and adjacent general purpose (GP) lanes<br />
+</li>
+<li>Most expensive option<br />
+</li>
+<li>Are generally easier to enforce because ingress/egress points are minimized</li>
+</ul>
+<p>Non-physical separation</p>
+<ul>
+<li>Low cost</li>
+<li>More violations and harder to enforce</li>
+<li>Buffer separated
+<ul>
+<li>Non-physically separated by a buffer width of one foot or more</li>
+</ul></li>
+<li>Non-separated
+<ul>
+<li>Lane is immediately adjacent to other lanes and/or shoulder</li>
+</ul></li>
+</ul>
+<p>Typical marking/striping patterns for these configurations can be found in the Manual on Uniform Traffic Control Devices, Chapter 3D. Markings for Preferential Lanes.</p>
+<ul>
+<li>Federal Highway Administration (2009). Manual on Uniform Traffic Control Devices, 2009 Edition. U.S. Department of Transportation. Washington, DC. <a href="https://mutcd.fhwa.dot.gov/htm/2009r1r2/html_index.htm" class="uri">https://mutcd.fhwa.dot.gov/htm/2009r1r2/html_index.htm</a>.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVaerialImage7"></span>
+<img src="Images/ManagedLanes/7_HOVaerial.png" alt="Striped HOV Lane Separation"  />
+<p class="caption">
+Figure 8.3: Striped HOV Lane Separation
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVaerialImage8"></span>
+<img src="Images/ManagedLanes/8_HOVaerial.png" alt="Striped HOV Lane Separation"  />
+<p class="caption">
+Figure 8.4: Striped HOV Lane Separation
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVLaneImage9"></span>
+<img src="Images/ManagedLanes/9_HOVlane.png" alt="Striped (buffer) HOV Lane Separation, Ontario Highway 404, Toronto"  />
+<p class="caption">
+Figure 8.5: Striped (buffer) HOV Lane Separation, Ontario Highway 404, Toronto
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVlanesImage10"></span>
+<img src="Images/ManagedLanes/10_HOVlanes.png" alt="Barrier HOV Lane Separation"  />
+<p class="caption">
+Figure 8.6: Barrier HOV Lane Separation
+</p>
+</div>
+</div>
+<div id="hov-ramp-meter-bypass-lane" class="section level4 hasAnchor" number="8.2.3.3">
+<h4><span class="header-section-number">8.2.3.3</span> HOV Ramp Meter Bypass Lane<a href="08-ManagedLanes.html#hov-ramp-meter-bypass-lane" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVrampsImage13"></span>
+<img src="Images/ManagedLanes/13_HOVbypass_2.jpg" alt="Seattle (47.708762, -122.329979)"  />
+<p class="caption">
+Figure 8.7: Seattle (47.708762, -122.329979)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVbypassImage14"></span>
+<img src="Images/ManagedLanes/14_HOVbypass_2.jpg" alt="HOV Bypass Lane"  />
+<p class="caption">
+Figure 8.8: HOV Bypass Lane
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVbypassImage15"></span>
+<img src="Images/ManagedLanes/15_HOVbypass_2.jpg" alt="Seattle (UW 47.644270, -122.304397)"  />
+<p class="caption">
+Figure 8.9: Seattle (UW 47.644270, -122.304397)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVbypassImage16"></span>
+<img src="Images/ManagedLanes/16_HOVbypass.png" alt="Separate Right-Turn Access for Transit, to be able to access outer HOV bypass lane shown in previous image, Seatte (UW 47.644270, -122.304397)"  />
+<p class="caption">
+Figure 8.10: Separate Right-Turn Access for Transit, to be able to access outer HOV bypass lane shown in previous image, Seatte (UW 47.644270, -122.304397)
+</p>
+</div>
+</div>
+<div id="separate-access-ramps" class="section level4 hasAnchor" number="8.2.3.4">
+<h4><span class="header-section-number">8.2.3.4</span> Separate Access Ramps<a href="08-ManagedLanes.html#separate-access-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVrampsImage11"></span>
+<img src="Images/ManagedLanes/SeparateHOVlaneAccessRamps_2.jpg" alt="Separate Access Ramp (47.580376, -122.174638)"  />
+<p class="caption">
+Figure 8.11: Separate Access Ramp (47.580376, -122.174638)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVrampsImage12"></span>
+<img src="Images/ManagedLanes/SeparateHOVlaneAccessRamps2_2.jpg" alt="I-90/I-405, Seattle (47.580376, -122.174638)"  />
+<p class="caption">
+Figure 8.12: I-90/I-405, Seattle (47.580376, -122.174638)
+</p>
+</div>
+</div>
+</div>
+<div id="hov-lane-operation-considerations" class="section level3 hasAnchor" number="8.2.4">
+<h3><span class="header-section-number">8.2.4</span> HOV Lane Operation Considerations<a href="08-ManagedLanes.html#hov-lane-operation-considerations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="occupancy-requirement" class="section level4 hasAnchor" number="8.2.4.1">
+<h4><span class="header-section-number">8.2.4.1</span> Occupancy Requirement<a href="08-ManagedLanes.html#occupancy-requirement" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Usually 2+ or 3+</li>
+<li>We want to have a high level of utilization (i.e., flow rate), but not exceed capacity<br />
+</li>
+<li>We generally want to see if 2+ will work first, as this is less burdensome on commuters for forming carpools<br />
+</li>
+<li>If over capacity with 2+, or a high level of operation cannot be maintained, need to consider higher occupancy thresholds<br />
+</li>
+<li>We generally want to be within a 400 – 1500 veh/h flow rate<br />
+</li>
+<li>System consistency—better to have all HOV links in the system operate with the same occupancy threshold (if possible)</li>
+</ul>
+</div>
+<div id="vehicle-eligibility" class="section level4 hasAnchor" number="8.2.4.2">
+<h4><span class="header-section-number">8.2.4.2</span> Vehicle Eligibility<a href="08-ManagedLanes.html#vehicle-eligibility" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Any passenger and transit vehicles meeting occupancy requirements.</p>
+<p>Additionally, other vehicles may be considered as well, regardless of occupancy, for example:</p>
+<ul>
+<li>Transit (dead-heading, meaning empty bus being driven to bus depot)</li>
+<li>Commercial (usually not)</li>
+<li>Emergency (when responding to an emergency)</li>
+<li>Motorcycles</li>
+<li>Hybrid/electric vehicles (to encourage people to purchase more environmentally-friendly vehicles)</li>
+</ul>
+</div>
+<div id="hours-of-operation" class="section level4 hasAnchor" number="8.2.4.3">
+<h4><span class="header-section-number">8.2.4.3</span> Hours of Operation<a href="08-ManagedLanes.html#hours-of-operation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Typical Options</p>
+<ul>
+<li>24-hr
+<ul>
+<li>Minimizes motorist confusion—easier to enforce<br />
+</li>
+<li>Provides benefits to carpoolers at all times (an incident/congestion may occur at any time)<br />
+</li>
+<li>Signage is simpler to implement<br />
+</li>
+<li>Usually only option with barrier-separated facilities or special access facilities (e.g., median ramps)<br />
+</li>
+<li>During periods of minimal use, can lead to negative public perception</li>
+</ul></li>
+<li>Peak periods only
+<ul>
+<li>Typically 6:00-9:00 AM and 4:00-7:00 PM<br />
+</li>
+<li>May also be directional (e.g., HOV lane in peak direction and GP lane in off-peak direction, and switch between AM and PM periods)<br />
+</li>
+<li>Gives carpoolers advantage when GP lanes are most likely to be congested<br />
+</li>
+<li>May result in a more positive perception by public due to better utilization around the clock<br />
+</li>
+<li>Enforcement may be more difficult due to more motorist confusion about eligible time periods</li>
+</ul></li>
+</ul>
+</div>
+<div id="enforcement" class="section level4 hasAnchor" number="8.2.4.4">
+<h4><span class="header-section-number">8.2.4.4</span> Enforcement<a href="08-ManagedLanes.html#enforcement" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Is critical to viability and integrity of HOV program<br />
+</li>
+<li>Need to consider enforcement areas in roadway design<br />
+</li>
+<li>Consider other non-traditional options, such as violation-reporting hotline<br />
+</li>
+<li>Have appropriate fines<br />
+</li>
+<li>Need to also include education</li>
+</ul>
+<p>If interested, see following paper for more information:<br />
+Newman, Bruce R., Washburn, Scott S. and Nihan, Nancy L. <em>Motorist Behavior and Opinions Towards High-Occupancy Vehicle Lanes at Ramp Meters.</em> Transportation Research Record: Journal of the Transportation Research Board, No. 1634, Transportation Research Board of the National Academies, Washington, D.C., 1998, pp. 78-85. DOI: 10.3141/1634-10<br />
+<a href="https://trrjournalonline.trb.org/doi/10.3141/1634-10" class="uri">https://trrjournalonline.trb.org/doi/10.3141/1634-10</a></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVbypassImage17"></span>
+<img src="Images/ManagedLanes/17_HOVbypass.png" alt="HOV Bypass Lane Violation Study Site (1)--University of Washington"  />
+<p class="caption">
+Figure 8.13: HOV Bypass Lane Violation Study Site (1)–University of Washington
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVbypassImage18"></span>
+<img src="Images/ManagedLanes/18_HOVbypass.png" alt="HOV Bypass Lane Violation Study Site (2)--University of Washington"  />
+<p class="caption">
+Figure 8.14: HOV Bypass Lane Violation Study Site (2)–University of Washington
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVbypassImage19"></span>
+<img src="Images/ManagedLanes/19_HOVbypass.png" alt="HOV Bypass Lane Violation Study Site (3)--University of Washington"  />
+<p class="caption">
+Figure 8.15: HOV Bypass Lane Violation Study Site (3)–University of Washington
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="high-occupancy-toll-hot-lanes" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> High Occupancy Toll (HOT) Lanes<a href="08-ManagedLanes.html#high-occupancy-toll-hot-lanes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-are-hot-lanes" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> What are HOT Lanes?<a href="08-ManagedLanes.html#what-are-hot-lanes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A traffic lane, or lanes, that is available to high occupancy vehicles and other exempt vehicles without charge</p>
+<ul>
+<li>In some places, such as Miami, the HOV vehicles need to be registered.</li>
+</ul>
+<p>Other vehicles are required to pay a variable fee that is adjusted in response to demand</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOTlaneImage20"></span>
+<img src="Images/ManagedLanes/20_HOTlane.png" alt="I-394 (Minneapolis)"  />
+<p class="caption">
+Figure 8.16: I-394 (Minneapolis)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOTlaneImage21"></span>
+<img src="Images/ManagedLanes/21_HOTlane.png" alt="I-95 (Miami)"  />
+<p class="caption">
+Figure 8.17: I-95 (Miami)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOTlaneImage22"></span>
+<img src="Images/ManagedLanes/22_HOTlane.jpg" alt="FasTrak high-occupancy toll (HOT) lanes along Interstate  I-5 southbound near Escondido, California. Note the variable fee."  />
+<p class="caption">
+Figure 8.18: FasTrak high-occupancy toll (HOT) lanes along Interstate I-5 southbound near Escondido, California. Note the variable fee.
+</p>
+</div>
+<p>See the following sources for more information:</p>
+<ul>
+<li><a href="http://95express.com/" class="uri">http://95express.com/</a></li>
+<li><a href="http://floridaexpresslanes.com/" class="uri">http://floridaexpresslanes.com/</a></li>
+<li><a href="https://www.youtube.com/watch?v=mdVDEU5UVb4" class="uri">https://www.youtube.com/watch?v=mdVDEU5UVb4</a></li>
+<li><a href="https://ops.fhwa.dot.gov/freewaymgmt/publications/documents/nrpc0610/workshop_materials/case_studies/miami.pdf" class="uri">https://ops.fhwa.dot.gov/freewaymgmt/publications/documents/nrpc0610/workshop_materials/case_studies/miami.pdf</a></li>
+</ul>
+</div>
+</div>
+<div id="reversible-lanes" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Reversible Lanes<a href="08-ManagedLanes.html#reversible-lanes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLanesImage23"></span>
+<img src="Images/ManagedLanes/23_ReversibleLanes.jpeg" alt="Reversible Lanes in center (inbound to downtown Seattle in AM, outbound in PM)"  />
+<p class="caption">
+Figure 8.19: Reversible Lanes in center (inbound to downtown Seattle in AM, outbound in PM)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage24"></span>
+<img src="Images/ManagedLanes/24_ReversibleLanes.png" alt="Seattle, https://www.wsdot.wa.gov/travel/operations-services/express-lanes/home"  />
+<p class="caption">
+Figure 8.20: Seattle, <a href="https://www.wsdot.wa.gov/travel/operations-services/express-lanes/home" class="uri">https://www.wsdot.wa.gov/travel/operations-services/express-lanes/home</a>
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage25"></span>
+<img src="Images/ManagedLanes/25_ReversibleLanes.JPG" alt="Reversible Lanes on I-279 North of Pittsburgh (40.470605, -80.003665) (1)"  />
+<p class="caption">
+Figure 8.21: Reversible Lanes on I-279 North of Pittsburgh (40.470605, -80.003665) (1)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage26"></span>
+<img src="Images/ManagedLanes/26_ReversibleLanes.png" alt="Reversible Lanes on I-279 North of Pittsburgh (40.470605, -80.003665) (2)"  />
+<p class="caption">
+Figure 8.22: Reversible Lanes on I-279 North of Pittsburgh (40.470605, -80.003665) (2)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage27"></span>
+<img src="Images/ManagedLanes/27_ReversibleLanes.jpg" alt="Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (1)"  />
+<p class="caption">
+Figure 8.23: Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (1)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage28"></span>
+<img src="Images/ManagedLanes/28_ReversibleLanes.png" alt="Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (2)"  />
+<p class="caption">
+Figure 8.24: Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (2)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage29"></span>
+<img src="Images/ManagedLanes/29_ReversibleLanes.png" alt="Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (3)"  />
+<p class="caption">
+Figure 8.25: Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (3)
+</p>
+</div>
+<ul>
+<li>Zipper method for reversing direction of lanes, Honolulu <a href="http://www.traffictechnologytoday.com/news.php?NewsID=93307" class="uri">http://www.traffictechnologytoday.com/news.php?NewsID=93307</a></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage30"></span>
+<img src="Images/ManagedLanes/30_ReversibleLanes.png" alt="Reversible Lanes, Zipper (1)"  />
+<p class="caption">
+Figure 8.26: Reversible Lanes, Zipper (1)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage31"></span>
+<img src="Images/ManagedLanes/31_ReversibleLanes.png" alt="Reversible Lanes, Zipper (2)"  />
+<p class="caption">
+Figure 8.27: Reversible Lanes, Zipper (2)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage32"></span>
+<img src="Images/ManagedLanes/32_ReversibleLanes.png" alt="Reversible Lanes, Zipper (3)"  />
+<p class="caption">
+Figure 8.28: Reversible Lanes, Zipper (3)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage33"></span>
+<img src="Images/ManagedLanes/33_ReversibleLanes.png" alt="Reversible Lanes, Zipper (4), Bing images"  />
+<p class="caption">
+Figure 8.29: Reversible Lanes, Zipper (4), Bing images
+</p>
+</div>
+</div>
+<div id="other-special-lanes" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Other Special Lanes<a href="08-ManagedLanes.html#other-special-lanes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="truck-lane-restrictions" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Truck Lane Restrictions<a href="08-ManagedLanes.html#truck-lane-restrictions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:TruckRestrictionImage34"></span>
+<img src="Images/ManagedLanes/34_TruckRestriction.png" alt="Gainesville, FL Google Maps"  />
+<p class="caption">
+Figure 8.30: Gainesville, FL Google Maps
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:TruckRestrictionImage35"></span>
+<img src="Images/ManagedLanes/35_TruckRestriction.png" alt="Northern Los Angeles (34.321726, -118.498011), Google Maps"  />
+<p class="caption">
+Figure 8.31: Northern Los Angeles (34.321726, -118.498011), Google Maps
+</p>
+</div>
+</div>
+</div>
+<div id="hcm-analysis" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> HCM Analysis<a href="08-ManagedLanes.html#hcm-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Coverage of the analysis of managed lanes per the Highway Capacity Manual is beyond the scope of this chapter. Briefly, however, the following configurations are considered in the HCM.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:managedlanesImage"></span>
+<img src="Images/ManagedLanes/ManagedLaneSeparationHCM.png" alt="Managed Lane Separation Configurations Considered in the HCM"  />
+<p class="caption">
+Figure 8.32: Managed Lane Separation Configurations Considered in the HCM
+</p>
+</div>
+<p>The following estimated capacity values for the above configurations are provided.</p>
+<p>Exhibit 12-11. Estimated Lane Capacities for Basic Managed Lane Segments (pc/h/ln)</p>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>FFS (mi/h)</strong></th>
+<th align="center"><strong>Continuous Access</strong></th>
+<th align="center"><strong>Buffer 1</strong></th>
+<th align="center"><strong>Buffer 2</strong></th>
+<th align="center"><strong>Barrier 1</strong></th>
+<th align="center"><strong>Barrier 2</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">75</td>
+<td align="center">1,800</td>
+<td align="center">1,700</td>
+<td align="center">1,850</td>
+<td align="center">1,750</td>
+<td align="center">2,100</td>
+</tr>
+<tr class="even">
+<td align="center">70</td>
+<td align="center">1,750</td>
+<td align="center">1,650</td>
+<td align="center">1,800</td>
+<td align="center">1,700</td>
+<td align="center">2,050</td>
+</tr>
+<tr class="odd">
+<td align="center">65</td>
+<td align="center">1,700</td>
+<td align="center">1,600</td>
+<td align="center">1,750</td>
+<td align="center">1,650</td>
+<td align="center">2,000</td>
+</tr>
+<tr class="even">
+<td align="center">60</td>
+<td align="center">1,650</td>
+<td align="center">1,550</td>
+<td align="center">1,700</td>
+<td align="center">1,600</td>
+<td align="center">1,950</td>
+</tr>
+<tr class="odd">
+<td align="center">55</td>
+<td align="center">1,600</td>
+<td align="center">1,500</td>
+<td align="center">1,650</td>
+<td align="center">1,550</td>
+<td align="center">1,900</td>
+</tr>
+</tbody>
+</table>
+<p>For further reading, see HCM Chapters 12 and 26.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="07-HCM_FwyFacility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="09-Ramp_Metering.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/swash17/FreightCurriculum/edit/main/08-ManagedLanes.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["FreewaysOperationsSimulation.pdf", "FreewaysOperationsSimulation.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

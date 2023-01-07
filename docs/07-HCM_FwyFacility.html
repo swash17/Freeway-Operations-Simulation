@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 HCM Freeway Facility | CGN 4905/TTE 6205: Freeway Operations and Simulation</title>
+  <meta name="description" content="eBook for Freeway Operations and Simulation course" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 HCM Freeway Facility | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="eBook for Freeway Operations and Simulation course" />
+  <meta name="github-repo" content="swash17/FreewayOpsSim" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 HCM Freeway Facility | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
+  
+  <meta name="twitter:description" content="eBook for Freeway Operations and Simulation course" />
+  
+
+<meta name="author" content="Dr. Scott S. Washburn" />
+<meta name="author" content="Civil and Coastal Engineering" />
+<meta name="author" content="University of Florida" />
+<meta name="author" content="https://swash.essie.ufl.edu" />
+
+
+<meta name="date" content="2023-01-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="06-HCM_RampSeg.html"/>
+<link rel="next" href="08-ManagedLanes.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Freeway Operations and Simulation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html"><i class="fa fa-check"></i><b>2</b> Fundamentals of Uninterrupted Traffic Flow and Queuing Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#traffic-stream-parameters"><i class="fa fa-check"></i><b>2.1</b> Traffic Stream Parameters</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-1"><i class="fa fa-check"></i><b>2.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.1.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#flow-classification"><i class="fa fa-check"></i><b>2.1.2</b> Flow Classification</a></li>
+<li class="chapter" data-level="2.1.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#parameter-classification"><i class="fa fa-check"></i><b>2.1.3</b> Parameter Classification</a></li>
+<li class="chapter" data-level="2.1.4" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#microscopic-parameters"><i class="fa fa-check"></i><b>2.1.4</b> Microscopic Parameters</a></li>
+<li class="chapter" data-level="2.1.5" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#flow"><i class="fa fa-check"></i><b>2.1.5</b> Flow</a></li>
+<li class="chapter" data-level="2.1.6" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#speed"><i class="fa fa-check"></i><b>2.1.6</b> Speed</a></li>
+<li class="chapter" data-level="2.1.7" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#density"><i class="fa fa-check"></i><b>2.1.7</b> Density</a></li>
+<li class="chapter" data-level="2.1.8" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#variable-relationships"><i class="fa fa-check"></i><b>2.1.8</b> Variable Relationships</a></li>
+<li class="chapter" data-level="2.1.9" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-density"><i class="fa fa-check"></i><b>2.1.9</b> Basic Traffic Stream Models: Speed vs. Density</a></li>
+<li class="chapter" data-level="2.1.10" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-density"><i class="fa fa-check"></i><b>2.1.10</b> Basic Traffic Stream Models: Flow vs. Density</a></li>
+<li class="chapter" data-level="2.1.11" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-flow"><i class="fa fa-check"></i><b>2.1.11</b> Basic Traffic Stream Models: Speed vs. Flow</a></li>
+<li class="chapter" data-level="2.1.12" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-speed-vs.-density"><i class="fa fa-check"></i><b>2.1.12</b> Basic Traffic Stream Models: Flow vs. Speed vs. Density</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#models-of-traffic-flow"><i class="fa fa-check"></i><b>2.2</b> Models of Traffic Flow</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-2"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#arrival-patterns"><i class="fa fa-check"></i><b>2.2.2</b> Arrival Patterns</a></li>
+<li class="chapter" data-level="2.2.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#uniform"><i class="fa fa-check"></i><b>2.2.3</b> Uniform</a></li>
+<li class="chapter" data-level="2.2.4" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#poisson"><i class="fa fa-check"></i><b>2.2.4</b> Poisson</a></li>
+<li class="chapter" data-level="2.2.5" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#negative-exponential"><i class="fa fa-check"></i><b>2.2.5</b> Negative Exponential</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#freeway-queuing"><i class="fa fa-check"></i><b>2.3</b> Freeway Queuing</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-3"><i class="fa fa-check"></i><b>2.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.3.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#traffic-analysis-at-freeway-bottlenecks"><i class="fa fa-check"></i><b>2.3.2</b> Traffic Analysis at Freeway Bottlenecks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html"><i class="fa fa-check"></i><b>3</b> Highway Capacity Manual Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#what-is-the-highway-capacity-manual"><i class="fa fa-check"></i><b>3.1</b> What is the Highway Capacity Manual?</a></li>
+<li class="chapter" data-level="3.2" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#purpose-and-objectives"><i class="fa fa-check"></i><b>3.2</b> Purpose and Objectives</a></li>
+<li class="chapter" data-level="3.3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#intended-use"><i class="fa fa-check"></i><b>3.3</b> Intended Use</a></li>
+<li class="chapter" data-level="3.4" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#target-users"><i class="fa fa-check"></i><b>3.4</b> Target Users</a></li>
+<li class="chapter" data-level="3.5" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#versions-of-the-hcm"><i class="fa fa-check"></i><b>3.5</b> Versions of the HCM</a></li>
+<li class="chapter" data-level="3.6" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#who-oversees-development-and-maintenance-of-the-hcm"><i class="fa fa-check"></i><b>3.6</b> Who Oversees Development and Maintenance of the HCM?</a></li>
+<li class="chapter" data-level="3.7" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#hcm-6th-edition-revisions"><i class="fa fa-check"></i><b>3.7</b> HCM 6th Edition Revisions</a></li>
+<li class="chapter" data-level="3.8" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#structure-of-the-hcm"><i class="fa fa-check"></i><b>3.8</b> Structure of the HCM</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-1---concepts"><i class="fa fa-check"></i><b>3.8.1</b> Volume 1 - Concepts</a></li>
+<li class="chapter" data-level="3.8.2" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-2-uninterrupted-flow"><i class="fa fa-check"></i><b>3.8.2</b> Volume 2 – Uninterrupted Flow</a></li>
+<li class="chapter" data-level="3.8.3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-3-interrupted-flow"><i class="fa fa-check"></i><b>3.8.3</b> Volume 3 – Interrupted Flow</a></li>
+<li class="chapter" data-level="3.8.4" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-4-online-concepts-supplemental"><i class="fa fa-check"></i><b>3.8.4</b> Volume 4 (Online) – Concepts Supplemental</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#future-updates"><i class="fa fa-check"></i><b>3.9</b> Future Updates</a></li>
+<li class="chapter" data-level="3.10" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#software"><i class="fa fa-check"></i><b>3.10</b> Software</a></li>
+<li class="chapter" data-level="3.11" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#resources"><i class="fa fa-check"></i><b>3.11</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html"><i class="fa fa-check"></i><b>4</b> HCM Basic Freeway Segments</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#IntroBasicFreewaySeg"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#BasicFwySegImage"><i class="fa fa-check"></i><b>4.2</b> Basic Freeway Segment</a></li>
+<li class="chapter" data-level="4.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#performance-measures"><i class="fa fa-check"></i><b>4.3</b> Performance Measures</a></li>
+<li class="chapter" data-level="4.4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#service-measure"><i class="fa fa-check"></i><b>4.4</b> Service Measure</a></li>
+<li class="chapter" data-level="4.5" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#level-of-service"><i class="fa fa-check"></i><b>4.5</b> Level of Service</a></li>
+<li class="chapter" data-level="4.6" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#speed-flow-relationship"><i class="fa fa-check"></i><b>4.6</b> Speed-Flow Relationship</a></li>
+<li class="chapter" data-level="4.7" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#analysis-procedure"><i class="fa fa-check"></i><b>4.7</b> Analysis Procedure</a></li>
+<li class="chapter" data-level="4.8" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#base-conditions"><i class="fa fa-check"></i><b>4.8</b> Base Conditions</a></li>
+<li class="chapter" data-level="4.9" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#free-flow-speed"><i class="fa fa-check"></i><b>4.9</b> Free-Flow Speed</a></li>
+<li class="chapter" data-level="4.10" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#estimating-ffs"><i class="fa fa-check"></i><b>4.10</b> Estimating FFS</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#lane-width-adjustment-factor"><i class="fa fa-check"></i><b>4.10.1</b> Lane Width Adjustment Factor</a></li>
+<li class="chapter" data-level="4.10.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#lateral-clearance-adj.-factor"><i class="fa fa-check"></i><b>4.10.2</b> Lateral Clearance Adj. Factor</a></li>
+<li class="chapter" data-level="4.10.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#total-ramp-density"><i class="fa fa-check"></i><b>4.10.3</b> Total Ramp Density</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#calculate-analysis-flow-rate"><i class="fa fa-check"></i><b>4.11</b> Calculate Analysis Flow Rate</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#peak-hour-factor"><i class="fa fa-check"></i><b>4.11.1</b> Peak Hour Factor</a></li>
+<li class="chapter" data-level="4.11.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#passenger-car-equivalency-pce-factor"><i class="fa fa-check"></i><b>4.11.2</b> Passenger Car Equivalency (PCE) Factor</a></li>
+<li class="chapter" data-level="4.11.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#extended-general-freeway-segments"><i class="fa fa-check"></i><b>4.11.3</b> Extended General Freeway Segments</a></li>
+<li class="chapter" data-level="4.11.4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#specific-grades"><i class="fa fa-check"></i><b>4.11.4</b> Specific Grades</a></li>
+<li class="chapter" data-level="4.11.5" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#heavy-vehicle-factor"><i class="fa fa-check"></i><b>4.11.5</b> Heavy Vehicle Factor</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#calculate-density"><i class="fa fa-check"></i><b>4.12</b> Calculate Density</a></li>
+<li class="chapter" data-level="4.13" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#service-volumesflow-rates"><i class="fa fa-check"></i><b>4.13</b> Service Volumes/Flow Rates</a></li>
+<li class="chapter" data-level="4.14" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#driver-population-adjustment"><i class="fa fa-check"></i><b>4.14</b> Driver Population Adjustment</a></li>
+<li class="chapter" data-level="4.15" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#references"><i class="fa fa-check"></i><b>4.15</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html"><i class="fa fa-check"></i><b>5</b> HCM Weaving Segment Analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#IntroWeaving"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-length"><i class="fa fa-check"></i><b>5.2</b> Weaving Segment Length</a></li>
+<li class="chapter" data-level="5.3" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-width"><i class="fa fa-check"></i><b>5.3</b> Weaving Segment Width</a></li>
+<li class="chapter" data-level="5.4" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-configuration"><i class="fa fa-check"></i><b>5.4</b> Weaving Segment Configuration</a></li>
+<li class="chapter" data-level="5.5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#analysis-procedure-1"><i class="fa fa-check"></i><b>5.5</b> Analysis Procedure</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-1"><i class="fa fa-check"></i><b>5.5.1</b> Step 1</a></li>
+<li class="chapter" data-level="5.5.2" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-2"><i class="fa fa-check"></i><b>5.5.2</b> Step 2</a></li>
+<li class="chapter" data-level="5.5.3" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-3"><i class="fa fa-check"></i><b>5.5.3</b> Step 3</a></li>
+<li class="chapter" data-level="5.5.4" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-4"><i class="fa fa-check"></i><b>5.5.4</b> Step 4</a></li>
+<li class="chapter" data-level="5.5.5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-5"><i class="fa fa-check"></i><b>5.5.5</b> Step 5</a></li>
+<li class="chapter" data-level="5.5.6" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-6"><i class="fa fa-check"></i><b>5.5.6</b> Step 6</a></li>
+<li class="chapter" data-level="5.5.7" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-7"><i class="fa fa-check"></i><b>5.5.7</b> Step 7</a></li>
+<li class="chapter" data-level="5.5.8" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-8"><i class="fa fa-check"></i><b>5.5.8</b> Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#references-1"><i class="fa fa-check"></i><b>5.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html"><i class="fa fa-check"></i><b>6</b> HCM Merge/Diverge Segments</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#IntroRampJunctionsSeg"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#on--and-off-ramp-influence-areas"><i class="fa fa-check"></i><b>6.2</b> On- and Off-ramp Influence Areas</a></li>
+<li class="chapter" data-level="6.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#acceldecel-lanes"><i class="fa fa-check"></i><b>6.3</b> Accel/Decel Lanes</a></li>
+<li class="chapter" data-level="6.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#analysis-methodology"><i class="fa fa-check"></i><b>6.4</b> Analysis Methodology</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-1-volume-conversion"><i class="fa fa-check"></i><b>6.4.1</b> Step 1: Volume Conversion</a></li>
+<li class="chapter" data-level="6.4.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12"><i class="fa fa-check"></i><b>6.4.2</b> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps"><i class="fa fa-check"></i><b>6.4.3</b> Step 2: Model Structure (On-ramps)</a></li>
+<li class="chapter" data-level="6.4.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps"><i class="fa fa-check"></i><b>6.4.4</b> Step 2: Model Structure (Off-ramps)</a></li>
+<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps</a></li>
+<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps</a></li>
+<li class="chapter" data-level="6.4.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-3-estimate-capacity-of-ramp-freeway-junction"><i class="fa fa-check"></i><b>6.4.7</b> Step 3: Estimate Capacity of Ramp-Freeway Junction</a></li>
+<li class="chapter" data-level="6.4.8" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los"><i class="fa fa-check"></i><b>6.4.8</b> Step 4: Estimate Density and Determine LOS</a></li>
+<li class="chapter" data-level="6.4.9" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-5-estimation-of-speed"><i class="fa fa-check"></i><b>6.4.9</b> Step 5: Estimation of Speed</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#variable-definitions-1"><i class="fa fa-check"></i><b>6.5</b> Variable Definitions (1)</a></li>
+<li class="chapter" data-level="6.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#variable-definitions-2"><i class="fa fa-check"></i><b>6.6</b> Variable Definitions (2)</a></li>
+<li class="chapter" data-level="6.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#references-2"><i class="fa fa-check"></i><b>6.7</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html"><i class="fa fa-check"></i><b>7</b> HCM Freeway Facility</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#HCMFreewayFacilityUndersat"><i class="fa fa-check"></i><b>7.1</b> Undersaturated Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#IntroFreewayUndersat"><i class="fa fa-check"></i><b>7.1.1</b> Overview</a></li>
+<li class="chapter" data-level="7.1.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#analysis-procedure-2"><i class="fa fa-check"></i><b>7.1.2</b> Analysis Procedure</a></li>
+<li class="chapter" data-level="7.1.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#facility-segmentation"><i class="fa fa-check"></i><b>7.1.3</b> Facility Segmentation</a></li>
+<li class="chapter" data-level="7.1.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#time-space-domain-of-freeway-facility"><i class="fa fa-check"></i><b>7.1.4</b> Time-Space Domain of Freeway Facility</a></li>
+<li class="chapter" data-level="7.1.5" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#facility-segmentation-considerations"><i class="fa fa-check"></i><b>7.1.5</b> Facility Segmentation Considerations</a></li>
+<li class="chapter" data-level="7.1.6" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#demand-flow-rates"><i class="fa fa-check"></i><b>7.1.6</b> Demand Flow Rates</a></li>
+<li class="chapter" data-level="7.1.7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#segment-capacity-estimation-and-adjustment"><i class="fa fa-check"></i><b>7.1.7</b> Segment Capacity Estimation and Adjustment</a></li>
+<li class="chapter" data-level="7.1.8" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#compute-dc-ratios"><i class="fa fa-check"></i><b>7.1.8</b> Compute d/c Ratios</a></li>
+<li class="chapter" data-level="7.1.9" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#downstream-speed-constraint"><i class="fa fa-check"></i><b>7.1.9</b> Downstream Speed Constraint</a></li>
+<li class="chapter" data-level="7.1.10" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#density-1"><i class="fa fa-check"></i><b>7.1.10</b> Density</a></li>
+<li class="chapter" data-level="7.1.11" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#los"><i class="fa fa-check"></i><b>7.1.11</b> LOS</a></li>
+<li class="chapter" data-level="7.1.12" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#other-measures-reported"><i class="fa fa-check"></i><b>7.1.12</b> Other Measures Reported</a></li>
+<li class="chapter" data-level="7.1.13" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#supporting-calculations-segment"><i class="fa fa-check"></i><b>7.1.13</b> Supporting Calculations (Segment)</a></li>
+<li class="chapter" data-level="7.1.14" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#supporting-calculations-facility"><i class="fa fa-check"></i><b>7.1.14</b> Supporting Calculations (Facility)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#HCMFreewayFacilityOversat"><i class="fa fa-check"></i><b>7.2</b> Oversaturated Analysis</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#compute-dc-ratios-1"><i class="fa fa-check"></i><b>7.2.1</b> Compute d/c Ratios</a></li>
+<li class="chapter" data-level="7.2.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#freeway-facility-oversaturated-analysis-methodology-capabilities"><i class="fa fa-check"></i><b>7.2.2</b> Freeway Facility Oversaturated Analysis Methodology Capabilities</a></li>
+<li class="chapter" data-level="7.2.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#general-limitations-of-methodology"><i class="fa fa-check"></i><b>7.2.3</b> General Limitations of Methodology</a></li>
+<li class="chapter" data-level="7.2.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#additional-considerations"><i class="fa fa-check"></i><b>7.2.4</b> Additional Considerations</a></li>
+<li class="chapter" data-level="7.2.5" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#time-space-domain"><i class="fa fa-check"></i><b>7.2.5</b> Time-Space Domain</a></li>
+<li class="chapter" data-level="7.2.6" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#key-analysis-concepts"><i class="fa fa-check"></i><b>7.2.6</b> Key Analysis Concepts</a></li>
+<li class="chapter" data-level="7.2.7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#methodology-flow-chart"><i class="fa fa-check"></i><b>7.2.7</b> Methodology Flow Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#travel-time-reliability"><i class="fa fa-check"></i><b>7.3</b> Travel Time Reliability</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#overview"><i class="fa fa-check"></i><b>7.3.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#references-3"><i class="fa fa-check"></i><b>7.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html"><i class="fa fa-check"></i><b>8</b> Managed Lanes Overview</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#high-occupancy-vehicle-hov-lanes"><i class="fa fa-check"></i><b>8.2</b> High Occupancy Vehicle (HOV) Lanes</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#what-are-hov-lanes"><i class="fa fa-check"></i><b>8.2.1</b> What are HOV Lanes?</a></li>
+<li class="chapter" data-level="8.2.2" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#why-implement-hov-lanes"><i class="fa fa-check"></i><b>8.2.2</b> Why Implement HOV Lanes?</a></li>
+<li class="chapter" data-level="8.2.3" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hov-lane-design-considerations"><i class="fa fa-check"></i><b>8.2.3</b> HOV Lane Design Considerations</a></li>
+<li class="chapter" data-level="8.2.4" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hov-lane-operation-considerations"><i class="fa fa-check"></i><b>8.2.4</b> HOV Lane Operation Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#high-occupancy-toll-hot-lanes"><i class="fa fa-check"></i><b>8.3</b> High Occupancy Toll (HOT) Lanes</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#what-are-hot-lanes"><i class="fa fa-check"></i><b>8.3.1</b> What are HOT Lanes?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#reversible-lanes"><i class="fa fa-check"></i><b>8.4</b> Reversible Lanes</a></li>
+<li class="chapter" data-level="8.5" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#other-special-lanes"><i class="fa fa-check"></i><b>8.5</b> Other Special Lanes</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#truck-lane-restrictions"><i class="fa fa-check"></i><b>8.5.1</b> Truck Lane Restrictions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hcm-analysis"><i class="fa fa-check"></i><b>8.6</b> HCM Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html"><i class="fa fa-check"></i><b>9</b> Introduction to Ramp Metering</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#what-is-ramp-metering"><i class="fa fa-check"></i><b>9.1</b> What is Ramp Metering?</a></li>
+<li class="chapter" data-level="9.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#why-meter-ramps"><i class="fa fa-check"></i><b>9.2</b> Why Meter Ramps?</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#conceptual-background-of-ramp-metering"><i class="fa fa-check"></i><b>9.2.1</b> Conceptual Background of Ramp Metering</a></li>
+<li class="chapter" data-level="9.2.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#system-benefits-of-ramp-metering"><i class="fa fa-check"></i><b>9.2.2</b> System Benefits of Ramp Metering</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#consequences-of-ramp-metering"><i class="fa fa-check"></i><b>9.3</b> Consequences of Ramp Metering</a></li>
+<li class="chapter" data-level="9.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-metering-hardwareinfrustructure"><i class="fa fa-check"></i><b>9.4</b> Ramp Metering Hardware/Infrustructure</a></li>
+<li class="chapter" data-level="9.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#example-ramp-meter-control-strategies"><i class="fa fa-check"></i><b>9.5</b> Example Ramp Meter Control Strategies</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-closure"><i class="fa fa-check"></i><b>9.5.1</b> Ramp Closure</a></li>
+<li class="chapter" data-level="9.5.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#pre-timed"><i class="fa fa-check"></i><b>9.5.2</b> Pre-Timed</a></li>
+<li class="chapter" data-level="9.5.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#traffic-responsive"><i class="fa fa-check"></i><b>9.5.3</b> Traffic Responsive</a></li>
+<li class="chapter" data-level="9.5.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#gap-acceptance"><i class="fa fa-check"></i><b>9.5.4</b> Gap Acceptance</a></li>
+<li class="chapter" data-level="9.5.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#integrated-ramp-control"><i class="fa fa-check"></i><b>9.5.5</b> Integrated Ramp Control</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#practical-considerations"><i class="fa fa-check"></i><b>9.6</b> Practical Considerations</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-queuing-storage"><i class="fa fa-check"></i><b>9.6.1</b> Ramp Queuing Storage</a></li>
+<li class="chapter" data-level="9.6.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#hov-bypass-lanes"><i class="fa fa-check"></i><b>9.6.2</b> HOV Bypass Lanes</a></li>
+<li class="chapter" data-level="9.6.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#minmax-metering-rates"><i class="fa fa-check"></i><b>9.6.3</b> Min/Max Metering Rates</a></li>
+<li class="chapter" data-level="9.6.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#violation-enforcement"><i class="fa fa-check"></i><b>9.6.4</b> Violation Enforcement</a></li>
+<li class="chapter" data-level="9.6.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#equity-issues"><i class="fa fa-check"></i><b>9.6.5</b> Equity Issues</a></li>
+<li class="chapter" data-level="9.6.6" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#detection-capabilities"><i class="fa fa-check"></i><b>9.6.6</b> Detection Capabilities</a></li>
+<li class="chapter" data-level="9.6.7" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#system-capabilities"><i class="fa fa-check"></i><b>9.6.7</b> System Capabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#utah-dot-video"><i class="fa fa-check"></i><b>9.7</b> Utah DOT video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-Simulation.html"><a href="10-Simulation.html"><i class="fa fa-check"></i><b>10</b> Introduction to Traffic Simulation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10-Simulation.html"><a href="10-Simulation.html#what-is-simulation"><i class="fa fa-check"></i><b>10.1</b> What is Simulation?</a></li>
+<li class="chapter" data-level="10.2" data-path="10-Simulation.html"><a href="10-Simulation.html#terminology"><i class="fa fa-check"></i><b>10.2</b> Terminology</a></li>
+<li class="chapter" data-level="10.3" data-path="10-Simulation.html"><a href="10-Simulation.html#why-use-simulation"><i class="fa fa-check"></i><b>10.3</b> Why use simulation?</a></li>
+<li class="chapter" data-level="10.4" data-path="10-Simulation.html"><a href="10-Simulation.html#simulation-modeling-approaches"><i class="fa fa-check"></i><b>10.4</b> Simulation Modeling Approaches</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="10-Simulation.html"><a href="10-Simulation.html#spatial-and-temporal-level-of-detail"><i class="fa fa-check"></i><b>10.4.1</b> Spatial and Temporal Level of Detail</a></li>
+<li class="chapter" data-level="10.4.2" data-path="10-Simulation.html"><a href="10-Simulation.html#stochastic"><i class="fa fa-check"></i><b>10.4.2</b> Stochastic</a></li>
+<li class="chapter" data-level="10.4.3" data-path="10-Simulation.html"><a href="10-Simulation.html#deterministic"><i class="fa fa-check"></i><b>10.4.3</b> Deterministic</a></li>
+<li class="chapter" data-level="10.4.4" data-path="10-Simulation.html"><a href="10-Simulation.html#potential-analytical-models-within-simulation-program"><i class="fa fa-check"></i><b>10.4.4</b> Potential Analytical Models within Simulation Program</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="10-Simulation.html"><a href="10-Simulation.html#considerations-for-applying-simulation"><i class="fa fa-check"></i><b>10.5</b> Considerations for applying Simulation</a></li>
+<li class="chapter" data-level="10.6" data-path="10-Simulation.html"><a href="10-Simulation.html#conceptual-differences-between-the-hcm-and-microscopic-simulation-modeling"><i class="fa fa-check"></i><b>10.6</b> Conceptual Differences between the HCM and Microscopic Simulation Modeling</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="10-Simulation.html"><a href="10-Simulation.html#introduction-5"><i class="fa fa-check"></i><b>10.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.6.2" data-path="10-Simulation.html"><a href="10-Simulation.html#capacity-hcm"><i class="fa fa-check"></i><b>10.6.2</b> Capacity (HCM)</a></li>
+<li class="chapter" data-level="10.6.3" data-path="10-Simulation.html"><a href="10-Simulation.html#capacity-simulation"><i class="fa fa-check"></i><b>10.6.3</b> Capacity (Simulation)</a></li>
+<li class="chapter" data-level="10.6.4" data-path="10-Simulation.html"><a href="10-Simulation.html#lane-distribution-hcm"><i class="fa fa-check"></i><b>10.6.4</b> Lane Distribution (HCM)</a></li>
+<li class="chapter" data-level="10.6.5" data-path="10-Simulation.html"><a href="10-Simulation.html#lane-distribution-simulation"><i class="fa fa-check"></i><b>10.6.5</b> Lane Distribution (Simulation)</a></li>
+<li class="chapter" data-level="10.6.6" data-path="10-Simulation.html"><a href="10-Simulation.html#traffic-stream-composition-hcm"><i class="fa fa-check"></i><b>10.6.6</b> Traffic Stream Composition (HCM)</a></li>
+<li class="chapter" data-level="10.6.7" data-path="10-Simulation.html"><a href="10-Simulation.html#traffic-stream-composition-simulation"><i class="fa fa-check"></i><b>10.6.7</b> Traffic Stream Composition (Simulation)</a></li>
+<li class="chapter" data-level="10.6.8" data-path="10-Simulation.html"><a href="10-Simulation.html#comparison-of-hcm-results-to-simulation-results"><i class="fa fa-check"></i><b>10.6.8</b> Comparison of HCM Results to Simulation Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="11-References.html"><a href="11-References.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/swash17/FreightCurriculum" target="blank">Freight Transportation Curriculum</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CGN 4905/TTE 6205: Freeway Operations and Simulation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="hcm-freeway-facility" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> HCM Freeway Facility<a href="07-HCM_FwyFacility.html#hcm-freeway-facility" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="HCMFreewayFacilityUndersat" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Undersaturated Analysis<a href="07-HCM_FwyFacility.html#HCMFreewayFacilityUndersat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="IntroFreewayUndersat" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Overview<a href="07-HCM_FwyFacility.html#IntroFreewayUndersat" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The analysis methodology is used for conducting larger freeway analyses from a combination of the three freeway components:</p>
+<ul>
+<li>Basic segments, merge/diverge segments, and weaving segments.</li>
+</ul>
+<p>It can analyze multiple contiguous segments over multiple time intervals.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:NetworkImage"></span>
+<img src="Images/HCMFwyFacilityUndersat/Network.jpg" alt="HCM Freeyway Facility Undersaturated"  />
+<p class="caption">
+Figure 7.1: HCM Freeyway Facility Undersaturated
+</p>
+</div>
+</div>
+<div id="analysis-procedure-2" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Analysis Procedure<a href="07-HCM_FwyFacility.html#analysis-procedure-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Divide the facility into segments</li>
+<li>Set number of time periods
+<ul>
+<li>The default time period duration is 15 minutes</li>
+<li>Thus, a 1-hour analysis duration would use 4 time periods</li>
+</ul></li>
+<li>Calculate demand analysis flow rates
+<ul>
+<li>Even though the time period duration is 15 minutes, the analysis flow rates are entered as hourly volumes</li>
+</ul></li>
+<li>Determine segment capacities from Chaps. 12, 13, and 14</li>
+<li>Determine inputs for required for each individual segment analysis procedure (i.e., FFS, demand, %HV, etc.)</li>
+<li>Calculate d/c ratio for each segment and time period</li>
+<li>For undersaturated facility:
+<ul>
+<li>Calculate density for each segment</li>
+<li>Determine LOS for each segment</li>
+<li>Calculate density for entire facility</li>
+<li>Determine LOS for entire facility</li>
+<li>Other performance measures can be calculated as needed</li>
+</ul></li>
+</ul>
+</div>
+<div id="facility-segmentation" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Facility Segmentation<a href="07-HCM_FwyFacility.html#facility-segmentation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:FreewaySegmenationImage"></span>
+<img src="Images/HCMFwyFacilityUndersat/FreewaySegmenation.png" alt="Freeway Segmentation"  />
+<p class="caption">
+Figure 7.2: Freeway Segmentation
+</p>
+</div>
+</div>
+<div id="time-space-domain-of-freeway-facility" class="section level3 hasAnchor" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> Time-Space Domain of Freeway Facility<a href="07-HCM_FwyFacility.html#time-space-domain-of-freeway-facility" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:TimeSpaceMatrixImage"></span>
+<img src="Images/HCMFwyFacilityUndersat/TimeSpaceMatrix.png" alt="Time-Space Matrix"  />
+<p class="caption">
+Figure 7.3: Time-Space Matrix
+</p>
+</div>
+</div>
+<div id="facility-segmentation-considerations" class="section level3 hasAnchor" number="7.1.5">
+<h3><span class="header-section-number">7.1.5</span> Facility Segmentation Considerations<a href="07-HCM_FwyFacility.html#facility-segmentation-considerations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Merge/Diverge (Ramp) Segments</p>
+<ul>
+<li>Default length of a ramp segment is 1500 ft.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:RampSegmentation1Image"></span>
+<img src="Images/HCMFwyFacilityUndersat/RampSegmentation1.png" alt="Ramp Segmentation 1"  />
+<p class="caption">
+Figure 7.4: Ramp Segmentation 1
+</p>
+</div>
+<ul>
+<li>If there is more than 3000 ft between ramps, place a basic segment in between.
+<ul>
+<li>The length of the basic segment will be the total separation distance between the ramps minus 3000 ft.</li>
+</ul></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:RampSegmentation2Image"></span>
+<img src="Images/HCMFwyFacilityUndersat/RampSegmentation2.png" alt="Ramp Segmentation 2"  />
+<p class="caption">
+Figure 7.5: Ramp Segmentation 2
+</p>
+</div>
+<ul>
+<li>If there is less than 3000 ft between ramps, place an ‘overlap’ segment in between
+<ul>
+<li>The length of the overlap segment will be 3000 ft minus the total separation distance between the ramps.</li>
+</ul></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:RampSegmentation3Image"></span>
+<img src="Images/HCMFwyFacilityUndersat/RampSegmentation3.png" alt="Ramp Segmentation 3"  />
+<p class="caption">
+Figure 7.6: Ramp Segmentation 3
+</p>
+</div>
+<ul>
+<li>If a lane is added at an on-ramp junction (i.e., the “acceleration lane” is a full lane), the ramp segment is analyzed as a basic segment.<br />
+</li>
+<li>If a lane is dropped at an off-ramp junction (i.e., the outer lane turns into the off-ramp lane), the ramp segment is analyzed as a basic segment.</li>
+</ul>
+<p>Weaving Segments</p>
+<ul>
+<li>If the short length is greater than <em>L<sub>max</sub></em>, the weaving segment is analyzed as a basic segment.</li>
+</ul>
+</div>
+<div id="demand-flow-rates" class="section level3 hasAnchor" number="7.1.6">
+<h3><span class="header-section-number">7.1.6</span> Demand Flow Rates<a href="07-HCM_FwyFacility.html#demand-flow-rates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Determine demands by time period (default is 15 min)<br />
+</li>
+<li>Ensure that the sum of inputs equals the sum of outputs<br />
+</li>
+<li>Adjust flow rates for heavy vehicles<br />
+</li>
+<li>The PHF is not used since the time period duration is 15 minutes</li>
+</ul>
+</div>
+<div id="segment-capacity-estimation-and-adjustment" class="section level3 hasAnchor" number="7.1.7">
+<h3><span class="header-section-number">7.1.7</span> Segment Capacity Estimation and Adjustment<a href="07-HCM_FwyFacility.html#segment-capacity-estimation-and-adjustment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Determine segment capacities according to the methods of Chapters 12, 13, and 14.</p>
+<ul>
+<li>Segment adjustments
+<ul>
+<li>Construction activities or work zones</li>
+<li>Adverse weather (rain, snow, fog)</li>
+<li>Incidents or accidents</li>
+</ul></li>
+</ul>
+<p>Ramp metering can be accommodated by modifying on-ramp roadway capacities.</p>
+</div>
+<div id="compute-dc-ratios" class="section level3 hasAnchor" number="7.1.8">
+<h3><span class="header-section-number">7.1.8</span> Compute d/c Ratios<a href="07-HCM_FwyFacility.html#compute-dc-ratios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Calculate demand/capacity ratio for each segment for each time period</p>
+<p>If all segment <em>d</em>/<em>c</em> ratios are ≤ 1.0 for a time period, then segment performance measures are calculated according to Chapters 12, 13, and/or 14.</p>
+<p>If any segment <em>d</em>/<em>c</em> ratio &gt; 1.0 in a given time period, then the oversaturated analysis module is applied for all facility segments during that time period and subsequent time periods until the congestion clears.</p>
+</div>
+<div id="downstream-speed-constraint" class="section level3 hasAnchor" number="7.1.9">
+<h3><span class="header-section-number">7.1.9</span> Downstream Speed Constraint<a href="07-HCM_FwyFacility.html#downstream-speed-constraint" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In case of a slow average speed for a segment upstream of the subject segment, the subject segment speed will be constrained, per Eq. 25-1.</p>
+<p><span class="math display">\[V_{max} = FFS - \left( FFS - v_{prev} \right) \times e^{-0.00162 \times L}\]</span></p>
+<p>where:</p>
+<p><em>V<sub>max</sub></em> = maximum achievable segment speed (mi/h),<br />
+<em>FFS</em> = segment free-flow speed (mi/h),<br />
+<em>V<sub>prev</sub></em> = average speed on immediate upstream segment (mi/h), and<br />
+<em>L</em> = distance from midpoints of the upstream segment and the subject segment (ft).</p>
+</div>
+<div id="density-1" class="section level3 hasAnchor" number="7.1.10">
+<h3><span class="header-section-number">7.1.10</span> Density<a href="07-HCM_FwyFacility.html#density-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Segment densities are calculated per the methods of chapters 12, 13, and 14. However, merge/diverge segments use density for entire cross-section.</p>
+<p>Facility density is calculated per Eq. 10-1.</p>
+<p><span class="math display">\[D_{Fwy} = \frac{\sum_{i = 1}^{n}{D_{i} \times L_{i} \times N_{i}}}{\sum_{i = 1}^{n}{L_{i} \times N_{i}}}\]</span></p>
+<p>where:</p>
+<p><em>D<sub>Fwy</sub></em> = average density for the facility in a given 15-min analysis period (pc/mi/ln),<br />
+<em>D<sub>i</sub></em> = density for segment <em>i</em> (pc/mi/ln),<br />
+<em>L<sub>i</sub></em> = length of segment <em>i</em> (miles),<br />
+<em>N<sub>i</sub></em> = number of lanes in segment <em>i</em>, and<br />
+<em>n</em> = number of segments in the defined facility.</p>
+</div>
+<div id="los" class="section level3 hasAnchor" number="7.1.11">
+<h3><span class="header-section-number">7.1.11</span> LOS<a href="07-HCM_FwyFacility.html#los" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Segment LOS is determined per chapters 12, 13, and 14.</p>
+<p>Facility LOS is determined per Exhibit 10-6. Note that the LOS criteria for urban areas are the same as for basic segments.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><strong>Level of Service</strong></th>
+<th align="center"><strong>Urban</strong></th>
+<th align="center"><strong>Rural</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">A</td>
+<td align="center">≤ 11</td>
+<td align="center">≤ 6</td>
+</tr>
+<tr class="even">
+<td align="center">B</td>
+<td align="center">&gt; 11-18</td>
+<td align="center">&gt; 6-14</td>
+</tr>
+<tr class="odd">
+<td align="center">C</td>
+<td align="center">&gt; 18-26</td>
+<td align="center">&gt; 14-22</td>
+</tr>
+<tr class="even">
+<td align="center">D</td>
+<td align="center">&gt; 26-35</td>
+<td align="center">&gt; 22-29</td>
+</tr>
+<tr class="odd">
+<td align="center">E</td>
+<td align="center">&gt; 35-45</td>
+<td align="center">&gt; 29-39</td>
+</tr>
+<tr class="even">
+<td align="center">F</td>
+<td align="center">&gt; 45 or Demand exceeds capacity</td>
+<td align="center">&gt; 39 or Demand exceeds capacity</td>
+</tr>
+</tbody>
+</table>
+<p>For more information on rural area thresholds, see:</p>
+<ul>
+<li>Washburn, Scott S. and Kirschner, David S. <em>Rural Freeway Level of Service Based Upon Traveler Perceptions</em>. Transportation Research Record: Journal of the Transportation Research Board. No. 1998, Transportation Research Board of the National Academies, Washington, D.C., 2006, pp. 31-37. DOI: 10.3141/1988-06</li>
+</ul>
+</div>
+<div id="other-measures-reported" class="section level3 hasAnchor" number="7.1.12">
+<h3><span class="header-section-number">7.1.12</span> Other Measures Reported<a href="07-HCM_FwyFacility.html#other-measures-reported" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Volume/Capacity<br />
+</li>
+<li>Demand/Capacity<br />
+</li>
+<li>Average Speed/Travel Time<br />
+</li>
+<li>Free-Flow Travel Time<br />
+</li>
+<li>Delay
+<ul>
+<li>Mainline, System (includes on-ramp)<br />
+</li>
+</ul></li>
+<li>veh-mi of travel (VMT)<br />
+</li>
+<li>veh-h of travel (VHT)<br />
+</li>
+<li>veh-h of delay (VHD)</li>
+</ul>
+</div>
+<div id="supporting-calculations-segment" class="section level3 hasAnchor" number="7.1.13">
+<h3><span class="header-section-number">7.1.13</span> Supporting Calculations (Segment)<a href="07-HCM_FwyFacility.html#supporting-calculations-segment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[{TravTim}e_{FF} = \frac{Length}{{Speed}_{FF}}\]</span></p>
+<p><span class="math display">\[{TravTim}e_{Avg} = \frac{Length}{Speed_{Avg}}\]</span></p>
+<p><span class="math display">\[Delay = TravTime_{Avg} - TravTime_{FF}\]</span></p>
+<p><span class="math display">\[VMT = V \times TimePeriodDuration \times Length\]</span></p>
+<p><span class="math display">\[VHT = V \times TimePeriodDuration \times TravTime_{Avg}\]</span></p>
+<p><span class="math display">\[VHD = \left({TravTim}e_{Avg} - TravTime_{FF} \right) \times V \times TimePeriodDuration\]</span></p>
+<p>with:</p>
+<ul>
+<li><em>V</em> in veh/h<br />
+</li>
+<li>TimePeriodDuration in Hours (default is 0.25; i.e., 15 min)<br />
+</li>
+<li>Length in miles<br />
+</li>
+<li><em>TravTime<sub>FF</sub></em> in hours<br />
+</li>
+<li><em>TravTime<sub>Avg</sub></em> in hours<br />
+</li>
+<li><em>Speed<sub>FF</sub></em> in mi/h<br />
+</li>
+<li><em>Speed<sub>Avg</sub></em> in mi/h</li>
+</ul>
+</div>
+<div id="supporting-calculations-facility" class="section level3 hasAnchor" number="7.1.14">
+<h3><span class="header-section-number">7.1.14</span> Supporting Calculations (Facility)<a href="07-HCM_FwyFacility.html#supporting-calculations-facility" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[{TravTime}_{Avg \text{_}Fwy} = \sum_{Seg=1}^{n}{TravTime}_{Avg \text{_}Seg}\]</span></p>
+<p><span class="math display">\[{TravTime}_{FF \text{_}Fwy} = \sum_{Seg=1}^{n}{TravTime}_{FF \text{_}Seg}\]</span></p>
+<p><span class="math display">\[{Speed}_{Avg \text{_}Fwy}=\frac{{Length}_{{Fwy}}}{{TravTime}_{Avg \text{_}Fwy}}\]</span></p>
+<p>or</p>
+<p><span class="math display">\[{Speed}_{Avg \text{_}Fwy}=\frac{{VMT}_{Fwy}}{{VHT}_{Fwy}}\]</span></p>
+<p>Other facility measures are summation of segment measures</p>
+</div>
+</div>
+<div id="HCMFreewayFacilityOversat" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Oversaturated Analysis<a href="07-HCM_FwyFacility.html#HCMFreewayFacilityOversat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="compute-dc-ratios-1" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Compute d/c Ratios<a href="07-HCM_FwyFacility.html#compute-dc-ratios-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If any segment d/c ratio &gt; 1.0 in a given time period, then the oversaturated analysis module is applied for all facility segments in that and subsequent time periods until congestion clears.</p>
+</div>
+<div id="freeway-facility-oversaturated-analysis-methodology-capabilities" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Freeway Facility Oversaturated Analysis Methodology Capabilities<a href="07-HCM_FwyFacility.html#freeway-facility-oversaturated-analysis-methodology-capabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Can account for oversaturation, both spatially and temporally, under certain conditions<br />
+</li>
+<li>Can account for time-varying demand and capacity<br />
+</li>
+<li>Accounts for all active and hidden mainline bottlenecks<br />
+</li>
+<li>Can track queues as they form and dissipate across segments and time intervals<br />
+</li>
+<li>Can represent the effect of short term incidents and work zone effects if properly calibrated</li>
+</ul>
+</div>
+<div id="general-limitations-of-methodology" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> General Limitations of Methodology<a href="07-HCM_FwyFacility.html#general-limitations-of-methodology" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Facility length should be limited to 9-12 mi
+<ul>
+<li>Traffic will enter and exit freeway in same time interval</li>
+</ul></li>
+<li>No congestion at start/end of the analysis</li>
+<li>No congestion on first or last segment</li>
+<li>Overlapping bottlenecks cannot be handled</li>
+<li>Off-ramp queue spillback not considered</li>
+<li>On-ramp queuing tracked, but effects upstream of on-ramp not considered</li>
+</ul>
+</div>
+<div id="additional-considerations" class="section level3 hasAnchor" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> Additional Considerations<a href="07-HCM_FwyFacility.html#additional-considerations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Jam density (pc/mi/ln)</li>
+<li>Post-breakdown maximum flow rate
+<ul>
+<li>General consensus is that maximum flow rate discharging from a queue (i.e., “discharge flow rate”) is less than pre-breakdown capacity flow rate</li>
+<li>No consensus on how much reduction; Literature reports general range of 5-15%</li>
+<li>For HCM, we chose default value of 7% (essentially split the difference)</li>
+</ul></li>
+<li>Calculations are made in very short discrete time steps
+<ul>
+<li>4 time steps per minute; 60 per 15-min time period</li>
+</ul></li>
+</ul>
+</div>
+<div id="time-space-domain" class="section level3 hasAnchor" number="7.2.5">
+<h3><span class="header-section-number">7.2.5</span> Time-Space Domain<a href="07-HCM_FwyFacility.html#time-space-domain" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In addition to tracking queue formation and dissipation at active bottlenecks, the oversaturation analysis method has the capability to properly account for hidden bottlenecks. A dynamic illustration of the following figure will be demonstrated in class.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:TimeSpaceMatrix2Image"></span>
+<img src="Images/HCMFwyFacilityOversat/TimeSpaceMatrix.JPG" alt="Time-Space Matrix"  />
+<p class="caption">
+Figure 7.7: Time-Space Matrix
+</p>
+</div>
+</div>
+<div id="key-analysis-concepts" class="section level3 hasAnchor" number="7.2.6">
+<h3><span class="header-section-number">7.2.6</span> Key Analysis Concepts<a href="07-HCM_FwyFacility.html#key-analysis-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong><em>Shock Waves</em></strong></p>
+<p>Shock waves occur at points where there is a change in traffic stream characteristics (e.g., densities). For example,</p>
+<ul>
+<li>Faster vehicles catching up to slower vehicles in a school or work zone<br />
+</li>
+<li>Free-flowing vehicles approaching the back of queued vehicles at a bottleneck<br />
+</li>
+<li>Queued vehicles discharging from a signalized intersection approach</li>
+</ul>
+<p>A “wave” of changing density will propagate upstream or downstream, depending on specific characteristics of colliding traffic streams.</p>
+<p>Demand volume (in units of lanes) for 4 time periods is:<br />
+1) 1.5 (&lt; 2 lanes of bottleneck segment, so no queuing)<br />
+2) 2.5 (&gt; 2 lanes of bottleneck segment, so backward formingshock wave)<br />
+3) 2.0 (= lanes of bottleneck segment, so rear stationary shock wave)<br />
+4) 1.5 (&lt; 2 lanes of bottleneck segment, so forward recovery shock wave)</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:shockwaveImage"></span>
+<img src="Images/HCMFwyFacilityOversat/shockwave.jpg" alt="Shockwave Diagram"  />
+<p class="caption">
+Figure 7.8: Shockwave Diagram
+</p>
+</div>
+<p><strong><em>Analysis Time Units</em></strong></p>
+<ul>
+<li>Minutes per Time Period (min/period) = 15<br />
+</li>
+<li>Time Steps (ts) per Minute (ts/min) = 4<br />
+</li>
+<li>Seconds per Time Step (s/ts) = 60 (s/min) / 4 (ts/min) = 15<br />
+</li>
+<li>Time Steps per Hour (ts/h) = 4 ts/min <span class="math inline">\(\times\)</span> 60 min/h = 240</li>
+</ul>
+<p><strong><em>Flow-Density Relationship</em></strong></p>
+<ul>
+<li>Traffic operations in the congested flow regime are not well understood<br />
+</li>
+<li>Given the lack of consensus on appropriate models for describing speed-flow-density relationships for congested flow, the HCM freeway facilities procedure uses a simplified linear relationship to describe congested operations:</li>
+</ul>
+<p><span class="math display">\[k_{queue}=k_{cap}+\frac{(k_{jam}-k_{cap})}{q_{cap}} \times (q_{cap}-q)\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\(k_{queue}\)</span> = density in the queue (veh/mi)<br />
+<span class="math inline">\(k_{cap}\)</span> = density at capacity (veh/mi)<br />
+<span class="math inline">\(k_{jam}\)</span> = jam density (veh/mi)<br />
+<em>q</em> = segment flow rate (veh/h)<br />
+<span class="math inline">\(q_{cap}\)</span> = segment capacity flow rate (veh/h)</p>
+<p>The speed of the traffic stream in the queue is given by:</p>
+<p><span class="math display">\[S_{B}=\frac{S_{O}C_{B}}{C_{B}+S_{O}K_{j}\times \bigg (1-\frac{C_{B}}{C_{N}}\bigg)}\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\(S_{B}\)</span> = speed of traffic in bottleneck queue (mi/h)<br />
+<span class="math inline">\(S_{O}\)</span> = speed of traffic at capacity flow rate (mi/h); sometimes referred to as ‘optimal speed’<br />
+<span class="math inline">\(C_{B}\)</span> = bottlenenck capacity (veh/h)<br />
+<span class="math inline">\(C_{N}\)</span> = pre-breakdown capacity flow rate (veh/h); sometimes referred to as ‘normal capacity’<br />
+<span class="math inline">\(k_{j}\)</span> = jam density (veh/mi)</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:FlowDensityOverSatImage"></span>
+<img src="Images/HCMFwyFacilityOversat/FlowDensity.JPG" alt="Flow Density Relationship"  />
+<p class="caption">
+Figure 7.9: Flow Density Relationship
+</p>
+</div>
+<p><strong><em>Background Density (KB)</em></strong></p>
+<p>Background density (veh/mi) over Time Period (<em>p</em>) is the density of the subject segment assuming there is no queuing on the segment.</p>
+<p>This density is calculated using the expected demand on the segment in the corresponding undersaturated procedure in Chapters 12–14.</p>
+<p><span class="math display">\[KB = \frac{v}{S}\]</span></p>
+<p>where:</p>
+<p><em>v</em> = flow rate (veh/h)<br />
+<em>S</em> = average speed (mi/h)</p>
+<p><strong><em>Queue Density (KQ)</em></strong></p>
+<p>Queue density on the subject segment during the given time step is calculated on the basis of a linear density‐flow relationship in the congested regime (see Fig. <a href="07-HCM_FwyFacility.html#fig:FlowDensityOverSatImage">7.9</a>). Note that the following equation is equivalent to the <span class="math inline">\(k_{queue}\)</span> equation given above.</p>
+<p><span class="math display">\[KQ=KJ-\frac{(KJ-KC) \times SF}{SC}\tag{HCM Eq. 25-10}\]</span></p>
+<p>where:</p>
+<p><em>KJ</em> = jam density (veh/mi)<br />
+<em>KC</em> = density at capacity (veh/mi)<br />
+<em>SF</em> = segment flow rate (veh/h)<br />
+<em>SC</em> = segment capacity flow rate (veh/h)</p>
+<p><strong><em>On-Ramp Considerations</em></strong></p>
+<p>For an on-ramp, the demand served is a function of the ramp demand and the available capacity on the mainline. If the available capacity, which is the difference between the capacity of the mainline and the upstream mainline demand, is less than one half of a mainline lane of capacity (in the example shown below, this is 5 veh/time step), then you can serve a maximum of one-half of the lane capacity from the on-ramp (5 veh/ts in the example below). Of course, if the ramp demand is less than this value, then just this lower ramp demand value is served. However, the ramp demand also needs to consider unserved (i.e., queued) vehicles from previous time steps.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:OnRampImage"></span>
+<img src="Images/HCMFwyFacilityOversat/on-ramp.jpg" alt="On-Ramp Considerations for Oversaturated Analysis"  />
+<p class="caption">
+Figure 7.10: On-Ramp Considerations for Oversaturated Analysis
+</p>
+</div>
+<p><strong><em>Off-Ramp Considerations</em></strong></p>
+<p>For an off-ramp, we must consider potential demand deficit, which is the amount of unserved traffic from the previous time period. This typically occurs due to a bottleneck immediately upstream of the off-ramp (such as illustrated in the figure below).</p>
+<p>When the deficit is greater than the mainline/segment flow, we apply the off-ramp proportion from the previous time period. This is because the deficit traffic is the unserved traffic from the previous time period. The deficit is reduced by the amount of mainline flow per time step.</p>
+<p>If the deficit is less than the mainline/segment flow, but greater than zero, then the off-ramp proportion from the previous time period is applied to the deficit amount (again, because this is the left over traffic from the previous time period) and the current time period off-ramp proportion is applied to the difference between the mainline/segment flow and the deficit.</p>
+<p>When the deficit is zero, only the off-ramp proportion for the current time period is applied.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:OffRampImage"></span>
+<img src="Images/HCMFwyFacilityOversat/off-ramp.jpg" alt="Off-Ramp Considerations for Oversaturated Analysis"  />
+<p class="caption">
+Figure 7.11: Off-Ramp Considerations for Oversaturated Analysis
+</p>
+</div>
+</div>
+<div id="methodology-flow-chart" class="section level3 hasAnchor" number="7.2.7">
+<h3><span class="header-section-number">7.2.7</span> Methodology Flow Chart<a href="07-HCM_FwyFacility.html#methodology-flow-chart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The overall flow of the oversaturation analysis procedure is illustrated in the following flow chart.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:flowchartImage"></span>
+<img src="Images/HCMFwyFacilityOversat/OversatFlowChart.jpg" alt="Oversaturated Analysis Flow Chart"  />
+<p class="caption">
+Figure 7.12: Oversaturated Analysis Flow Chart
+</p>
+</div>
+</div>
+</div>
+<div id="travel-time-reliability" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Travel Time Reliability<a href="07-HCM_FwyFacility.html#travel-time-reliability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="overview" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Overview<a href="07-HCM_FwyFacility.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Paraphrased from the HCM 6th Edition…</p>
+<ul>
+<li>Freeway travel time reliability (TTR) reflects the distribution of the travel times for trips traversing an entire freeway facility over an extended period of time, typically one year, during any portion of the day.<br />
+</li>
+<li>A one-year Reliability Reporting Period (RRP) is typical, as it covers most variation in travel times arising from various factors. Shorter RRPs are possible for special circumstances, such as a focus on summer tourist travel or the work zone construction season.</li>
+</ul>
+<p>Rather than evaluating only an ”average” or ”typical” day with good weather and no incidents, a reliability analysis looks at the effects of various conditions/situations that temporarily reduce a freeway’s performance over the course of a year or other long-term time frame, such as…</p>
+<ul>
+<li>Fluctuating demand<br />
+</li>
+<li>Non-ideal weather<br />
+</li>
+<li>Incidents<br />
+</li>
+<li>Work zones</li>
+</ul>
+<p>Each combination of demand level, weather condition, incident type, etc. during a given day is termed a ”scenario”.</p>
+<p>A set of scenarios is generated (in a software tool) based on the probability of a particular condition occurring; one scenario is generated for each day within the RRP (for example, each non-holiday weekday throughout the year).</p>
+<p>The facility travel time is evaluated for each 15-minute time period within the study period for each scenario, by repeatedly applying the Chapter 10 analysis method, resulting in a distribution of travel times that can be used to generate a variety of useful reliability-related performance measures (such as illustrated in the following figure).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:TTRImage"></span>
+<img src="Images/HCMFwyFacilityTTR/TravelTimeReliability.jpg" alt="Example Travel Time Distribution (Source: Highway Capacity Manual, Chapter 11, 6th Ed.)"  />
+<p class="caption">
+Figure 7.13: Example Travel Time Distribution (Source: Highway Capacity Manual, Chapter 11, 6th Ed.)
+</p>
+</div>
+<p>The typical analysis units for a TTR analysis are illustrated in the following figure.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:AnalysisUnitsImage"></span>
+<img src="Images/HCMFwyFacilityTTR/AnalysisUnits.jpg" alt="Example TTR Analysis Units (Source: Highway Capacity Manual, Chapter 11, 6th Ed.)"  />
+<p class="caption">
+Figure 7.14: Example TTR Analysis Units (Source: Highway Capacity Manual, Chapter 11, 6th Ed.)
+</p>
+</div>
+<p>A variety of travel time indices are typically used to characterize the results of a TTR analysis.</p>
+<p>Travel time index (<em>TTI</em>) is defined as the ratio of the actual travel time to the free-flow travel time. By definition, TTI is always ≥ 1.0.</p>
+<p>Percentile travel time index (<em>TTI<sub>pp</sub></em>). Represents the percentile TTI in the travel time distribution. For example…</p>
+<ul>
+<li><em>TTI</em><sub>85</sub> means that this observation is exceeded only 15% of the time in the travel time distribution.<br />
+</li>
+<li><em>TTI</em><sub>50</sub> is the median TTI.<br />
+</li>
+<li><em>TTI</em><sub>95</sub> is the 95th percentile TTI, and is commonly referred to as the planning time index (PTI). Essentially, this is the additional time you should plan for your trip to ensure that you arrive on time all but about once per month (1 out of 20 weekdays).</li>
+</ul>
+</div>
+</div>
+<div id="references-3" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> References<a href="07-HCM_FwyFacility.html#references-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Transportation Research Board (2022). <em>Highway Capacity Manual, 7th Edition: A Guide for Multimodal Mobility Analysis</em>. Transportation Research Board, Washington, DC. <a href="https://nap.nationalacademies.org/catalog/26432/highway-capacity-manual-7th-edition-a-guide-for-multimodal-mobility" class="uri">https://nap.nationalacademies.org/catalog/26432/highway-capacity-manual-7th-edition-a-guide-for-multimodal-mobility</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="06-HCM_RampSeg.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="08-ManagedLanes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/swash17/FreightCurriculum/edit/main/07-HCM_FwyFacility.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["FreewaysOperationsSimulation.pdf", "FreewaysOperationsSimulation.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

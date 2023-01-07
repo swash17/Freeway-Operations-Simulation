@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Fundamentals of Uninterrupted Traffic Flow and Queuing Theory | CGN 4905/TTE 6205: Freeway Operations and Simulation</title>
+  <meta name="description" content="eBook for Freeway Operations and Simulation course" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Fundamentals of Uninterrupted Traffic Flow and Queuing Theory | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="eBook for Freeway Operations and Simulation course" />
+  <meta name="github-repo" content="swash17/FreewayOpsSim" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Fundamentals of Uninterrupted Traffic Flow and Queuing Theory | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
+  
+  <meta name="twitter:description" content="eBook for Freeway Operations and Simulation course" />
+  
+
+<meta name="author" content="Dr. Scott S. Washburn" />
+<meta name="author" content="Civil and Coastal Engineering" />
+<meta name="author" content="University of Florida" />
+<meta name="author" content="https://swash.essie.ufl.edu" />
+
+
+<meta name="date" content="2023-01-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="03-HCM_Overview.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Freeway Operations and Simulation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html"><i class="fa fa-check"></i><b>2</b> Fundamentals of Uninterrupted Traffic Flow and Queuing Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#traffic-stream-parameters"><i class="fa fa-check"></i><b>2.1</b> Traffic Stream Parameters</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-1"><i class="fa fa-check"></i><b>2.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.1.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#flow-classification"><i class="fa fa-check"></i><b>2.1.2</b> Flow Classification</a></li>
+<li class="chapter" data-level="2.1.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#parameter-classification"><i class="fa fa-check"></i><b>2.1.3</b> Parameter Classification</a></li>
+<li class="chapter" data-level="2.1.4" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#microscopic-parameters"><i class="fa fa-check"></i><b>2.1.4</b> Microscopic Parameters</a></li>
+<li class="chapter" data-level="2.1.5" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#flow"><i class="fa fa-check"></i><b>2.1.5</b> Flow</a></li>
+<li class="chapter" data-level="2.1.6" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#speed"><i class="fa fa-check"></i><b>2.1.6</b> Speed</a></li>
+<li class="chapter" data-level="2.1.7" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#density"><i class="fa fa-check"></i><b>2.1.7</b> Density</a></li>
+<li class="chapter" data-level="2.1.8" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#variable-relationships"><i class="fa fa-check"></i><b>2.1.8</b> Variable Relationships</a></li>
+<li class="chapter" data-level="2.1.9" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-density"><i class="fa fa-check"></i><b>2.1.9</b> Basic Traffic Stream Models: Speed vs. Density</a></li>
+<li class="chapter" data-level="2.1.10" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-density"><i class="fa fa-check"></i><b>2.1.10</b> Basic Traffic Stream Models: Flow vs. Density</a></li>
+<li class="chapter" data-level="2.1.11" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-flow"><i class="fa fa-check"></i><b>2.1.11</b> Basic Traffic Stream Models: Speed vs. Flow</a></li>
+<li class="chapter" data-level="2.1.12" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-speed-vs.-density"><i class="fa fa-check"></i><b>2.1.12</b> Basic Traffic Stream Models: Flow vs. Speed vs. Density</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#models-of-traffic-flow"><i class="fa fa-check"></i><b>2.2</b> Models of Traffic Flow</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-2"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#arrival-patterns"><i class="fa fa-check"></i><b>2.2.2</b> Arrival Patterns</a></li>
+<li class="chapter" data-level="2.2.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#uniform"><i class="fa fa-check"></i><b>2.2.3</b> Uniform</a></li>
+<li class="chapter" data-level="2.2.4" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#poisson"><i class="fa fa-check"></i><b>2.2.4</b> Poisson</a></li>
+<li class="chapter" data-level="2.2.5" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#negative-exponential"><i class="fa fa-check"></i><b>2.2.5</b> Negative Exponential</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#freeway-queuing"><i class="fa fa-check"></i><b>2.3</b> Freeway Queuing</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-3"><i class="fa fa-check"></i><b>2.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.3.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#traffic-analysis-at-freeway-bottlenecks"><i class="fa fa-check"></i><b>2.3.2</b> Traffic Analysis at Freeway Bottlenecks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html"><i class="fa fa-check"></i><b>3</b> Highway Capacity Manual Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#what-is-the-highway-capacity-manual"><i class="fa fa-check"></i><b>3.1</b> What is the Highway Capacity Manual?</a></li>
+<li class="chapter" data-level="3.2" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#purpose-and-objectives"><i class="fa fa-check"></i><b>3.2</b> Purpose and Objectives</a></li>
+<li class="chapter" data-level="3.3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#intended-use"><i class="fa fa-check"></i><b>3.3</b> Intended Use</a></li>
+<li class="chapter" data-level="3.4" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#target-users"><i class="fa fa-check"></i><b>3.4</b> Target Users</a></li>
+<li class="chapter" data-level="3.5" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#versions-of-the-hcm"><i class="fa fa-check"></i><b>3.5</b> Versions of the HCM</a></li>
+<li class="chapter" data-level="3.6" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#who-oversees-development-and-maintenance-of-the-hcm"><i class="fa fa-check"></i><b>3.6</b> Who Oversees Development and Maintenance of the HCM?</a></li>
+<li class="chapter" data-level="3.7" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#hcm-6th-edition-revisions"><i class="fa fa-check"></i><b>3.7</b> HCM 6th Edition Revisions</a></li>
+<li class="chapter" data-level="3.8" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#structure-of-the-hcm"><i class="fa fa-check"></i><b>3.8</b> Structure of the HCM</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-1---concepts"><i class="fa fa-check"></i><b>3.8.1</b> Volume 1 - Concepts</a></li>
+<li class="chapter" data-level="3.8.2" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-2-uninterrupted-flow"><i class="fa fa-check"></i><b>3.8.2</b> Volume 2 – Uninterrupted Flow</a></li>
+<li class="chapter" data-level="3.8.3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-3-interrupted-flow"><i class="fa fa-check"></i><b>3.8.3</b> Volume 3 – Interrupted Flow</a></li>
+<li class="chapter" data-level="3.8.4" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-4-online-concepts-supplemental"><i class="fa fa-check"></i><b>3.8.4</b> Volume 4 (Online) – Concepts Supplemental</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#future-updates"><i class="fa fa-check"></i><b>3.9</b> Future Updates</a></li>
+<li class="chapter" data-level="3.10" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#software"><i class="fa fa-check"></i><b>3.10</b> Software</a></li>
+<li class="chapter" data-level="3.11" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#resources"><i class="fa fa-check"></i><b>3.11</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html"><i class="fa fa-check"></i><b>4</b> HCM Basic Freeway Segments</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#IntroBasicFreewaySeg"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#BasicFwySegImage"><i class="fa fa-check"></i><b>4.2</b> Basic Freeway Segment</a></li>
+<li class="chapter" data-level="4.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#performance-measures"><i class="fa fa-check"></i><b>4.3</b> Performance Measures</a></li>
+<li class="chapter" data-level="4.4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#service-measure"><i class="fa fa-check"></i><b>4.4</b> Service Measure</a></li>
+<li class="chapter" data-level="4.5" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#level-of-service"><i class="fa fa-check"></i><b>4.5</b> Level of Service</a></li>
+<li class="chapter" data-level="4.6" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#speed-flow-relationship"><i class="fa fa-check"></i><b>4.6</b> Speed-Flow Relationship</a></li>
+<li class="chapter" data-level="4.7" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#analysis-procedure"><i class="fa fa-check"></i><b>4.7</b> Analysis Procedure</a></li>
+<li class="chapter" data-level="4.8" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#base-conditions"><i class="fa fa-check"></i><b>4.8</b> Base Conditions</a></li>
+<li class="chapter" data-level="4.9" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#free-flow-speed"><i class="fa fa-check"></i><b>4.9</b> Free-Flow Speed</a></li>
+<li class="chapter" data-level="4.10" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#estimating-ffs"><i class="fa fa-check"></i><b>4.10</b> Estimating FFS</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#lane-width-adjustment-factor"><i class="fa fa-check"></i><b>4.10.1</b> Lane Width Adjustment Factor</a></li>
+<li class="chapter" data-level="4.10.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#lateral-clearance-adj.-factor"><i class="fa fa-check"></i><b>4.10.2</b> Lateral Clearance Adj. Factor</a></li>
+<li class="chapter" data-level="4.10.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#total-ramp-density"><i class="fa fa-check"></i><b>4.10.3</b> Total Ramp Density</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#calculate-analysis-flow-rate"><i class="fa fa-check"></i><b>4.11</b> Calculate Analysis Flow Rate</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#peak-hour-factor"><i class="fa fa-check"></i><b>4.11.1</b> Peak Hour Factor</a></li>
+<li class="chapter" data-level="4.11.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#passenger-car-equivalency-pce-factor"><i class="fa fa-check"></i><b>4.11.2</b> Passenger Car Equivalency (PCE) Factor</a></li>
+<li class="chapter" data-level="4.11.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#extended-general-freeway-segments"><i class="fa fa-check"></i><b>4.11.3</b> Extended General Freeway Segments</a></li>
+<li class="chapter" data-level="4.11.4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#specific-grades"><i class="fa fa-check"></i><b>4.11.4</b> Specific Grades</a></li>
+<li class="chapter" data-level="4.11.5" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#heavy-vehicle-factor"><i class="fa fa-check"></i><b>4.11.5</b> Heavy Vehicle Factor</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#calculate-density"><i class="fa fa-check"></i><b>4.12</b> Calculate Density</a></li>
+<li class="chapter" data-level="4.13" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#service-volumesflow-rates"><i class="fa fa-check"></i><b>4.13</b> Service Volumes/Flow Rates</a></li>
+<li class="chapter" data-level="4.14" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#driver-population-adjustment"><i class="fa fa-check"></i><b>4.14</b> Driver Population Adjustment</a></li>
+<li class="chapter" data-level="4.15" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#references"><i class="fa fa-check"></i><b>4.15</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html"><i class="fa fa-check"></i><b>5</b> HCM Weaving Segment Analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#IntroWeaving"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-length"><i class="fa fa-check"></i><b>5.2</b> Weaving Segment Length</a></li>
+<li class="chapter" data-level="5.3" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-width"><i class="fa fa-check"></i><b>5.3</b> Weaving Segment Width</a></li>
+<li class="chapter" data-level="5.4" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-configuration"><i class="fa fa-check"></i><b>5.4</b> Weaving Segment Configuration</a></li>
+<li class="chapter" data-level="5.5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#analysis-procedure-1"><i class="fa fa-check"></i><b>5.5</b> Analysis Procedure</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-1"><i class="fa fa-check"></i><b>5.5.1</b> Step 1</a></li>
+<li class="chapter" data-level="5.5.2" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-2"><i class="fa fa-check"></i><b>5.5.2</b> Step 2</a></li>
+<li class="chapter" data-level="5.5.3" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-3"><i class="fa fa-check"></i><b>5.5.3</b> Step 3</a></li>
+<li class="chapter" data-level="5.5.4" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-4"><i class="fa fa-check"></i><b>5.5.4</b> Step 4</a></li>
+<li class="chapter" data-level="5.5.5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-5"><i class="fa fa-check"></i><b>5.5.5</b> Step 5</a></li>
+<li class="chapter" data-level="5.5.6" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-6"><i class="fa fa-check"></i><b>5.5.6</b> Step 6</a></li>
+<li class="chapter" data-level="5.5.7" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-7"><i class="fa fa-check"></i><b>5.5.7</b> Step 7</a></li>
+<li class="chapter" data-level="5.5.8" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-8"><i class="fa fa-check"></i><b>5.5.8</b> Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#references-1"><i class="fa fa-check"></i><b>5.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html"><i class="fa fa-check"></i><b>6</b> HCM Merge/Diverge Segments</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#IntroRampJunctionsSeg"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#on--and-off-ramp-influence-areas"><i class="fa fa-check"></i><b>6.2</b> On- and Off-ramp Influence Areas</a></li>
+<li class="chapter" data-level="6.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#acceldecel-lanes"><i class="fa fa-check"></i><b>6.3</b> Accel/Decel Lanes</a></li>
+<li class="chapter" data-level="6.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#analysis-methodology"><i class="fa fa-check"></i><b>6.4</b> Analysis Methodology</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-1-volume-conversion"><i class="fa fa-check"></i><b>6.4.1</b> Step 1: Volume Conversion</a></li>
+<li class="chapter" data-level="6.4.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12"><i class="fa fa-check"></i><b>6.4.2</b> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps"><i class="fa fa-check"></i><b>6.4.3</b> Step 2: Model Structure (On-ramps)</a></li>
+<li class="chapter" data-level="6.4.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps"><i class="fa fa-check"></i><b>6.4.4</b> Step 2: Model Structure (Off-ramps)</a></li>
+<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps</a></li>
+<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps</a></li>
+<li class="chapter" data-level="6.4.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-3-estimate-capacity-of-ramp-freeway-junction"><i class="fa fa-check"></i><b>6.4.7</b> Step 3: Estimate Capacity of Ramp-Freeway Junction</a></li>
+<li class="chapter" data-level="6.4.8" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los"><i class="fa fa-check"></i><b>6.4.8</b> Step 4: Estimate Density and Determine LOS</a></li>
+<li class="chapter" data-level="6.4.9" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-5-estimation-of-speed"><i class="fa fa-check"></i><b>6.4.9</b> Step 5: Estimation of Speed</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#variable-definitions-1"><i class="fa fa-check"></i><b>6.5</b> Variable Definitions (1)</a></li>
+<li class="chapter" data-level="6.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#variable-definitions-2"><i class="fa fa-check"></i><b>6.6</b> Variable Definitions (2)</a></li>
+<li class="chapter" data-level="6.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#references-2"><i class="fa fa-check"></i><b>6.7</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html"><i class="fa fa-check"></i><b>7</b> HCM Freeway Facility</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#HCMFreewayFacilityUndersat"><i class="fa fa-check"></i><b>7.1</b> Undersaturated Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#IntroFreewayUndersat"><i class="fa fa-check"></i><b>7.1.1</b> Overview</a></li>
+<li class="chapter" data-level="7.1.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#analysis-procedure-2"><i class="fa fa-check"></i><b>7.1.2</b> Analysis Procedure</a></li>
+<li class="chapter" data-level="7.1.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#facility-segmentation"><i class="fa fa-check"></i><b>7.1.3</b> Facility Segmentation</a></li>
+<li class="chapter" data-level="7.1.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#time-space-domain-of-freeway-facility"><i class="fa fa-check"></i><b>7.1.4</b> Time-Space Domain of Freeway Facility</a></li>
+<li class="chapter" data-level="7.1.5" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#facility-segmentation-considerations"><i class="fa fa-check"></i><b>7.1.5</b> Facility Segmentation Considerations</a></li>
+<li class="chapter" data-level="7.1.6" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#demand-flow-rates"><i class="fa fa-check"></i><b>7.1.6</b> Demand Flow Rates</a></li>
+<li class="chapter" data-level="7.1.7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#segment-capacity-estimation-and-adjustment"><i class="fa fa-check"></i><b>7.1.7</b> Segment Capacity Estimation and Adjustment</a></li>
+<li class="chapter" data-level="7.1.8" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#compute-dc-ratios"><i class="fa fa-check"></i><b>7.1.8</b> Compute d/c Ratios</a></li>
+<li class="chapter" data-level="7.1.9" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#downstream-speed-constraint"><i class="fa fa-check"></i><b>7.1.9</b> Downstream Speed Constraint</a></li>
+<li class="chapter" data-level="7.1.10" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#density-1"><i class="fa fa-check"></i><b>7.1.10</b> Density</a></li>
+<li class="chapter" data-level="7.1.11" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#los"><i class="fa fa-check"></i><b>7.1.11</b> LOS</a></li>
+<li class="chapter" data-level="7.1.12" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#other-measures-reported"><i class="fa fa-check"></i><b>7.1.12</b> Other Measures Reported</a></li>
+<li class="chapter" data-level="7.1.13" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#supporting-calculations-segment"><i class="fa fa-check"></i><b>7.1.13</b> Supporting Calculations (Segment)</a></li>
+<li class="chapter" data-level="7.1.14" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#supporting-calculations-facility"><i class="fa fa-check"></i><b>7.1.14</b> Supporting Calculations (Facility)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#HCMFreewayFacilityOversat"><i class="fa fa-check"></i><b>7.2</b> Oversaturated Analysis</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#compute-dc-ratios-1"><i class="fa fa-check"></i><b>7.2.1</b> Compute d/c Ratios</a></li>
+<li class="chapter" data-level="7.2.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#freeway-facility-oversaturated-analysis-methodology-capabilities"><i class="fa fa-check"></i><b>7.2.2</b> Freeway Facility Oversaturated Analysis Methodology Capabilities</a></li>
+<li class="chapter" data-level="7.2.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#general-limitations-of-methodology"><i class="fa fa-check"></i><b>7.2.3</b> General Limitations of Methodology</a></li>
+<li class="chapter" data-level="7.2.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#additional-considerations"><i class="fa fa-check"></i><b>7.2.4</b> Additional Considerations</a></li>
+<li class="chapter" data-level="7.2.5" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#time-space-domain"><i class="fa fa-check"></i><b>7.2.5</b> Time-Space Domain</a></li>
+<li class="chapter" data-level="7.2.6" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#key-analysis-concepts"><i class="fa fa-check"></i><b>7.2.6</b> Key Analysis Concepts</a></li>
+<li class="chapter" data-level="7.2.7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#methodology-flow-chart"><i class="fa fa-check"></i><b>7.2.7</b> Methodology Flow Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#travel-time-reliability"><i class="fa fa-check"></i><b>7.3</b> Travel Time Reliability</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#overview"><i class="fa fa-check"></i><b>7.3.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#references-3"><i class="fa fa-check"></i><b>7.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html"><i class="fa fa-check"></i><b>8</b> Managed Lanes Overview</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#high-occupancy-vehicle-hov-lanes"><i class="fa fa-check"></i><b>8.2</b> High Occupancy Vehicle (HOV) Lanes</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#what-are-hov-lanes"><i class="fa fa-check"></i><b>8.2.1</b> What are HOV Lanes?</a></li>
+<li class="chapter" data-level="8.2.2" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#why-implement-hov-lanes"><i class="fa fa-check"></i><b>8.2.2</b> Why Implement HOV Lanes?</a></li>
+<li class="chapter" data-level="8.2.3" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hov-lane-design-considerations"><i class="fa fa-check"></i><b>8.2.3</b> HOV Lane Design Considerations</a></li>
+<li class="chapter" data-level="8.2.4" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hov-lane-operation-considerations"><i class="fa fa-check"></i><b>8.2.4</b> HOV Lane Operation Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#high-occupancy-toll-hot-lanes"><i class="fa fa-check"></i><b>8.3</b> High Occupancy Toll (HOT) Lanes</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#what-are-hot-lanes"><i class="fa fa-check"></i><b>8.3.1</b> What are HOT Lanes?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#reversible-lanes"><i class="fa fa-check"></i><b>8.4</b> Reversible Lanes</a></li>
+<li class="chapter" data-level="8.5" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#other-special-lanes"><i class="fa fa-check"></i><b>8.5</b> Other Special Lanes</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#truck-lane-restrictions"><i class="fa fa-check"></i><b>8.5.1</b> Truck Lane Restrictions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hcm-analysis"><i class="fa fa-check"></i><b>8.6</b> HCM Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html"><i class="fa fa-check"></i><b>9</b> Introduction to Ramp Metering</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#what-is-ramp-metering"><i class="fa fa-check"></i><b>9.1</b> What is Ramp Metering?</a></li>
+<li class="chapter" data-level="9.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#why-meter-ramps"><i class="fa fa-check"></i><b>9.2</b> Why Meter Ramps?</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#conceptual-background-of-ramp-metering"><i class="fa fa-check"></i><b>9.2.1</b> Conceptual Background of Ramp Metering</a></li>
+<li class="chapter" data-level="9.2.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#system-benefits-of-ramp-metering"><i class="fa fa-check"></i><b>9.2.2</b> System Benefits of Ramp Metering</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#consequences-of-ramp-metering"><i class="fa fa-check"></i><b>9.3</b> Consequences of Ramp Metering</a></li>
+<li class="chapter" data-level="9.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-metering-hardwareinfrustructure"><i class="fa fa-check"></i><b>9.4</b> Ramp Metering Hardware/Infrustructure</a></li>
+<li class="chapter" data-level="9.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#example-ramp-meter-control-strategies"><i class="fa fa-check"></i><b>9.5</b> Example Ramp Meter Control Strategies</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-closure"><i class="fa fa-check"></i><b>9.5.1</b> Ramp Closure</a></li>
+<li class="chapter" data-level="9.5.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#pre-timed"><i class="fa fa-check"></i><b>9.5.2</b> Pre-Timed</a></li>
+<li class="chapter" data-level="9.5.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#traffic-responsive"><i class="fa fa-check"></i><b>9.5.3</b> Traffic Responsive</a></li>
+<li class="chapter" data-level="9.5.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#gap-acceptance"><i class="fa fa-check"></i><b>9.5.4</b> Gap Acceptance</a></li>
+<li class="chapter" data-level="9.5.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#integrated-ramp-control"><i class="fa fa-check"></i><b>9.5.5</b> Integrated Ramp Control</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#practical-considerations"><i class="fa fa-check"></i><b>9.6</b> Practical Considerations</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-queuing-storage"><i class="fa fa-check"></i><b>9.6.1</b> Ramp Queuing Storage</a></li>
+<li class="chapter" data-level="9.6.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#hov-bypass-lanes"><i class="fa fa-check"></i><b>9.6.2</b> HOV Bypass Lanes</a></li>
+<li class="chapter" data-level="9.6.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#minmax-metering-rates"><i class="fa fa-check"></i><b>9.6.3</b> Min/Max Metering Rates</a></li>
+<li class="chapter" data-level="9.6.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#violation-enforcement"><i class="fa fa-check"></i><b>9.6.4</b> Violation Enforcement</a></li>
+<li class="chapter" data-level="9.6.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#equity-issues"><i class="fa fa-check"></i><b>9.6.5</b> Equity Issues</a></li>
+<li class="chapter" data-level="9.6.6" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#detection-capabilities"><i class="fa fa-check"></i><b>9.6.6</b> Detection Capabilities</a></li>
+<li class="chapter" data-level="9.6.7" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#system-capabilities"><i class="fa fa-check"></i><b>9.6.7</b> System Capabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#utah-dot-video"><i class="fa fa-check"></i><b>9.7</b> Utah DOT video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-Simulation.html"><a href="10-Simulation.html"><i class="fa fa-check"></i><b>10</b> Introduction to Traffic Simulation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10-Simulation.html"><a href="10-Simulation.html#what-is-simulation"><i class="fa fa-check"></i><b>10.1</b> What is Simulation?</a></li>
+<li class="chapter" data-level="10.2" data-path="10-Simulation.html"><a href="10-Simulation.html#terminology"><i class="fa fa-check"></i><b>10.2</b> Terminology</a></li>
+<li class="chapter" data-level="10.3" data-path="10-Simulation.html"><a href="10-Simulation.html#why-use-simulation"><i class="fa fa-check"></i><b>10.3</b> Why use simulation?</a></li>
+<li class="chapter" data-level="10.4" data-path="10-Simulation.html"><a href="10-Simulation.html#simulation-modeling-approaches"><i class="fa fa-check"></i><b>10.4</b> Simulation Modeling Approaches</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="10-Simulation.html"><a href="10-Simulation.html#spatial-and-temporal-level-of-detail"><i class="fa fa-check"></i><b>10.4.1</b> Spatial and Temporal Level of Detail</a></li>
+<li class="chapter" data-level="10.4.2" data-path="10-Simulation.html"><a href="10-Simulation.html#stochastic"><i class="fa fa-check"></i><b>10.4.2</b> Stochastic</a></li>
+<li class="chapter" data-level="10.4.3" data-path="10-Simulation.html"><a href="10-Simulation.html#deterministic"><i class="fa fa-check"></i><b>10.4.3</b> Deterministic</a></li>
+<li class="chapter" data-level="10.4.4" data-path="10-Simulation.html"><a href="10-Simulation.html#potential-analytical-models-within-simulation-program"><i class="fa fa-check"></i><b>10.4.4</b> Potential Analytical Models within Simulation Program</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="10-Simulation.html"><a href="10-Simulation.html#considerations-for-applying-simulation"><i class="fa fa-check"></i><b>10.5</b> Considerations for applying Simulation</a></li>
+<li class="chapter" data-level="10.6" data-path="10-Simulation.html"><a href="10-Simulation.html#conceptual-differences-between-the-hcm-and-microscopic-simulation-modeling"><i class="fa fa-check"></i><b>10.6</b> Conceptual Differences between the HCM and Microscopic Simulation Modeling</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="10-Simulation.html"><a href="10-Simulation.html#introduction-5"><i class="fa fa-check"></i><b>10.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.6.2" data-path="10-Simulation.html"><a href="10-Simulation.html#capacity-hcm"><i class="fa fa-check"></i><b>10.6.2</b> Capacity (HCM)</a></li>
+<li class="chapter" data-level="10.6.3" data-path="10-Simulation.html"><a href="10-Simulation.html#capacity-simulation"><i class="fa fa-check"></i><b>10.6.3</b> Capacity (Simulation)</a></li>
+<li class="chapter" data-level="10.6.4" data-path="10-Simulation.html"><a href="10-Simulation.html#lane-distribution-hcm"><i class="fa fa-check"></i><b>10.6.4</b> Lane Distribution (HCM)</a></li>
+<li class="chapter" data-level="10.6.5" data-path="10-Simulation.html"><a href="10-Simulation.html#lane-distribution-simulation"><i class="fa fa-check"></i><b>10.6.5</b> Lane Distribution (Simulation)</a></li>
+<li class="chapter" data-level="10.6.6" data-path="10-Simulation.html"><a href="10-Simulation.html#traffic-stream-composition-hcm"><i class="fa fa-check"></i><b>10.6.6</b> Traffic Stream Composition (HCM)</a></li>
+<li class="chapter" data-level="10.6.7" data-path="10-Simulation.html"><a href="10-Simulation.html#traffic-stream-composition-simulation"><i class="fa fa-check"></i><b>10.6.7</b> Traffic Stream Composition (Simulation)</a></li>
+<li class="chapter" data-level="10.6.8" data-path="10-Simulation.html"><a href="10-Simulation.html#comparison-of-hcm-results-to-simulation-results"><i class="fa fa-check"></i><b>10.6.8</b> Comparison of HCM Results to Simulation Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="11-References.html"><a href="11-References.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/swash17/FreightCurriculum" target="blank">Freight Transportation Curriculum</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CGN 4905/TTE 6205: Freeway Operations and Simulation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fundamentals-of-uninterrupted-traffic-flow-and-queuing-theory" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Fundamentals of Uninterrupted Traffic Flow and Queuing Theory<a href="02-TrafficStreamParameters.html#fundamentals-of-uninterrupted-traffic-flow-and-queuing-theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="traffic-stream-parameters" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Traffic Stream Parameters<a href="02-TrafficStreamParameters.html#traffic-stream-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction-1" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Introduction<a href="02-TrafficStreamParameters.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Streams of traffic are comprised of individual vehicles, piloted by individual drivers, interacting with each other and the roadway environment (geometry, traffic control devices, etc.).</p>
+<p>Because each driver behaves in a unique way (i.e., has its own brain), it is not possible to describe traffic flow as theoretically concisely as other purely physical phenomena. This makes the field of traffic engineering especially challenging.</p>
+<p>Nonetheless, we still need ways to quantify traffic streams, so we can analyze and evaluate existing transportation facilities, and design improvements for those facilities.</p>
+<p>There are several parameters that we will now discuss that are used to quantitatively describe traffic streams.</p>
+</div>
+<div id="flow-classification" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Flow Classification<a href="02-TrafficStreamParameters.html#flow-classification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Two general types of flow environments:
+<ul>
+<li>Uninterrupted flow – traffic flow influenced by characteristics of roadway and interactions of vehicles within the traffic stream</li>
+<li>Interrupted Flow – traffic streams also operate under the influence of traffic control devices</li>
+</ul></li>
+</ul>
+</div>
+<div id="parameter-classification" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Parameter Classification<a href="02-TrafficStreamParameters.html#parameter-classification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Traffic stream parameters are generally classified in two categories:
+<ul>
+<li>Microscopic - refer to characteristics specific to individual pairs of vehicles within the traffic stream</li>
+<li>Macroscopic - refer to characteristics of the traffic stream as a whole. Represents an aggregation of the microscopic measures.</li>
+</ul></li>
+</ul>
+</div>
+<div id="microscopic-parameters" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Microscopic Parameters<a href="02-TrafficStreamParameters.html#microscopic-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Two commonly used microscopic parameters are:
+<ul>
+<li>Spacing – the physical distance between successive vehicles</li>
+<li>Headway – the time between successive vehicles as they pass a point on a lane or roadway
+Note that measurements should reference the same point on each vehicle (e.g., front bumper)</li>
+</ul></li>
+<li>The three main macroscopic parameters that form the underpinning of traffic analysis are:
+<ul>
+<li>Flow, <em>q</em><br />
+</li>
+<li>Speed, <em>u</em><br />
+</li>
+<li>Density, <em>k</em></li>
+</ul></li>
+</ul>
+</div>
+<div id="flow" class="section level3 hasAnchor" number="2.1.5">
+<h3><span class="header-section-number">2.1.5</span> Flow<a href="02-TrafficStreamParameters.html#flow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Traffic flow is defined as</p>
+<p><span class="math display">\[q = \frac{n}{t} \tag{Textbook Eq. 5.1}\]</span></p>
+<p>where:</p>
+<p><em>q</em> = traffic flow in vehicles per unit time,<br />
+<em>n</em> = number of vehicles passing some designated roadway point during time <em>t</em>, and<br />
+<em>t</em> = duration of time interval.</p>
+<p>The time between the passage of successive vehicles, at some designated highway point, is known as the time headway. These time headways are related to <em>t</em>, as defined in Eq. 5.1, by</p>
+<p><span class="math display">\[t = \sum_{i\ = \ 1}^{n}h_{i}\tag{Textbook Eq. 5.2}\]</span></p>
+<p>where:</p>
+<p><em>t</em> = duration of time interval,<br />
+<em>h<sub>i</sub></em> = time headway of the <em>i</em>th vehicle (the time that has transpired between the arrival of vehicle <em>i</em> and <em>i</em> -1), and<br />
+<em>n</em> = number of measured vehicle time headways at some designated roadway point.</p>
+<p>Substituting Eq. 5.2 into Eq. 5.1 gives</p>
+<p><span class="math display">\[q = \frac{n}{\sum_{i\ = \ 1}^{n}h_{i}}\tag{Textbook Eq. 5.3}\]</span></p>
+<p>or</p>
+<p><span class="math display">\[q  = \frac{1}{\overline{h}}\tag{Textbook Eq. 5.4}\]</span></p>
+<p>where:</p>
+<p><span class="math display">\[\overline{h} \text  { is the average time headway,}\]</span>
+<span class="math display">\[\frac{\sum h_{i}}{n} \text { in unit time per vehicle.}\]</span></p>
+<p>Typical volume measures:</p>
+<ul>
+<li>Daily Time Unit
+<ul>
+<li>Average Annual Daily Traffic (AADT)
+<ul>
+<li>Total daily volume passing point on roadway in both directions
+<ul>
+<li>Total yearly traffic volume divided by number of days in year<br />
+</li>
+</ul></li>
+</ul></li>
+<li>Average Annual Weekday Traffic (AAWT)<br />
+</li>
+</ul></li>
+<li>Hourly Time Unit
+<ul>
+<li>Peak Hour Volume</li>
+</ul></li>
+</ul>
+<p>Sometimes design peak hour volumes are estimated from daily volume projections, using three parameters:</p>
+<p><em>AADT</em><br />
+<em>K</em> – proportion of daily traffic occurring during the peak hour<br />
+<em>D</em> – proportion of peak-hour traffic traveling in the peak direction</p>
+<p>Typical range of <em>K</em> and <em>D</em> values:<br />
+<em>K</em>: 0.08 – 0.12<br />
+<em>D</em>: 0.52 – 0.62 (1.0 for one-way roadway)</p>
+<ul>
+<li>Directional Design Hour Volume (DDHV)
+<em>DDHV</em> = AADT × <em>K</em> × <em>D</em> (Textbook Eq. 6.25)</li>
+</ul>
+<p>Peak Hour Factor (PHF)<br />
+- typically used in traffic analysis methods of HCM</p>
+<p><span class="math display">\[PHF = \frac{V}{V_{15} \times 4}\]</span></p>
+<p><em>V</em> = hourly volume for hour of analysis,<br />
+<em>V</em><sub>15</sub> = maximum 15-min volume within hour of analysis, and<br />
+4 = number of 15-min periods per hour.</p>
+</div>
+<div id="speed" class="section level3 hasAnchor" number="2.1.6">
+<h3><span class="header-section-number">2.1.6</span> Speed<a href="02-TrafficStreamParameters.html#speed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Average traffic speed is defined in two ways:</p>
+<ul>
+<li>Time (spot) mean speed is the average speed of all vehicles passing a point on a roadway over a specified time (instantaneous point speed, as taken by a radar gun for example).</li>
+</ul>
+<p><span class="math display">\[{\bar{u}}_{t}\text{ = }\frac{\sum_{i\ = \ 1}^{n}u_{i}}{n}\tag{Textbook Eq 5.5}\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\({\bar{u}}_{t}\)</span> = time-mean speed in unit distance per unit time,<br />
+<em>u<sub>i</sub></em> = spot speed (the speed of the vehicle at the designated point on the highway, as might be obtained using a radar gun) of the <em>i</em>th vehicle, and<br />
+<em>n</em> = number of measured vehicle spot speeds.</p>
+<p>Space mean speed is the average speed of all vehicles occupying a given section of roadway over a specified time (essentially, the inverse of travel time for all vehicles over the specified section length).</p>
+<p>This second definition of speed is more useful in the context of traffic analysis and is determined on the basis of the time necessary for a vehicle to travel some known length of roadway.</p>
+<p><span class="math display">\[{\bar{u}}_{s} = \frac{l}{\bar{t}}\tag{Textbook Eq. 5.6}\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\({\bar{u}}_{s}\)</span> = space-mean speed in unit distance per unit time,<br />
+<em>l</em> = length of roadway used for travel time measurement of vehicles,<br />
+<span class="math inline">\({\bar{t}}\)</span>= average vehicle travel time, defined as</p>
+<p><span class="math display">\[\bar{t} = \frac{1}{n}\sum_{i = 1}^{n}t_{i}\tag{Textbook Eq. 5.7}\]</span></p>
+<p>where:</p>
+<p><em>t<sub>i</sub></em> = time necessary for vehicle i to travel roadway section of length <em>l</em>, and
+<em>n</em> = number of measured vehicle travel times.</p>
+<p>Substituting Eq. 5.7 into Eq. 5.6 gives</p>
+<p><span class="math display">\[{\bar{u}}_{s} = \frac{l}{\frac{1}{n}\sum_{i = 1}^{n}t_{i}}\tag{Textbook Eq. 5.8}\]</span></p>
+<p>or</p>
+<p><span class="math display">\[{\bar{u}}_{s} = \frac{1}{\frac{1}{n}\sum_{i = 1}^{n}\left\lbrack \frac{1}{\left( \frac{l}{t_{i}} \right)} \right\rbrack}\tag{Textbook Eq. 5.9}\]</span></p>
+<p>which is the harmonic mean of speed (space-mean speed). Space-mean speed is the speed parameter used in traffic models.</p>
+<ul>
+<li>Typical Speed Measures
+<ul>
+<li>Average - arithmetic mean (TMS) or harmonic mean (SMS)<br />
+</li>
+<li>85th Percentile - speed at which 85% of the vehicles are traveling at or below<br />
+</li>
+<li>Running - does not include stopped delay</li>
+</ul></li>
+</ul>
+</div>
+<div id="density" class="section level3 hasAnchor" number="2.1.7">
+<h3><span class="header-section-number">2.1.7</span> Density<a href="02-TrafficStreamParameters.html#density" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Traffic density is defined as</p>
+<p><span class="math display">\[k = \frac{n}{l}\tag{Textbook Eq. 5.10}\]</span></p>
+<p>where:</p>
+<p><em>k</em> = traffic density in vehicles per unit distance,<br />
+<em>n</em> = number of vehicles occupying some length of roadway at some specified time, and<br />
+<em>l</em> = length of roadway.</p>
+<p>The density can also be related to the individual spacing between successive vehicles. The roadway length, <em>l</em>, in Eq. 5.10 can be defined as</p>
+<p><span class="math display">\[l\ = \sum_{i\ = \ 1}^{n}s_{i}\tag{Textbook Eq. 5.11}\]</span></p>
+<p>where:</p>
+<p><em>s<sub>i</sub></em> = spacing of the <em>i</em>th vehicle (the distance between vehicle <em>i</em> and <em>i</em>-1, measured from same vehicle reference point), and<br />
+<em>n</em> = number of measured vehicle spacings.</p>
+<p>Substituting Eq. 5.11 into Eq. 5.10 gives</p>
+<p><span class="math display">\[k\ = \frac{n}{\sum_{i\ = \ 1}^{n}s_{i}}\tag{Textbook Eq. 5.12}\]</span></p>
+<p><span class="math display">\[k\ = \frac{1}{\bar{s}}\tag{Textbook Eq. 5.13}\]</span></p>
+<p>where:</p>
+<p><span class="math display">\[\overline{s} \text  { is the average vehicle spacing,}\]</span>
+<span class="math display">\[\frac{\sum s_{i}}{n} \text { in unit distance per vehicle.}\]</span></p>
+</div>
+<div id="variable-relationships" class="section level3 hasAnchor" number="2.1.8">
+<h3><span class="header-section-number">2.1.8</span> Variable Relationships<a href="02-TrafficStreamParameters.html#variable-relationships" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Based on the definitions presented above, a simple identity provides the basic relationship among traffic flow, speed (space-mean speed), and density (denoting space-mean speed, <span class="math inline">\({\bar{u}}_{s}\)</span>, as simply <em>u</em> for notational convenience),<br />
+<span class="math display">\[q = u \times k\tag{Textbook Eq. 5.14}\]</span></p>
+<p>where:<br />
+<em>q</em> = flow, typically in units of vehicles per hour (veh/h),<br />
+<em>u</em> = speed (space mean speed), typically in units of mi/h, and<br />
+<em>k</em> = density, typically in units of veh/mi.</p>
+</div>
+<div id="basic-traffic-stream-models-speed-vs.-density" class="section level3 hasAnchor" number="2.1.9">
+<h3><span class="header-section-number">2.1.9</span> Basic Traffic Stream Models: Speed vs. Density<a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-density" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[u = u_{f}\left(1 - \frac{k}{k_{j}} \right)\tag{Textbook Eq. 5.15}\]</span></p>
+<p>where:</p>
+<p><em>u</em> = space-mean speed in mi/h,<br />
+<em>u<sub>f</sub></em> = free-flow speed in mi/h,<br />
+<em>k</em> = density in veh/mi, and
+<em>k<sub>j</sub></em> = jam density in veh/mi.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SpeedDensityImage"></span>
+<img src="Images/TrafficStreamParms/SpeedDensity.png" alt="Speed-Density relationship (source: Textbook Fig. 5.1)"  />
+<p class="caption">
+Figure 2.1: Speed-Density relationship (source: Textbook Fig. 5.1)
+</p>
+</div>
+</div>
+<div id="basic-traffic-stream-models-flow-vs.-density" class="section level3 hasAnchor" number="2.1.10">
+<h3><span class="header-section-number">2.1.10</span> Basic Traffic Stream Models: Flow vs. Density<a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-density" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[q = u_{f}\left(k - \frac{k^{2}}{k_{j}} \right)\tag{Textbook Eq. 5.16}\]</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:FlowDensityImage"></span>
+<img src="Images/TrafficStreamParms/FlowDensity.png" alt="Flow-Density relationship (source: Textbook Fig. 5.2)"  />
+<p class="caption">
+Figure 2.2: Flow-Density relationship (source: Textbook Fig. 5.2)
+</p>
+</div>
+</div>
+<div id="basic-traffic-stream-models-speed-vs.-flow" class="section level3 hasAnchor" number="2.1.11">
+<h3><span class="header-section-number">2.1.11</span> Basic Traffic Stream Models: Speed vs. Flow<a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-flow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[q = k_{j}\left(u - \frac{u^{2}}{u_{f}} \right)\tag{Textbook Eq. 5.22}\]</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SpeedFlowImage"></span>
+<img src="Images/TrafficStreamParms/SpeedFlow.png" alt="Speed-Flow relationship (source: Textbook Fig. 5.3)"  />
+<p class="caption">
+Figure 2.3: Speed-Flow relationship (source: Textbook Fig. 5.3)
+</p>
+</div>
+</div>
+<div id="basic-traffic-stream-models-flow-vs.-speed-vs.-density" class="section level3 hasAnchor" number="2.1.12">
+<h3><span class="header-section-number">2.1.12</span> Basic Traffic Stream Models: Flow vs. Speed vs. Density<a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-speed-vs.-density" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SpeedFlowDensityImage"></span>
+<img src="Images/TrafficStreamParms/SpeedFlowDensity.png" alt="Speed-Flow-Density relationship (source: Textbook Fig. 5.4)"  />
+<p class="caption">
+Figure 2.4: Speed-Flow-Density relationship (source: Textbook Fig. 5.4)
+</p>
+</div>
+</div>
+</div>
+<div id="models-of-traffic-flow" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Models of Traffic Flow<a href="02-TrafficStreamParameters.html#models-of-traffic-flow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction-2" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Introduction<a href="02-TrafficStreamParameters.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Macroscopic relationships and analyses are very valuable, but<br />
+</li>
+<li>A considerable amount of traffic analysis occurs at the microscopic level<br />
+</li>
+<li>In particular, we often are interested in the elapsed time between the arrival of successive vehicles (i.e., time headway)
+<ul>
+<li>Essential to queuing analysis</li>
+</ul></li>
+</ul>
+</div>
+<div id="arrival-patterns" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Arrival Patterns<a href="02-TrafficStreamParameters.html#arrival-patterns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Deterministic
+<ul>
+<li>Uniform</li>
+<li>Time-varying</li>
+</ul></li>
+<li>Random
+<ul>
+<li>Poisson</li>
+<li>Normal</li>
+</ul></li>
+</ul>
+</div>
+<div id="uniform" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Uniform<a href="02-TrafficStreamParameters.html#uniform" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>The simplest approach to modeling vehicle arrivals is to assume a uniform spacing<br />
+</li>
+<li>This results in a deterministic, uniform arrival pattern—in other words, there is a constant time headway between all vehicles<br />
+</li>
+<li>However, this assumption is usually unrealistic, as vehicle arrivals often follow a stochastic process<br />
+</li>
+<li>Thus, a model that represents a random arrival process is usually needed</li>
+</ul>
+</div>
+<div id="poisson" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Poisson<a href="02-TrafficStreamParameters.html#poisson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Discrete distribution<br />
+</li>
+<li>Commonly referred to as ‘counting distribution’<br />
+</li>
+<li>Represents the count distribution of random events</li>
+</ul>
+<p>For a sequence of events to be considered truly random, two conditions must be met:</p>
+<ul>
+<li>Any point in time is as likely as any other for an event to occur (e.g., vehicle arrival)<br />
+</li>
+<li>The occurrence of an event does not affect the probability of the occurrence of another event (e.g., the arrival of one vehicle at a point in time does not affect the arrival time of any other vehicle)</li>
+</ul>
+<p>The p.m.f. equation for the Poisson distribution is:</p>
+<p><span class="math display">\[P(n) = \frac{\left({\lambda t} \right)^{n}e^{-{\lambda t}}}{n!}\tag{Textbook Eq. 5.23}\]</span></p>
+<p><em>p</em>(<em>n</em>) = probability of exactly <em>n</em> vehicles arriving in a time interval <em>t</em><br />
+<em>n</em> = # of vehicles arriving in a specific time interval<br />
+<em>λ</em> = average rate of arrival (veh/unit time)<br />
+<em>t</em> = selected time interval (duration of each counting period (unit time))</p>
+<p>The p.m.f. is also commonly expressed as:</p>
+<p><span class="math display">\[P(n) = \frac{\left({m} \right)^{n}e^{-{m}}}{n!}\]</span></p>
+<p><em>p</em>(<em>n</em>) = probability of exactly <em>n</em> vehicles arriving in a time interval <em>t</em><br />
+<em>n</em> = number of vehicles arriving in a specific time interval<br />
+<em>m</em> = average number of occurrences during a specific time period <em>t</em> (i.e., <em>m</em> = <em>λt</em>)</p>
+</div>
+<div id="negative-exponential" class="section level3 hasAnchor" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Negative Exponential<a href="02-TrafficStreamParameters.html#negative-exponential" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The assumption of Poisson distributed vehicle arrivals also implies a distribution of the time intervals between the arrivals of successive vehicles (i.e., time headway).</p>
+<p>To demonstrate this, let the average arrival rate, <em>λ</em>, be in units of vehicles per second, so that</p>
+<p><span class="math display">\[\lambda\ = \frac{q}{3600}\frac{\text{veh/h}}{\text {s/h}}=\frac{\text{veh}}{\text{s}}\tag{Textbook Eq. 5.24}\]</span></p>
+<p>Substituting into the Poisson equation yields</p>
+<p><span class="math display">\[P\left( n \right)\ = \frac{\left( \frac{{qt}}{3600} \right)^{n} \times e^{- \frac{{qt}}{3600}}}{n!}\tag{Textbook Eq. 5.25}\]</span></p>
+<p>Note that the probability of having no vehicles arrive in a time interval of length <em>t</em> (<em>P</em>(0)) is the equivalent of the probability of a vehicle headway, <em>h</em>, being greater than or equal to the time interval <em>t</em>.</p>
+<p>So from the previous equation,</p>
+<p><span class="math display">\[P\left(0 \right)\ = P\left( h \geq t \right)\tag{Textbook Eq. 5.26}\]</span></p>
+<p><span class="math display">\[\frac{(1)e^{\frac{-qt}{3600}}}{1} = e^{\frac{-qt}{3600}}\]</span></p>
+<p>Note: <em>x</em><sup>0</sup> = 1, 0! = 1</p>
+<p>This distribution of vehicle headways is known as the negative exponential distribution.</p>
+</div>
+</div>
+<div id="freeway-queuing" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Freeway Queuing<a href="02-TrafficStreamParameters.html#freeway-queuing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction-3" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Introduction<a href="02-TrafficStreamParameters.html#introduction-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The purpose of traffic queuing models is to provide a means to estimate important measures of freeway performance, including vehicle delay and traffic queue lengths. Such estimates are critical to roadway design (the required length of left-turn bays and the number of lanes at intersections) and traffic operations control, including the timing of traffic signals at intersections.</p>
+<p>Queuing models are often identified by three alphanumeric values. The first value indicates the arrival rate assumption, the second value gives the departure rate assumption, and the third value indicates the number of departure channels. For traffic arrival and departure assumptions, the uniform, deterministic distribution is denoted D and the stochastic, exponential distribution is denoted M. Thus a D/D/1 queuing model assumes deterministic arrivals and departures with one departure channel. Similarly, an M/D/1 queuing model assumes exponentially distributed arrival times, deterministic departure times, and one departure channel.</p>
+<p>The case of deterministic arrivals and departures with one departure channel (D/D/1 queue) is an excellent starting point in understanding queuing models because of its simplicity. The D/D/1 queue lends itself to an intuitive graphical or mathematical solution, which will be illustrated by an in-class example.</p>
+</div>
+<div id="traffic-analysis-at-freeway-bottlenecks" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Traffic Analysis at Freeway Bottlenecks<a href="02-TrafficStreamParameters.html#traffic-analysis-at-freeway-bottlenecks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Some of the most severe congestion problems occur at freeway bottlenecks, which are defined as a portion of freeway with a lower capacity (<em>q<sub>cap</sub></em>) than the incoming section of freeway. This reduction in capacity can originate from a number of sources, including a decrease in the number of freeway lanes and reduced shoulder widths (which tend to cause drivers to slow and thus effectively reduce freeway capacity).</p>
+<p>There are two general types of traffic bottlenecks—those that are recurring and those that are incident induced. Recurring bottlenecks exist where the freeway itself limits capacity—for example, by a physical reduction in the number of lanes. Traffic congestion at such bottlenecks results from recurring traffic flows that exceed the vehicle capacity of the freeway in the bottleneck area. In contrast, incident-induced bottlenecks occur as a result of vehicle breakdowns or accidents that effectively reduce freeway capacity by restricting the through movement of traffic. Because incident-induced bottlenecks are unanticipated and temporary in nature, they have features that distinguish them from recurring bottlenecks, such as the possibility that the capacity resulting from an incident-induced bottleneck may change over time. For example, an accident may initially stop traffic flow completely, but as the wreckage is cleared, partial capacity (one lane open) may be provided for a period of time before full capacity is eventually restored. A feature shared by recurring and incident-induced bottlenecks is the adjustment in traffic flow that may occur as travelers choose other routes and/or different trip departure times, to avoid the bottleneck area, in response to visual information or traffic advisories.</p>
+<p>The most intuitive approach to analyzing traffic congestion at bottlenecks is to assume D/D/1 queuing, which will be illustrated by an in-class example.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="03-HCM_Overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/swash17/FreightCurriculum/edit/main/02-TrafficStreamParameters.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["FreewaysOperationsSimulation.pdf", "FreewaysOperationsSimulation.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

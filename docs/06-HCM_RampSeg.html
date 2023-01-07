@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 HCM Merge/Diverge Segments | CGN 4905/TTE 6205: Freeway Operations and Simulation</title>
+  <meta name="description" content="eBook for Freeway Operations and Simulation course" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 HCM Merge/Diverge Segments | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="eBook for Freeway Operations and Simulation course" />
+  <meta name="github-repo" content="swash17/FreewayOpsSim" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 HCM Merge/Diverge Segments | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
+  
+  <meta name="twitter:description" content="eBook for Freeway Operations and Simulation course" />
+  
+
+<meta name="author" content="Dr. Scott S. Washburn" />
+<meta name="author" content="Civil and Coastal Engineering" />
+<meta name="author" content="University of Florida" />
+<meta name="author" content="https://swash.essie.ufl.edu" />
+
+
+<meta name="date" content="2023-01-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="05-HCM_WeavingSeg.html"/>
+<link rel="next" href="07-HCM_FwyFacility.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Freeway Operations and Simulation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html"><i class="fa fa-check"></i><b>2</b> Fundamentals of Uninterrupted Traffic Flow and Queuing Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#traffic-stream-parameters"><i class="fa fa-check"></i><b>2.1</b> Traffic Stream Parameters</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-1"><i class="fa fa-check"></i><b>2.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.1.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#flow-classification"><i class="fa fa-check"></i><b>2.1.2</b> Flow Classification</a></li>
+<li class="chapter" data-level="2.1.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#parameter-classification"><i class="fa fa-check"></i><b>2.1.3</b> Parameter Classification</a></li>
+<li class="chapter" data-level="2.1.4" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#microscopic-parameters"><i class="fa fa-check"></i><b>2.1.4</b> Microscopic Parameters</a></li>
+<li class="chapter" data-level="2.1.5" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#flow"><i class="fa fa-check"></i><b>2.1.5</b> Flow</a></li>
+<li class="chapter" data-level="2.1.6" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#speed"><i class="fa fa-check"></i><b>2.1.6</b> Speed</a></li>
+<li class="chapter" data-level="2.1.7" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#density"><i class="fa fa-check"></i><b>2.1.7</b> Density</a></li>
+<li class="chapter" data-level="2.1.8" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#variable-relationships"><i class="fa fa-check"></i><b>2.1.8</b> Variable Relationships</a></li>
+<li class="chapter" data-level="2.1.9" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-density"><i class="fa fa-check"></i><b>2.1.9</b> Basic Traffic Stream Models: Speed vs. Density</a></li>
+<li class="chapter" data-level="2.1.10" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-density"><i class="fa fa-check"></i><b>2.1.10</b> Basic Traffic Stream Models: Flow vs. Density</a></li>
+<li class="chapter" data-level="2.1.11" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-speed-vs.-flow"><i class="fa fa-check"></i><b>2.1.11</b> Basic Traffic Stream Models: Speed vs. Flow</a></li>
+<li class="chapter" data-level="2.1.12" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#basic-traffic-stream-models-flow-vs.-speed-vs.-density"><i class="fa fa-check"></i><b>2.1.12</b> Basic Traffic Stream Models: Flow vs. Speed vs. Density</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#models-of-traffic-flow"><i class="fa fa-check"></i><b>2.2</b> Models of Traffic Flow</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-2"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#arrival-patterns"><i class="fa fa-check"></i><b>2.2.2</b> Arrival Patterns</a></li>
+<li class="chapter" data-level="2.2.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#uniform"><i class="fa fa-check"></i><b>2.2.3</b> Uniform</a></li>
+<li class="chapter" data-level="2.2.4" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#poisson"><i class="fa fa-check"></i><b>2.2.4</b> Poisson</a></li>
+<li class="chapter" data-level="2.2.5" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#negative-exponential"><i class="fa fa-check"></i><b>2.2.5</b> Negative Exponential</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#freeway-queuing"><i class="fa fa-check"></i><b>2.3</b> Freeway Queuing</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#introduction-3"><i class="fa fa-check"></i><b>2.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.3.2" data-path="02-TrafficStreamParameters.html"><a href="02-TrafficStreamParameters.html#traffic-analysis-at-freeway-bottlenecks"><i class="fa fa-check"></i><b>2.3.2</b> Traffic Analysis at Freeway Bottlenecks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html"><i class="fa fa-check"></i><b>3</b> Highway Capacity Manual Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#what-is-the-highway-capacity-manual"><i class="fa fa-check"></i><b>3.1</b> What is the Highway Capacity Manual?</a></li>
+<li class="chapter" data-level="3.2" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#purpose-and-objectives"><i class="fa fa-check"></i><b>3.2</b> Purpose and Objectives</a></li>
+<li class="chapter" data-level="3.3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#intended-use"><i class="fa fa-check"></i><b>3.3</b> Intended Use</a></li>
+<li class="chapter" data-level="3.4" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#target-users"><i class="fa fa-check"></i><b>3.4</b> Target Users</a></li>
+<li class="chapter" data-level="3.5" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#versions-of-the-hcm"><i class="fa fa-check"></i><b>3.5</b> Versions of the HCM</a></li>
+<li class="chapter" data-level="3.6" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#who-oversees-development-and-maintenance-of-the-hcm"><i class="fa fa-check"></i><b>3.6</b> Who Oversees Development and Maintenance of the HCM?</a></li>
+<li class="chapter" data-level="3.7" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#hcm-6th-edition-revisions"><i class="fa fa-check"></i><b>3.7</b> HCM 6th Edition Revisions</a></li>
+<li class="chapter" data-level="3.8" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#structure-of-the-hcm"><i class="fa fa-check"></i><b>3.8</b> Structure of the HCM</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-1---concepts"><i class="fa fa-check"></i><b>3.8.1</b> Volume 1 - Concepts</a></li>
+<li class="chapter" data-level="3.8.2" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-2-uninterrupted-flow"><i class="fa fa-check"></i><b>3.8.2</b> Volume 2 – Uninterrupted Flow</a></li>
+<li class="chapter" data-level="3.8.3" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-3-interrupted-flow"><i class="fa fa-check"></i><b>3.8.3</b> Volume 3 – Interrupted Flow</a></li>
+<li class="chapter" data-level="3.8.4" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#volume-4-online-concepts-supplemental"><i class="fa fa-check"></i><b>3.8.4</b> Volume 4 (Online) – Concepts Supplemental</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#future-updates"><i class="fa fa-check"></i><b>3.9</b> Future Updates</a></li>
+<li class="chapter" data-level="3.10" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#software"><i class="fa fa-check"></i><b>3.10</b> Software</a></li>
+<li class="chapter" data-level="3.11" data-path="03-HCM_Overview.html"><a href="03-HCM_Overview.html#resources"><i class="fa fa-check"></i><b>3.11</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html"><i class="fa fa-check"></i><b>4</b> HCM Basic Freeway Segments</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#IntroBasicFreewaySeg"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#BasicFwySegImage"><i class="fa fa-check"></i><b>4.2</b> Basic Freeway Segment</a></li>
+<li class="chapter" data-level="4.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#performance-measures"><i class="fa fa-check"></i><b>4.3</b> Performance Measures</a></li>
+<li class="chapter" data-level="4.4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#service-measure"><i class="fa fa-check"></i><b>4.4</b> Service Measure</a></li>
+<li class="chapter" data-level="4.5" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#level-of-service"><i class="fa fa-check"></i><b>4.5</b> Level of Service</a></li>
+<li class="chapter" data-level="4.6" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#speed-flow-relationship"><i class="fa fa-check"></i><b>4.6</b> Speed-Flow Relationship</a></li>
+<li class="chapter" data-level="4.7" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#analysis-procedure"><i class="fa fa-check"></i><b>4.7</b> Analysis Procedure</a></li>
+<li class="chapter" data-level="4.8" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#base-conditions"><i class="fa fa-check"></i><b>4.8</b> Base Conditions</a></li>
+<li class="chapter" data-level="4.9" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#free-flow-speed"><i class="fa fa-check"></i><b>4.9</b> Free-Flow Speed</a></li>
+<li class="chapter" data-level="4.10" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#estimating-ffs"><i class="fa fa-check"></i><b>4.10</b> Estimating FFS</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#lane-width-adjustment-factor"><i class="fa fa-check"></i><b>4.10.1</b> Lane Width Adjustment Factor</a></li>
+<li class="chapter" data-level="4.10.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#lateral-clearance-adj.-factor"><i class="fa fa-check"></i><b>4.10.2</b> Lateral Clearance Adj. Factor</a></li>
+<li class="chapter" data-level="4.10.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#total-ramp-density"><i class="fa fa-check"></i><b>4.10.3</b> Total Ramp Density</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#calculate-analysis-flow-rate"><i class="fa fa-check"></i><b>4.11</b> Calculate Analysis Flow Rate</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#peak-hour-factor"><i class="fa fa-check"></i><b>4.11.1</b> Peak Hour Factor</a></li>
+<li class="chapter" data-level="4.11.2" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#passenger-car-equivalency-pce-factor"><i class="fa fa-check"></i><b>4.11.2</b> Passenger Car Equivalency (PCE) Factor</a></li>
+<li class="chapter" data-level="4.11.3" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#extended-general-freeway-segments"><i class="fa fa-check"></i><b>4.11.3</b> Extended General Freeway Segments</a></li>
+<li class="chapter" data-level="4.11.4" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#specific-grades"><i class="fa fa-check"></i><b>4.11.4</b> Specific Grades</a></li>
+<li class="chapter" data-level="4.11.5" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#heavy-vehicle-factor"><i class="fa fa-check"></i><b>4.11.5</b> Heavy Vehicle Factor</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#calculate-density"><i class="fa fa-check"></i><b>4.12</b> Calculate Density</a></li>
+<li class="chapter" data-level="4.13" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#service-volumesflow-rates"><i class="fa fa-check"></i><b>4.13</b> Service Volumes/Flow Rates</a></li>
+<li class="chapter" data-level="4.14" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#driver-population-adjustment"><i class="fa fa-check"></i><b>4.14</b> Driver Population Adjustment</a></li>
+<li class="chapter" data-level="4.15" data-path="04-HCM_BasicFwySeg.html"><a href="04-HCM_BasicFwySeg.html#references"><i class="fa fa-check"></i><b>4.15</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html"><i class="fa fa-check"></i><b>5</b> HCM Weaving Segment Analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#IntroWeaving"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-length"><i class="fa fa-check"></i><b>5.2</b> Weaving Segment Length</a></li>
+<li class="chapter" data-level="5.3" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-width"><i class="fa fa-check"></i><b>5.3</b> Weaving Segment Width</a></li>
+<li class="chapter" data-level="5.4" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#weaving-segment-configuration"><i class="fa fa-check"></i><b>5.4</b> Weaving Segment Configuration</a></li>
+<li class="chapter" data-level="5.5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#analysis-procedure-1"><i class="fa fa-check"></i><b>5.5</b> Analysis Procedure</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-1"><i class="fa fa-check"></i><b>5.5.1</b> Step 1</a></li>
+<li class="chapter" data-level="5.5.2" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-2"><i class="fa fa-check"></i><b>5.5.2</b> Step 2</a></li>
+<li class="chapter" data-level="5.5.3" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-3"><i class="fa fa-check"></i><b>5.5.3</b> Step 3</a></li>
+<li class="chapter" data-level="5.5.4" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-4"><i class="fa fa-check"></i><b>5.5.4</b> Step 4</a></li>
+<li class="chapter" data-level="5.5.5" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-5"><i class="fa fa-check"></i><b>5.5.5</b> Step 5</a></li>
+<li class="chapter" data-level="5.5.6" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-6"><i class="fa fa-check"></i><b>5.5.6</b> Step 6</a></li>
+<li class="chapter" data-level="5.5.7" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-7"><i class="fa fa-check"></i><b>5.5.7</b> Step 7</a></li>
+<li class="chapter" data-level="5.5.8" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#step-8"><i class="fa fa-check"></i><b>5.5.8</b> Step 8</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="05-HCM_WeavingSeg.html"><a href="05-HCM_WeavingSeg.html#references-1"><i class="fa fa-check"></i><b>5.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html"><i class="fa fa-check"></i><b>6</b> HCM Merge/Diverge Segments</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#IntroRampJunctionsSeg"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#on--and-off-ramp-influence-areas"><i class="fa fa-check"></i><b>6.2</b> On- and Off-ramp Influence Areas</a></li>
+<li class="chapter" data-level="6.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#acceldecel-lanes"><i class="fa fa-check"></i><b>6.3</b> Accel/Decel Lanes</a></li>
+<li class="chapter" data-level="6.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#analysis-methodology"><i class="fa fa-check"></i><b>6.4</b> Analysis Methodology</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-1-volume-conversion"><i class="fa fa-check"></i><b>6.4.1</b> Step 1: Volume Conversion</a></li>
+<li class="chapter" data-level="6.4.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12"><i class="fa fa-check"></i><b>6.4.2</b> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps"><i class="fa fa-check"></i><b>6.4.3</b> Step 2: Model Structure (On-ramps)</a></li>
+<li class="chapter" data-level="6.4.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps"><i class="fa fa-check"></i><b>6.4.4</b> Step 2: Model Structure (Off-ramps)</a></li>
+<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps</a></li>
+<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps</a></li>
+<li class="chapter" data-level="6.4.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-3-estimate-capacity-of-ramp-freeway-junction"><i class="fa fa-check"></i><b>6.4.7</b> Step 3: Estimate Capacity of Ramp-Freeway Junction</a></li>
+<li class="chapter" data-level="6.4.8" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los"><i class="fa fa-check"></i><b>6.4.8</b> Step 4: Estimate Density and Determine LOS</a></li>
+<li class="chapter" data-level="6.4.9" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-5-estimation-of-speed"><i class="fa fa-check"></i><b>6.4.9</b> Step 5: Estimation of Speed</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#variable-definitions-1"><i class="fa fa-check"></i><b>6.5</b> Variable Definitions (1)</a></li>
+<li class="chapter" data-level="6.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#variable-definitions-2"><i class="fa fa-check"></i><b>6.6</b> Variable Definitions (2)</a></li>
+<li class="chapter" data-level="6.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#references-2"><i class="fa fa-check"></i><b>6.7</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html"><i class="fa fa-check"></i><b>7</b> HCM Freeway Facility</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#HCMFreewayFacilityUndersat"><i class="fa fa-check"></i><b>7.1</b> Undersaturated Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#IntroFreewayUndersat"><i class="fa fa-check"></i><b>7.1.1</b> Overview</a></li>
+<li class="chapter" data-level="7.1.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#analysis-procedure-2"><i class="fa fa-check"></i><b>7.1.2</b> Analysis Procedure</a></li>
+<li class="chapter" data-level="7.1.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#facility-segmentation"><i class="fa fa-check"></i><b>7.1.3</b> Facility Segmentation</a></li>
+<li class="chapter" data-level="7.1.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#time-space-domain-of-freeway-facility"><i class="fa fa-check"></i><b>7.1.4</b> Time-Space Domain of Freeway Facility</a></li>
+<li class="chapter" data-level="7.1.5" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#facility-segmentation-considerations"><i class="fa fa-check"></i><b>7.1.5</b> Facility Segmentation Considerations</a></li>
+<li class="chapter" data-level="7.1.6" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#demand-flow-rates"><i class="fa fa-check"></i><b>7.1.6</b> Demand Flow Rates</a></li>
+<li class="chapter" data-level="7.1.7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#segment-capacity-estimation-and-adjustment"><i class="fa fa-check"></i><b>7.1.7</b> Segment Capacity Estimation and Adjustment</a></li>
+<li class="chapter" data-level="7.1.8" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#compute-dc-ratios"><i class="fa fa-check"></i><b>7.1.8</b> Compute d/c Ratios</a></li>
+<li class="chapter" data-level="7.1.9" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#downstream-speed-constraint"><i class="fa fa-check"></i><b>7.1.9</b> Downstream Speed Constraint</a></li>
+<li class="chapter" data-level="7.1.10" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#density-1"><i class="fa fa-check"></i><b>7.1.10</b> Density</a></li>
+<li class="chapter" data-level="7.1.11" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#los"><i class="fa fa-check"></i><b>7.1.11</b> LOS</a></li>
+<li class="chapter" data-level="7.1.12" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#other-measures-reported"><i class="fa fa-check"></i><b>7.1.12</b> Other Measures Reported</a></li>
+<li class="chapter" data-level="7.1.13" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#supporting-calculations-segment"><i class="fa fa-check"></i><b>7.1.13</b> Supporting Calculations (Segment)</a></li>
+<li class="chapter" data-level="7.1.14" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#supporting-calculations-facility"><i class="fa fa-check"></i><b>7.1.14</b> Supporting Calculations (Facility)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#HCMFreewayFacilityOversat"><i class="fa fa-check"></i><b>7.2</b> Oversaturated Analysis</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#compute-dc-ratios-1"><i class="fa fa-check"></i><b>7.2.1</b> Compute d/c Ratios</a></li>
+<li class="chapter" data-level="7.2.2" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#freeway-facility-oversaturated-analysis-methodology-capabilities"><i class="fa fa-check"></i><b>7.2.2</b> Freeway Facility Oversaturated Analysis Methodology Capabilities</a></li>
+<li class="chapter" data-level="7.2.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#general-limitations-of-methodology"><i class="fa fa-check"></i><b>7.2.3</b> General Limitations of Methodology</a></li>
+<li class="chapter" data-level="7.2.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#additional-considerations"><i class="fa fa-check"></i><b>7.2.4</b> Additional Considerations</a></li>
+<li class="chapter" data-level="7.2.5" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#time-space-domain"><i class="fa fa-check"></i><b>7.2.5</b> Time-Space Domain</a></li>
+<li class="chapter" data-level="7.2.6" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#key-analysis-concepts"><i class="fa fa-check"></i><b>7.2.6</b> Key Analysis Concepts</a></li>
+<li class="chapter" data-level="7.2.7" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#methodology-flow-chart"><i class="fa fa-check"></i><b>7.2.7</b> Methodology Flow Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#travel-time-reliability"><i class="fa fa-check"></i><b>7.3</b> Travel Time Reliability</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#overview"><i class="fa fa-check"></i><b>7.3.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="07-HCM_FwyFacility.html"><a href="07-HCM_FwyFacility.html#references-3"><i class="fa fa-check"></i><b>7.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html"><i class="fa fa-check"></i><b>8</b> Managed Lanes Overview</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#high-occupancy-vehicle-hov-lanes"><i class="fa fa-check"></i><b>8.2</b> High Occupancy Vehicle (HOV) Lanes</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#what-are-hov-lanes"><i class="fa fa-check"></i><b>8.2.1</b> What are HOV Lanes?</a></li>
+<li class="chapter" data-level="8.2.2" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#why-implement-hov-lanes"><i class="fa fa-check"></i><b>8.2.2</b> Why Implement HOV Lanes?</a></li>
+<li class="chapter" data-level="8.2.3" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hov-lane-design-considerations"><i class="fa fa-check"></i><b>8.2.3</b> HOV Lane Design Considerations</a></li>
+<li class="chapter" data-level="8.2.4" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hov-lane-operation-considerations"><i class="fa fa-check"></i><b>8.2.4</b> HOV Lane Operation Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#high-occupancy-toll-hot-lanes"><i class="fa fa-check"></i><b>8.3</b> High Occupancy Toll (HOT) Lanes</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#what-are-hot-lanes"><i class="fa fa-check"></i><b>8.3.1</b> What are HOT Lanes?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#reversible-lanes"><i class="fa fa-check"></i><b>8.4</b> Reversible Lanes</a></li>
+<li class="chapter" data-level="8.5" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#other-special-lanes"><i class="fa fa-check"></i><b>8.5</b> Other Special Lanes</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#truck-lane-restrictions"><i class="fa fa-check"></i><b>8.5.1</b> Truck Lane Restrictions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="08-ManagedLanes.html"><a href="08-ManagedLanes.html#hcm-analysis"><i class="fa fa-check"></i><b>8.6</b> HCM Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html"><i class="fa fa-check"></i><b>9</b> Introduction to Ramp Metering</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#what-is-ramp-metering"><i class="fa fa-check"></i><b>9.1</b> What is Ramp Metering?</a></li>
+<li class="chapter" data-level="9.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#why-meter-ramps"><i class="fa fa-check"></i><b>9.2</b> Why Meter Ramps?</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#conceptual-background-of-ramp-metering"><i class="fa fa-check"></i><b>9.2.1</b> Conceptual Background of Ramp Metering</a></li>
+<li class="chapter" data-level="9.2.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#system-benefits-of-ramp-metering"><i class="fa fa-check"></i><b>9.2.2</b> System Benefits of Ramp Metering</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#consequences-of-ramp-metering"><i class="fa fa-check"></i><b>9.3</b> Consequences of Ramp Metering</a></li>
+<li class="chapter" data-level="9.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-metering-hardwareinfrustructure"><i class="fa fa-check"></i><b>9.4</b> Ramp Metering Hardware/Infrustructure</a></li>
+<li class="chapter" data-level="9.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#example-ramp-meter-control-strategies"><i class="fa fa-check"></i><b>9.5</b> Example Ramp Meter Control Strategies</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-closure"><i class="fa fa-check"></i><b>9.5.1</b> Ramp Closure</a></li>
+<li class="chapter" data-level="9.5.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#pre-timed"><i class="fa fa-check"></i><b>9.5.2</b> Pre-Timed</a></li>
+<li class="chapter" data-level="9.5.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#traffic-responsive"><i class="fa fa-check"></i><b>9.5.3</b> Traffic Responsive</a></li>
+<li class="chapter" data-level="9.5.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#gap-acceptance"><i class="fa fa-check"></i><b>9.5.4</b> Gap Acceptance</a></li>
+<li class="chapter" data-level="9.5.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#integrated-ramp-control"><i class="fa fa-check"></i><b>9.5.5</b> Integrated Ramp Control</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#practical-considerations"><i class="fa fa-check"></i><b>9.6</b> Practical Considerations</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#ramp-queuing-storage"><i class="fa fa-check"></i><b>9.6.1</b> Ramp Queuing Storage</a></li>
+<li class="chapter" data-level="9.6.2" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#hov-bypass-lanes"><i class="fa fa-check"></i><b>9.6.2</b> HOV Bypass Lanes</a></li>
+<li class="chapter" data-level="9.6.3" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#minmax-metering-rates"><i class="fa fa-check"></i><b>9.6.3</b> Min/Max Metering Rates</a></li>
+<li class="chapter" data-level="9.6.4" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#violation-enforcement"><i class="fa fa-check"></i><b>9.6.4</b> Violation Enforcement</a></li>
+<li class="chapter" data-level="9.6.5" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#equity-issues"><i class="fa fa-check"></i><b>9.6.5</b> Equity Issues</a></li>
+<li class="chapter" data-level="9.6.6" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#detection-capabilities"><i class="fa fa-check"></i><b>9.6.6</b> Detection Capabilities</a></li>
+<li class="chapter" data-level="9.6.7" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#system-capabilities"><i class="fa fa-check"></i><b>9.6.7</b> System Capabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="09-Ramp_Metering.html"><a href="09-Ramp_Metering.html#utah-dot-video"><i class="fa fa-check"></i><b>9.7</b> Utah DOT video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-Simulation.html"><a href="10-Simulation.html"><i class="fa fa-check"></i><b>10</b> Introduction to Traffic Simulation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10-Simulation.html"><a href="10-Simulation.html#what-is-simulation"><i class="fa fa-check"></i><b>10.1</b> What is Simulation?</a></li>
+<li class="chapter" data-level="10.2" data-path="10-Simulation.html"><a href="10-Simulation.html#terminology"><i class="fa fa-check"></i><b>10.2</b> Terminology</a></li>
+<li class="chapter" data-level="10.3" data-path="10-Simulation.html"><a href="10-Simulation.html#why-use-simulation"><i class="fa fa-check"></i><b>10.3</b> Why use simulation?</a></li>
+<li class="chapter" data-level="10.4" data-path="10-Simulation.html"><a href="10-Simulation.html#simulation-modeling-approaches"><i class="fa fa-check"></i><b>10.4</b> Simulation Modeling Approaches</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="10-Simulation.html"><a href="10-Simulation.html#spatial-and-temporal-level-of-detail"><i class="fa fa-check"></i><b>10.4.1</b> Spatial and Temporal Level of Detail</a></li>
+<li class="chapter" data-level="10.4.2" data-path="10-Simulation.html"><a href="10-Simulation.html#stochastic"><i class="fa fa-check"></i><b>10.4.2</b> Stochastic</a></li>
+<li class="chapter" data-level="10.4.3" data-path="10-Simulation.html"><a href="10-Simulation.html#deterministic"><i class="fa fa-check"></i><b>10.4.3</b> Deterministic</a></li>
+<li class="chapter" data-level="10.4.4" data-path="10-Simulation.html"><a href="10-Simulation.html#potential-analytical-models-within-simulation-program"><i class="fa fa-check"></i><b>10.4.4</b> Potential Analytical Models within Simulation Program</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="10-Simulation.html"><a href="10-Simulation.html#considerations-for-applying-simulation"><i class="fa fa-check"></i><b>10.5</b> Considerations for applying Simulation</a></li>
+<li class="chapter" data-level="10.6" data-path="10-Simulation.html"><a href="10-Simulation.html#conceptual-differences-between-the-hcm-and-microscopic-simulation-modeling"><i class="fa fa-check"></i><b>10.6</b> Conceptual Differences between the HCM and Microscopic Simulation Modeling</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="10-Simulation.html"><a href="10-Simulation.html#introduction-5"><i class="fa fa-check"></i><b>10.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.6.2" data-path="10-Simulation.html"><a href="10-Simulation.html#capacity-hcm"><i class="fa fa-check"></i><b>10.6.2</b> Capacity (HCM)</a></li>
+<li class="chapter" data-level="10.6.3" data-path="10-Simulation.html"><a href="10-Simulation.html#capacity-simulation"><i class="fa fa-check"></i><b>10.6.3</b> Capacity (Simulation)</a></li>
+<li class="chapter" data-level="10.6.4" data-path="10-Simulation.html"><a href="10-Simulation.html#lane-distribution-hcm"><i class="fa fa-check"></i><b>10.6.4</b> Lane Distribution (HCM)</a></li>
+<li class="chapter" data-level="10.6.5" data-path="10-Simulation.html"><a href="10-Simulation.html#lane-distribution-simulation"><i class="fa fa-check"></i><b>10.6.5</b> Lane Distribution (Simulation)</a></li>
+<li class="chapter" data-level="10.6.6" data-path="10-Simulation.html"><a href="10-Simulation.html#traffic-stream-composition-hcm"><i class="fa fa-check"></i><b>10.6.6</b> Traffic Stream Composition (HCM)</a></li>
+<li class="chapter" data-level="10.6.7" data-path="10-Simulation.html"><a href="10-Simulation.html#traffic-stream-composition-simulation"><i class="fa fa-check"></i><b>10.6.7</b> Traffic Stream Composition (Simulation)</a></li>
+<li class="chapter" data-level="10.6.8" data-path="10-Simulation.html"><a href="10-Simulation.html#comparison-of-hcm-results-to-simulation-results"><i class="fa fa-check"></i><b>10.6.8</b> Comparison of HCM Results to Simulation Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="11-References.html"><a href="11-References.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/swash17/FreightCurriculum" target="blank">Freight Transportation Curriculum</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CGN 4905/TTE 6205: Freeway Operations and Simulation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="HCMRampJunctionsSeg" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> HCM Merge/Diverge Segments<a href="06-HCM_RampSeg.html#HCMRampJunctionsSeg" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="IntroRampJunctionsSeg" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Introduction<a href="06-HCM_RampSeg.html#IntroRampJunctionsSeg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Definition: A ramp is a length of roadway providing an exclusive connection between highway facilities.</p>
+<p>A ramp roadway may consist of up to three geometric elements of interest:</p>
+<ul>
+<li>The ramp-freeway junction<br />
+</li>
+<li>The ramp roadway<br />
+</li>
+<li>The ramp-street junction</li>
+</ul>
+<p>This presentation focuses on the ramp-freeway junction.</p>
+<p>On-ramp and off-ramp connections to the freeway create localized sources of increased traffic turbulence (or friction).</p>
+<p>These points on the freeway need to be analyzed with a separate procedure.</p>
+</div>
+<div id="on--and-off-ramp-influence-areas" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> On- and Off-ramp Influence Areas<a href="06-HCM_RampSeg.html#on--and-off-ramp-influence-areas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Merging and diverging activity is most intense in the two freeway lanes closest to the ramp and accel/decel lane and the operational influence area of merge/diverge activity extends for approximately 1500 feet from the ramp-freeway intersection point.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:InfluenceAreaImage"></span>
+<img src="Images/HCMRampSeg/InfluenceArea.png" alt="Merge/Diverge Configurations"  />
+<p class="caption">
+Figure 6.1: Merge/Diverge Configurations
+</p>
+</div>
+</div>
+<div id="acceldecel-lanes" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Accel/Decel Lanes<a href="06-HCM_RampSeg.html#acceldecel-lanes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A critical geometric parameter influencing operations at a merge or diverge area is the length of the acceleration (<em>L<sub>A</sub></em>) or deceleration (<em>L<sub>D</sub></em>) lane.</p>
+<p>The length of such lanes is measured from the point at which the left edge of the ramp lanes and the right edge of the freeway lanes converge to the end of the taper segment connecting the ramp to the freeway.</p>
+<p>The point of convergence is typically defined by painted markings or physical barriers, or both.</p>
+<!-- ![](Images/AccelDecelLaneTypes.png) -->
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:AccelDecelLaneTypesImage"></span>
+<img src="Images/HCMRampSeg/AccelDecelLaneTypes.png" alt="Accel/Decel Lanes"  />
+<p class="caption">
+Figure 6.2: Accel/Decel Lanes
+</p>
+</div>
+</div>
+<div id="analysis-methodology" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Analysis Methodology<a href="06-HCM_RampSeg.html#analysis-methodology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The basic approach to the analysis of merge and diverge areas focuses on an influence area of 1500 ft, including the acceleration or deceleration lane and Lanes 1 and 2 (the two outside lanes) of the freeway.</p>
+<p>The analysis methodology has four major steps and one optional step.</p>
+<ol style="list-style-type: decimal">
+<li>Specify Inputs and Convert Demand Volumes to Demand Flow Rates<br />
+</li>
+<li>Estimate the Approaching Flow Rate in Lanes 1 and 2 of the Freeway Immediately Upstream of the Ramp Influence Area<br />
+</li>
+<li>Estimate the Capacity of the Ramp-Freeway Junction and Compare to Demand Flow Rates<br />
+</li>
+<li>Estimate Density in the Ramp Influence Area and Determine the Level of Service<br />
+</li>
+<li>Estimate Speeds in the Vicinity of Ramp–Freeway Junctions (optional)</li>
+</ol>
+<div id="step-1-volume-conversion" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Step 1: Volume Conversion<a href="06-HCM_RampSeg.html#step-1-volume-conversion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Volumes must be converted to equivalent maximum flow rates in passenger cars per hour for the peak 15 minutes of the hour of interest.</p>
+<p>This can be accomplished by using the following equation.</p>
+<p><span class="math display">\[v_{p} = \frac{V}{PHF \times f_{HV}}\tag{HCM Eq. 14-1}\]</span></p>
+<p><em>v<sub>p</sub></em> = 15-min passenger car equivalent flow rate in pc/h/ln,<br />
+<em>V</em> = hourly volume in veh/h,<br />
+<em>PHF</em> = peak-hour factor, and<br />
+<em>f<sub>HV</sub></em> = heavy-vehicle adjustment factor.</p>
+</div>
+<div id="step-2-estimate-flow-entering-lanes-1-and-2-v12" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)<a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The flow entering Lanes 1 and 2 (<em>V</em><sub>12</sub>) immediately upstream of the merge influence area or the beginning of the deceleration lane at an off-ramp is estimated.</p>
+<p>This flow is a major determinant of operating characteristics within the ramp influence area.</p>
+<p>Studies have shown that the principal influences on lane distribution of freeway vehicles immediately upstream of merge or diverge areas are the following:</p>
+<p><em>V<sub>F</sub></em> , total freeway flow approaching the merge or diverge area (pc/h)<br />
+<em>V<sub>R</sub></em> , total ramp flow (pc/h)<br />
+<em>L<sub>A</sub></em> or <em>L<sub>D</sub></em> , total length of the acceleration or deceleration lane (ft)<br />
+<em>S<sub>FR</sub></em> , free-flow speed of ramp at point of merge or diverge (mi/h)</p>
+<p>Lane distribution at a given ramp may also be influenced by flows on adjacent upstream and downstream ramps.</p>
+<p>When nearby ramps input vehicles into or remove them from Lane 1, the lane distribution of total vehicles may be significantly altered.</p>
+<ul>
+<li><p>Several variables are critical:</p>
+<p><em>V<sub>U</sub></em> , total flow on an upstream adjacent ramp (pc/h)<br />
+<em>V<sub>D</sub></em> , total flow on a downstream adjacent ramp (pc/h)<br />
+<em>D<sub>U</sub></em> , distance to the adjacent upstream ramp (ft)<br />
+<em>D<sub>D</sub></em> , distance to the adjacent downstream ramp (ft)</p></li>
+</ul>
+<p>Whether upstream or downstream adjacent ramps have a significant influence on lane distribution depends on the size of the freeway, the specific combination of upstream or downstream ramp (or both), and the distances and flows involved.</p>
+</div>
+<div id="step-2-model-structure-on-ramps" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> Step 2: Model Structure (On-ramps)<a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The model form for prediction of <em>V</em><sub>12</sub> immediately upstream of single-lane, right-hand on-ramps is:</p>
+<p><span class="math display">\[V_{12} = V_{F} \times P_{FM}\tag{HCM Eq. 14-2}\]</span></p>
+<p><em>P<sub>FM</sub></em> is the proportion of freeway vehicles remaining in Lanes 1 and 2 immediately upstream of an on-ramp</p>
+</div>
+<div id="step-2-model-structure-off-ramps" class="section level3 hasAnchor" number="6.4.4">
+<h3><span class="header-section-number">6.4.4</span> Step 2: Model Structure (Off-ramps)<a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The model for single-lane, right-hand off-ramps must take a different form.</p>
+<p><em>V</em><sub>12</sub> for off-ramps is defined immediately upstream of the beginning of the deceleration lane.</p>
+<p>Thus, <em>V</em><sub>12</sub> must include <em>V<sub>R</sub></em> , the off-ramp flow.</p>
+<p>The main question is the proportion of through vehicles remaining in Lanes 1 and 2 at this point.</p>
+<p>A model expressing this logic is:
+<span class="math display">\[V_{12} = V_{R}+ (V_F-V_R) \times P_{FD}\tag{HCM Eq. 14-8}\]</span></p>
+<p>This model focuses on predicting the choice to be made by approaching freeway drivers not exiting at the ramp (i.e., drivers with a choice to make).</p>
+</div>
+<div id="step-2-pfm-equations-for-on-ramps" class="section level3 hasAnchor" number="6.4.5">
+<h3><span class="header-section-number">6.4.5</span> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps<a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>HCM Exhibit 14-8</p>
+<table>
+<colgroup>
+<col width="53%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><b>No. of Freeway Lanes<sup>a</sup></b></th>
+<th align="left"><b>Model(s) for Determining <em>P<sub>FM</sub></em></b></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">4</td>
+<td align="left"><em>P<sub>FM</sub></em> = 1.000</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="left"><em>P<sub>FM</sub></em> = 0.5775 + 0.000028<em>L<sub>A</sub></em></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="left"><em>P<sub>FM</sub></em> = 0.7289 - 0.0000135(<em>v<sub>F</sub></em> + <em>v<sub>R</sub></em>) - 0.003296<em>S<sub>FR</sub></em> + 0.000063<em>L<sub>UP</sub></em></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left"><em>P<sub>FM</sub></em> = 0.5487 + 0.2628(<em>v<sub>D</sub>/L<sub>DOWN</sub></em>)</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="left">For <em>v<sub>F</sub>/S<sub>FR</sub></em> ≤ 72: <em>P<sub>FM</sub></em> = 0.2178 - 0.000125<em>v<sub>R</sub></em> + 0.01115(<em>L<sub>A</sub></em>/<em>S<sub>FR</sub></em>)</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="left">For <em>v<sub>F</sub>/S<sub>FR</sub></em> &gt; 72: <em>P<sub>FM</sub></em> = 0.2178 - 0.000125<em>v<sub>R</sub></em></td>
+</tr>
+</tbody>
+</table>
+<p>Selecting equations for <em>P<sub>FM</sub></em> for six-lane freeways</p>
+<table style="width:100%;">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>Adjacent Upstream Ramp</strong></th>
+<th align="center"><strong>Subject Ramp</strong></th>
+<th align="center"><strong>Adjacent Downstream Ramp</strong></th>
+<th align="left"><strong>Equation(s) Used</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">None</td>
+<td align="center">On</td>
+<td align="center">None</td>
+<td align="left">Equation 14-3</td>
+</tr>
+<tr class="even">
+<td align="center">None</td>
+<td align="center">On</td>
+<td align="center">On</td>
+<td align="left">Equation 14-3</td>
+</tr>
+<tr class="odd">
+<td align="center">None</td>
+<td align="center">On</td>
+<td align="center">Off</td>
+<td align="left">Equation 14-5 or 14-3</td>
+</tr>
+<tr class="even">
+<td align="center">On</td>
+<td align="center">On</td>
+<td align="center">None</td>
+<td align="left">Equation 14-3</td>
+</tr>
+<tr class="odd">
+<td align="center">Off</td>
+<td align="center">On</td>
+<td align="center">None</td>
+<td align="left">Equation 14-4 or 14-3</td>
+</tr>
+<tr class="even">
+<td align="center">On</td>
+<td align="center">On</td>
+<td align="center">On</td>
+<td align="left">Equation 14-3</td>
+</tr>
+<tr class="odd">
+<td align="center">On</td>
+<td align="center">On</td>
+<td align="center">Off</td>
+<td align="left">Equation 14-5 or 14-3</td>
+</tr>
+<tr class="even">
+<td align="center">Off</td>
+<td align="center">On</td>
+<td align="center">On</td>
+<td align="left">Equation 14-4 or 14-3</td>
+</tr>
+<tr class="odd">
+<td align="center">Off</td>
+<td align="center">On</td>
+<td align="center">Off</td>
+<td align="left">Equation 14-5 or 14-4 or 14-3</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:<br />
+<sup>a</sup> 4 lanes = two lanes in each direction; 6 lanes = three lanes in each direction; 8 lanes = four lanes in each direction.<br />
+If an adjacent diverge on a six-lane freeway is not a one-lane, right-side off-ramp, use Equation 14-3.</p>
+</div>
+<div id="step-2-pfd-equations-for-off-ramps" class="section level3 hasAnchor" number="6.4.6">
+<h3><span class="header-section-number">6.4.6</span> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps<a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>HCM Exhibit 14-9</p>
+<table>
+<colgroup>
+<col width="53%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>No. of Freeway Lanes<sup>a</sup></strong></th>
+<th align="left"><strong>Model(s) for Determining <em>P<sub>FD</sub></em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">4</td>
+<td align="left"><em>P<sub>FD</sub></em> = 1.000</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="left"><em>P<sub>FD</sub></em> = 0.760 - 0.000025<em>v<sub>F</sub></em> - 0.000046<em>v<sub>R</sub></em></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="left"><em>P<sub>FD</sub></em> = 0.717 - 0.000039<em>v<sub>F</sub></em> + 0.604(<em>v<sub>U</sub>/L<sub>UP</sub></em>) when <em>v<sub>U</sub>/L<sub>UP</sub></em> ≤ 0.2<em><sup>b</sup></em></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left"><em>P<sub>FD</sub></em> = 0.616 - 0.000021<em>v<sub>F</sub></em> + 0.124(<em>v<sub>D</sub>/L<sub>DOWN</sub></em>)</td>
+</tr>
+<tr class="odd">
+<td align="center">8</td>
+<td align="left"><em>P<sub>FD</sub></em> = 0.436</td>
+</tr>
+</tbody>
+</table>
+<p>Selecting equations for <em>P<sub>FD</sub></em> for six-lane freeways</p>
+<table style="width:100%;">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>Adjacent Upstream Ramp</strong></th>
+<th align="center"><strong>Subject Ramp</strong></th>
+<th align="center"><strong>Adjacent Downstream Ramp</strong></th>
+<th align="left"><strong>Equation(s) Used</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">None</td>
+<td align="center">Off</td>
+<td align="center">None</td>
+<td align="left">Equation 14-9</td>
+</tr>
+<tr class="even">
+<td align="center">None</td>
+<td align="center">Off</td>
+<td align="center">On</td>
+<td align="left">Equation 14-9</td>
+</tr>
+<tr class="odd">
+<td align="center">None</td>
+<td align="center">Off</td>
+<td align="center">Off</td>
+<td align="left">Equation 14-11 or 14-9</td>
+</tr>
+<tr class="even">
+<td align="center">On</td>
+<td align="center">Off</td>
+<td align="center">None</td>
+<td align="left">Equation 14-10 or 14-9</td>
+</tr>
+<tr class="odd">
+<td align="center">Off</td>
+<td align="center">Off</td>
+<td align="center">None</td>
+<td align="left">Equation 14-9</td>
+</tr>
+<tr class="even">
+<td align="center">On</td>
+<td align="center">Off</td>
+<td align="center">On</td>
+<td align="left">Equation 14-10 or 14-9</td>
+</tr>
+<tr class="odd">
+<td align="center">On</td>
+<td align="center">Off</td>
+<td align="center">Off</td>
+<td align="left">Equation 14-11, 14-10, or 14-9</td>
+</tr>
+<tr class="even">
+<td align="center">Off</td>
+<td align="center">Off</td>
+<td align="center">On</td>
+<td align="left">Equation 14-9</td>
+</tr>
+<tr class="odd">
+<td align="center">Off</td>
+<td align="center">Off</td>
+<td align="center">Off</td>
+<td align="left">Equation 14-11 or 14-9</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:<br />
+<sup>a</sup> 4 lanes = two lanes in each direction; 6 lanes = three lanes in each direction; 8 lanes = four lanes in each direction.<br />
+<sup>b</sup> When <em>v<Sub>U</sub>/L<sub>UP</sub></em> &gt; 0.2, use Equation 14-9.<br />
+If an adjacent ramp on a six-lane freeway is not a one-lane, right-side off-ramp, use Equation 14-9.</p>
+<p><strong>Check Reasonableness of Lane Distribution Estimation</strong><br />
+1. The average flow per lane in the outer lanes of the freeway (lanes other than 1 and 2) should not be higher than 2,700 pc/h/ln.<br />
+2. The average flow per lane in outer lanes should not be higher than 1.5 times the average flow in Lanes 1 and 2.</p>
+<p>Six-Lane Freeway (3 lanes per direction)</p>
+<p><span class="math display">\[v_{3} = v_{F}-v_{12}\tag{HCM Eq. 14-14}\]</span></p>
+<ul>
+<li>If <em>v</em><sub>3</sub> is greater than 2,700 pc/h/ln, use Eq. 14-15:</li>
+</ul>
+<p><span class="math display">\[v_{12a} = {v_{F}-2700}\tag{HCM Eq. 14-15}\]</span></p>
+<ul>
+<li>If <em>v</em><sub>3</sub> is greater than 1.5 × (<em>V</em><sub>12</sub>/2), use Eq. 14-16:</li>
+</ul>
+<p><span class="math display">\[v_{12a} = \frac{v_{F}}{1.75}\tag{HCM Eq. 14-16}\]</span></p>
+<ul>
+<li><p>where <em>v</em><sub>12<em>a</em></sub> equals the adjusted flow rate in Lanes 1 and 2 immediately upstream of the ramp influence area (pc/h)</p></li>
+<li><p>If both limitations on outer lane flow rate are violated, the result yielding the highest value of <em>v</em><sub>12<em>a</em></sub> is used. The adjusted value replaces the original value of <em>V</em><sub>12</sub> and the analysis continues.</p></li>
+</ul>
+<p>Eight-Lane Freeway (4 lanes per direction)</p>
+<ul>
+<li><p>If <em>v<sub>av34</em></sub> is greater than 2,700 pc/h/ln, use Eq. 14-18:<br />
+<span class="math display">\[v_{av34} = {v_{F}-5400}\tag{HCM Eq. 14-18}\]</span></p></li>
+<li><p>If <em>v<sub>av34</em></sub> is greater than 1.5 × (<em>v</em><sub>12</sub>/2), use Eq. 14-19:<br />
+<span class="math display">\[v_{12a} = \frac{v_{F}}{2.5}\tag{HCM Eq. 14-19}\]</span></p></li>
+<li><p>where <em>v</em><sub>12<em>a</em></sub> equals the adjusted flow rate in Lanes 1 and 2 immediately upstream of the ramp influence area (pc/h)</p></li>
+<li><p>If both limitations on outer lane flow rate are violated, the result yielding the highest value of <em>v</em><sub>12<em>a</em></sub> is used. The adjusted value replaces the original value of <em>v</em><sub>12</sub> and the analysis continues.</p></li>
+</ul>
+</div>
+<div id="step-3-estimate-capacity-of-ramp-freeway-junction" class="section level3 hasAnchor" number="6.4.7">
+<h3><span class="header-section-number">6.4.7</span> Step 3: Estimate Capacity of Ramp-Freeway Junction<a href="06-HCM_RampSeg.html#step-3-estimate-capacity-of-ramp-freeway-junction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Determine critical capacity values and compare to demand flows.</p>
+<p>The comparison determines whether the merge or diverge area is likely to break down.</p>
+<p>Capacity is evaluated at two points:</p>
+<ol style="list-style-type: lower-alpha">
+<li>the maximum total flow departing from the merge or diverge area (<em>V<sub>FO</sub></em>) and<br />
+</li>
+<li>the maximum total flow that can reasonably enter the merge or diverge influence area (<em>V<sub>R12</em></sub> for on-ramps; <em>V</em><sub>12</sub> for off-ramps).</li>
+</ol>
+<p>If demand exceeds either of these two capacity values, breakdown may occur.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:BasicFwySegImage4"></span>
+<img src="Images/HCMRampSeg/MergeVolume.png" alt="Merge Volume"  />
+<p class="caption">
+Figure 6.3: Merge Volume
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:BasicFwySegImage5"></span>
+<img src="Images/HCMRampSeg/DivergeVolume.png" alt="Diverge Volume "  />
+<p class="caption">
+Figure 6.4: Diverge Volume
+</p>
+</div>
+<p><strong>Capacity Values: Merge and Diverge Areas</strong></p>
+<p>The capacity of merge areas is controlled by either of the following two criteria:</p>
+<ol style="list-style-type: lower-alpha">
+<li>the total flow leaving the merge area on the downstream freeway (<em>V<sub>FO</sub></em>) or</li>
+<li>the maximum flow entering the merge influence area (<em>V<sub>R12</sub></em>).</li>
+</ol>
+<p>The total flow leaving the merge area is subject to the constraints of the downstream freeway section.</p>
+<p>There is no evidence that the turbulence of the merge area causes the downstream freeway capacity to be less than that of a basic freeway segment.</p>
+<p>Thus, for stable flow operations to exist, the sum of the merging flows cannot exceed the capacity of the downstream freeway segment.</p>
+<p>It is possible, however, to experience congestion in the merge influence area even if the capacity of the downstream freeway segment is adequate.</p>
+<p>Studies have shown that there is a practical maximum flow that may enter the merge influence area and still maintain stable operations.</p>
+<p>In a ramp merge junction, both the flow in Lanes 1 and 2 and the flow in the on-ramp enter the merge influence area.</p>
+<p>Thus,
+<span class="math display">\[V_{R12} = V_{R}+ V_{12}\tag{HCM Eq. 14-20}\]</span></p>
+<p>The capacity values for merge areas are shown in the table (HCM Exhibit 14-10) at the end of this section:</p>
+<p>If the <em>V<sub>R12</em></sub> maximum flow is exceeded, LOS F conditions will not necessarily exist, as traffic flow will redistribute to utilize excess capacity in outer lanes.</p>
+<p>If the freeway capacity is exceeded, queuing conditions are expected to exist, and LOS is F.</p>
+<p>If LOS F exists, the analysis ends. The freeway facilities procedure can be applied in this case.</p>
+<p>Where stable operations are expected, the next step of the analysis—estimation of density in the merge influence area—is implemented to find the level of service.</p>
+<p>Three capacity values need to be checked in a diverge area:</p>
+<ol style="list-style-type: lower-alpha">
+<li>the capacity of the upstream freeway lanes approaching the diverge area,<br />
+</li>
+<li>the capacity of the downstream freeway lanes departing the diverge area, and<br />
+</li>
+<li>the capacity of the off-ramp.</li>
+</ol>
+<p>The total flow that can leave the diverge area is generally limited by the capacity of the freeway lanes approaching the diverge junction.</p>
+<p>In all appropriate diverge designs, the number of lanes leaving the diverge area is either equal to or one greater than the number entering.</p>
+<p>This departing flow is designated <em>V<sub>FO</sub></em>.</p>
+<ul>
+<li>The flow entering Lanes 1 and 2 just upstream of the deceleration lane is simply the flow in Lanes 1 and 2 (<em>V</em><sub>12</sub>).</li>
+</ul>
+<p>This flow <em>includes</em> the off-ramp flow.</p>
+<p>The table below (HCM Exhibit 14-10) provides capacity values for the first two capacity checks.</p>
+<p><strong>Capacity, in pc/h, of Upstream or Downstream Freeway Segment<sup>a</sup></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><strong>FFS (mi/h)</strong></th>
+<th align="center"><strong>2 lanes</strong></th>
+<th align="center"><strong>3 lanes</strong></th>
+<th align="center"><strong>4 lanes</strong></th>
+<th align="center"><strong>&gt;4 lanes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">≥70</td>
+<td align="center">4,800</td>
+<td align="center">7,200</td>
+<td align="center">9,600</td>
+<td align="center">2,400/ln</td>
+</tr>
+<tr class="even">
+<td align="center">65</td>
+<td align="center">4,700</td>
+<td align="center">7,050</td>
+<td align="center">9,400</td>
+<td align="center">2,350/ln</td>
+</tr>
+<tr class="odd">
+<td align="center">60</td>
+<td align="center">4,600</td>
+<td align="center">6,900</td>
+<td align="center">9,200</td>
+<td align="center">2,300/ln</td>
+</tr>
+<tr class="even">
+<td align="center">55</td>
+<td align="center">4,500</td>
+<td align="center">6,750</td>
+<td align="center">9,000</td>
+<td align="center">2,250/ln</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>FFS (mi/h)</strong></th>
+<th align="center"><strong>Maximum Desirable Flow Rate (<em>v</em><sub>R12</sub>), in pc/h, Entering Merge Influence Area<sup>b</sup></strong></th>
+<th align="center"><strong>Maximum Desirable Flow Rate (<em>v</em><sub>12</sub>), in pc/h, Entering Diverge Influence Area<sup>b</sup/></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">≥70</td>
+<td align="center">4,600</td>
+<td align="center">4,400</td>
+</tr>
+<tr class="even">
+<td align="center">65</td>
+<td align="center">4,600</td>
+<td align="center">4,400</td>
+</tr>
+<tr class="odd">
+<td align="center">60</td>
+<td align="center">4,600</td>
+<td align="center">4,400</td>
+</tr>
+<tr class="even">
+<td align="center">55</td>
+<td align="center">4,600</td>
+<td align="center">4,400</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:</p>
+<p><sup>a</sup>Demand in excess of these capacities results in LOS F.<br />
+<sup>b</sup>Demand in excess of these values alone does not result in LOS F; operations may be worse than predicted by this methodology.</p>
+<p>The third limit is most important because it is the primary reason for failure of diverge areas.</p>
+<p>Failure at a diverge is most often related to the capacity of one of the exit legs, usually the ramp.</p>
+<p>The capacity of each exit leg must be checked against the expected demand.</p>
+<p><strong>Capacity Values: Ramp Roadways, in pc/h</strong></p>
+<ul>
+<li>HCM Exhibit 14-12</li>
+</ul>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>Ramp FFS <em>S<sub>FR</sub></em> (mi/h)</strong></th>
+<th align="center"><strong>Single-Lane Ramps</strong></th>
+<th align="center"><strong>Two-Lane Ramps</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">&gt; 50</td>
+<td align="center">2200</td>
+<td align="center">4400</td>
+</tr>
+<tr class="even">
+<td align="center">&gt; 40-50</td>
+<td align="center">2100</td>
+<td align="center">4200</td>
+</tr>
+<tr class="odd">
+<td align="center">&gt; 30-40</td>
+<td align="center">2000</td>
+<td align="center">4000</td>
+</tr>
+<tr class="even">
+<td align="center">≥ 20-30</td>
+<td align="center">1900</td>
+<td align="center">3800</td>
+</tr>
+<tr class="odd">
+<td align="center">&lt; 20</td>
+<td align="center">1800</td>
+<td align="center">3600</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="step-4-estimate-density-and-determine-los" class="section level3 hasAnchor" number="6.4.8">
+<h3><span class="header-section-number">6.4.8</span> Step 4: Estimate Density and Determine LOS<a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The density within the merge or diverge influence area (<em>D<sub>R</sub></em>) and the level of service based on this value are determined.</p>
+<ul>
+<li><p>on-ramp<br />
+<span class="math display">\[D_{R} = 5.475 + 0.00734v_{R}+ 0.0078v_{12} - 0.00627L_A\tag{HCM Eq. 14-22}\]</span></p></li>
+<li><p>off-ramp<br />
+<span class="math display">\[D_{R} = 4.252 + 0.0086v_{12} - 0.009L_D\tag{HCM Eq. 14-23}\]</span></p></li>
+</ul>
+<p>The level of service is based on density, according to Exhibit 14-3.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><strong>Level of Service</strong></th>
+<th align="center"><strong>Density (pc/mi/ln)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">A</td>
+<td align="center">≤ 10</td>
+</tr>
+<tr class="even">
+<td align="center">B</td>
+<td align="center">&gt; 10-20</td>
+</tr>
+<tr class="odd">
+<td align="center">C</td>
+<td align="center">&gt; 20-28</td>
+</tr>
+<tr class="even">
+<td align="center">D</td>
+<td align="center">&gt; 28-35</td>
+</tr>
+<tr class="odd">
+<td align="center">E</td>
+<td align="center">&gt; 35</td>
+</tr>
+<tr class="even">
+<td align="center">F</td>
+<td align="center">Demand exceeds capacity</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="step-5-estimation-of-speed" class="section level3 hasAnchor" number="6.4.9">
+<h3><span class="header-section-number">6.4.9</span> Step 5: Estimation of Speed<a href="06-HCM_RampSeg.html#step-5-estimation-of-speed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If desired, the estimation of average travel speed (<em>S<sub>R</sub></em>) within the ramp influence area may be computed.</p>
+<p>This may be useful information, but it should not be used as a measure of level of service unless density is unavailable.</p>
+<p>On-Ramp (HCM Exhibit 14-13)</p>
+<ul>
+<li>Average speed in ramp influence area</li>
+</ul>
+<p><span class="math display">\[S_{R} = FFS \times SAF - \left(FFS \times SAF - 42 \right)M_{S}\]</span></p>
+<p><span class="math display">\[M_{s} = 0.321 + 0.0039e^{\frac{v_{R12}}{1000}} - 0.002\left(\frac{L_{A} \times S_{FR} \times {SAF}}{1000} \right)\]</span></p>
+<ul>
+<li>Average speed in outer lanes of freeway<br />
+<span class="math display">\[S_{O} = FFS \times SAF; ~~~ v_{OA}&lt; 500 \text { pc/h}\]</span>
+<span class="math display">\[S_{O} = FFS \times SAF - 0.0036(v_{OA} - 500); ~~~ 500 \leq v_{OA} \leq 2,300 \text { pc/h}\]</span>
+<span class="math display">\[S_{O} = FFS \times SAF - 6.53 - 0.006(v_{OA}- 2,300); ~~~ v_{OA} &gt; 2,300 \text { pc/h}\]</span></li>
+</ul>
+<p>Off-Ramp (HCM Exhibit 14-14)</p>
+<ul>
+<li><p>Average speed in ramp influence area<br />
+<span class="math display">\[S_{R} = FFS \times SAF - \left(FFS \times SAF - 42 \right)D_{S}\]</span>
+<span class="math display">\[D_{S} = 0.883 + 0.00009v_{R} - 0.013S_{SR} \times SAF\]</span></p></li>
+<li><p>Average speed in outer lanes of freeway<br />
+<span class="math display">\[S_{O} = 1.097 \times FFS \times SAF; ~~~ v_{OA} &lt; 1000\text { pc/h}\]</span>
+<span class="math display">\[S_{O} = 1.097 \times FFS \times SAF - 0.0039(v_{OA} - 1,000); ~~~ v_{OA} ≥ 1,000 \text { pc/h}\]</span></p></li>
+</ul>
+<p>HCM Exhibit 14-15</p>
+<ul>
+<li>Average flow in outer lanes <em>v<sub>OA</sub></em> (pc/h)</li>
+</ul>
+<p><span class="math display">\[v_{OA} = \frac{v_{f} - v_{12}}{N_{O}}\]</span></p>
+<ul>
+<li>Average speed for on-ramp (merge) junctions (mi/h)</li>
+</ul>
+<p><span class="math display">\[S = \frac{v_{R12} + v_{OA}\left(N_{O} \right)}{\left(\frac{v_{R12}}{S_{R}} \right) + \left( \frac{v_{OA}\left(N_{O} \right)}{S_{O}} \right)}\]</span></p>
+<ul>
+<li>Average speed for off-ramp (diverge junctions (mi/h)</li>
+</ul>
+<p><span class="math display">\[S = \frac{v_{12} + v_{OA}\left(N_{O} \right)}{\left(\frac{v_{12}}{S_{R}} \right) + \left( \frac{v_{OA}\left(N_{O} \right)}{S_{O}} \right)}\]</span></p>
+</div>
+</div>
+<div id="variable-definitions-1" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Variable Definitions (1)<a href="06-HCM_RampSeg.html#variable-definitions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><em>S<sub>R</em></sub> = average speed of vehicles within the ramp influence area (mi/h); for merge areas, this includes all ramp and freeway vehicles in Lanes 1 and 2; for diverge areas, this includes all vehicles in Lanes 1 and 2;<br />
+</li>
+<li><em>S<sub>O</em></sub> = average speed of vehicles in outer lanes of the freeway, adjacent to the 1,500-ft ramp influence area (mi/h);<br />
+</li>
+<li><em>S</em> = average speed of all vehicles in all lanes within the 1,500-ft length covered by the ramp influence area (mi/h);<br />
+</li>
+<li><em>FFS</em> = free-flow speed of the freeway (mi/h);<br />
+</li>
+<li><em>S<sub>FR</sub></em> = free-flow speed of the ramp (mi/h);<br />
+</li>
+<li><em>L<sub>A</sub></em> = length of acceleration lane (ft);<br />
+</li>
+<li><em>L<sub>D</em></sub> = length of deceleration lane (ft);</li>
+</ul>
+</div>
+<div id="variable-definitions-2" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Variable Definitions (2)<a href="06-HCM_RampSeg.html#variable-definitions-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><em>v<sub>R</sub></em> = demand flow rate on ramp (pc/h);<br />
+</li>
+<li><em>v</em><sub>12</sub> = demand flow rate in Lanes 1 and 2 of the freeway immediately upstream of the ramp influence area (pc/h);<br />
+</li>
+<li><em>v<sub>R12</em></sub> = total demand flow rate entering the on-ramp influence area, including <em>v</em><sub>12</sub> and <em>v<sub>R</sub></em> (pc/h);<br />
+</li>
+<li><em>v<sub>OA</sub></em> = average demand flow per lane in outer lanes adjacent to the ramp influence area (not including flow in Lanes 1 and 2) (pc/h/ln);<br />
+</li>
+<li><em>v<sub>F</sub></em> = demand flow rate on freeway immediately upstream of the ramp influence area (pc/h);<br />
+</li>
+<li><em>N<sub>O</sub></em> = number of outer lanes on the freeway (1 for a six-lane freeway; 2 for an eight-lane freeway) (ln);<br />
+</li>
+<li><em>M<sub>S</sub></em> = speed index for on-ramps (merge areas); this is simply an intermediate computation that simplifies the equations; and<br />
+</li>
+<li><em>D<sub>S</sub></em> = speed index for off-ramps (diverge areas); this is simply an intermediate computation that simplifies the equations.</li>
+</ul>
+</div>
+<div id="references-2" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> References<a href="06-HCM_RampSeg.html#references-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Transportation Research Board (2022). <em>Highway Capacity Manual, 7th Edition: A Guide for Multimodal Mobility Analysis</em>. Transportation Research Board, Washington, DC. <a href="https://nap.nationalacademies.org/catalog/26432/highway-capacity-manual-7th-edition-a-guide-for-multimodal-mobility" class="uri">https://nap.nationalacademies.org/catalog/26432/highway-capacity-manual-7th-edition-a-guide-for-multimodal-mobility</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="05-HCM_WeavingSeg.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="07-HCM_FwyFacility.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/swash17/FreightCurriculum/edit/main/06-HCM_RampSeg.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["FreewaysOperationsSimulation.pdf", "FreewaysOperationsSimulation.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
