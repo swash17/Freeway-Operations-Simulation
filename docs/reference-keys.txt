@@ -123,12 +123,12 @@ intended-use
 target-users
 versions-of-the-hcm
 who-oversees-development-and-maintenance-of-the-hcm
-hcm-6th-edition-revisions
-structure-of-the-hcm
+scope-and-structure-of-the-hcm
 volume-1---concepts
 volume-2-uninterrupted-flow
 volume-3-interrupted-flow
 volume-4-online-concepts-supplemental
+recent-updates-6th-and-7th-editions
 future-updates
 software
 resources
