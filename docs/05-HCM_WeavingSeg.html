@@ -26,7 +26,7 @@
 <meta name="author" content="https://swash.essie.ufl.edu" />
 
 
-<meta name="date" content="2023-01-06" />
+<meta name="date" content="2023-01-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -309,9 +309,6 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="11-References.html"><a href="11-References.html"><i class="fa fa-check"></i>References</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/swash17/FreightCurriculum" target="blank">Freight Transportation Curriculum</a></li>
-
 </ul>
 
       </nav>
@@ -434,7 +431,7 @@ Figure 5.6: Two-Sided Weave with Three Lane Changes
 <em>FR</em> = freeway-to-ramp,<br />
 <em>RF</em> = ramp-to-freeway,<br />
 <em>RR</em> = ramp-to-ramp,<br />
-<em>w</em> = weaving, and<br />
+<em>W</em> = weaving, and<br />
 <em>NW</em> = non-weaving.</p>
 </div>
 <div id="step-3" class="section level3 hasAnchor" number="5.5.3">
@@ -477,28 +474,37 @@ Figure 5.7: Number of Weaving Lanes
 <p>where:</p>
 <p><em>c<sub>IWL</sub></em> = capacity of the weaving segment under equivalent ideal conditions, per lane (pc/h/ln),<br />
 <em>c<sub>IFL</sub></em> = capacity of a basic freeway segment with the same free-flow speed as the weaving segment under equivalent ideal conditions, per lane (pc/h/ln), and</p>
-<p><span class="math display">\[c_{W} = c_{IWL} \times N \times f_{HV}\tag{HCM Eq. 13.6}\]</span></p>
+<p><span class="math display">\[c_{W} = c_{IWL} \times N \times f_{HV}\tag{HCM Eq. 13-6}\]</span></p>
 <p>where <em>c<sub>W</sub></em> is the capacity of the weaving segment under prevailing conditions in vehicles per hour.</p>
 <p>Based on weaving demand flow rates:</p>
 <ul>
 <li>for <em>N<sub>WL</sub></em> = 2 lanes</li>
 </ul>
-<p><span class="math display">\[c_{IW} = \frac{2400}{VR}\tag{HCM Eq. 13.7}\]</span></p>
+<p><span class="math display">\[c_{IW} = \frac{2400}{VR}\tag{HCM Eq. 13-7}\]</span></p>
 <ul>
 <li>for <em>N<sub>WL</sub></em> = 3 lanes</li>
 </ul>
 <p><span class="math display">\[c_{IW} = \frac{3500}{VR}\]</span>
-<span class="math display">\[c_{W} = c_{IW} \times f_{HV}\tag{HCM Eq. 13.8}\]</span></p>
+<span class="math display">\[c_{W} = c_{IW} \times f_{HV}\tag{HCM Eq. 13-8}\]</span></p>
+<p>Calculate adjusted capacity:</p>
+<p><span class="math display">\[c_{wa} = c_{w} \times CAF\tag{HCM Eq. 13-9}\]</span></p>
+<p>where:</p>
+<p><em>c<sub>wa</sub></em> = adjusted capacity of weaving area (veh/h),<br />
+<em>c<sub>w</sub></em> = unadjusted capacity of weaving area (veh/h), and
+<em>CAF</em> = capacity adjustment factor per HCM Chapter 11 (unitless). Default value is 1.0.</p>
+<p>Calculate volume-to-capacity ratio:</p>
+<p><span class="math display">\[v/c = \frac{v \times f_{HV}}{c_{wa}} \tag{HCM Eq. 13-10}\]</span></p>
+<p>If the v/c is greater than 1.0, the segment is expected to fail, that is, have a LOS of F. In this case, this analysis methodology is not applicable. Instead, the analyst should consult the freeway facilities oversaturated conditions analysis methodology.</p>
 </div>
 <div id="step-6" class="section level3 hasAnchor" number="5.5.6">
 <h3><span class="header-section-number">5.5.6</span> Step 6<a href="05-HCM_WeavingSeg.html#step-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Determine Lane-Changing Rates.</p>
 <p>Estimate the total lane-changing rate for weaving vehicles:</p>
-<p><span class="math display">\[{LC}_{W}={LC}_{MIN} + 0.39\lbrack\left(L_{S} - 300 \right)^{0.5} \times N^2 \times {(1 + ID)}^{0.8}\rbrack\tag{HCM Eq. 13.11}\]</span></p>
+<p><span class="math display">\[{LC}_{W}={LC}_{MIN} + 0.39\lbrack\left(L_{S} - 300 \right)^{0.5} \times N^2 \times {(1 + ID)}^{0.8}\rbrack\tag{HCM Eq. 13-11}\]</span></p>
 <p>where:</p>
 <p><em>LC<sub>W</sub></em> = equivalent hourly rate at which weaving vehicles make lane changes within the weaving segment (lc/h);<br />
 <em>LC<sub>MIN</sub></em> = minimum equivalent hourly rate at which weaving vehicles must make lane changes within the weaving segment to successfully complete all weaving maneuvers (lc/h);<br />
-<em>L<sub>S</sub></em> = length of the weaving segment, using the short length definition (ft); Again, 300 ft is the minumum value;<br />
+<em>L<sub>S</sub></em> = length of the weaving segment, using the short length definition (ft); Again, 300 ft is the minimum value;<br />
 <em>N</em> = number of lanes within the weaving segment; and<br />
 <em>ID</em> = interchange density (int/mi).</p>
 <p><span class="math display">\[{LC}_{MIN} =\left({LC}_{RF}\times v_{RF} \right) + \left({LC}_{FR} \times v_{FR} \right)\tag{HCM Eq. 13-2, 1-sided}\]</span>
@@ -507,16 +513,23 @@ Figure 5.7: Number of Weaving Lanes
 <ul>
 <li>Calculate non-weaving vehicle index:</li>
 </ul>
-<p><span class="math display">\[I_{NW} = \frac{L_{S} \times ID \times v_{NW}}{10,000}\tag{HCM Eq. 13.12}\]</span></p>
+<p><span class="math display">\[I_{NW} = \frac{L_{S} \times ID \times v_{NW}}{10,000}\tag{HCM Eq. 13-12}\]</span></p>
 <ul>
 <li>Calculate LC_NW1</li>
 </ul>
-<p><span class="math display">\[LC_{NW1} = \left(0.206 \times v_{NW} \right) + \left(0.542 \times L_{S} \right) - (192.6 \times N)\tag{HCM Eq. 13.13}\]</span></p>
-<p>To-do: Add calculations for LC_NW2, LC_NW3</p>
+<p><span class="math display">\[LC_{NW1} = \left(0.206 \times v_{NW} \right) + \left(0.542 \times L_{S} \right) - (192.6 \times N)\tag{HCM Eq. 13-13}\]</span></p>
+<ul>
+<li>Calculate LC_NW2</li>
+</ul>
+<p><span class="math display">\[LC_{NW2} = 2,135 + 0.223(v_{NW}-2000)\tag{HCM Eq. 13-14}\]</span></p>
+<ul>
+<li>Calculate LC_NW3</li>
+</ul>
+<p><span class="math display">\[LC_{NW3} = LC_{NW1} + (LC_{NW2}-LC_{NW1}) \left(\frac{I_{NW} - 1300}{650}\right) \tag{HCM Eq. 13-15}\]</span></p>
 <ul>
 <li>Set non-weaving vehicle lane changing rate equal to appropriate value:</li>
 </ul>
-<p><span class="math display">\[\tag{HCM Eq. 13.16}\]</span></p>
+<p><span class="math display">\[\tag{HCM Eq. 13-16}\]</span></p>
 <ul>
 <li><p>If <em>I<sub>NW</sub></em> ≤ 1,300: <em>LC<sub>NW</sub></em> = <em>LC<sub>NW1</sub></em></p></li>
 <li><p>If <em>I<sub>NW</sub></em> ≥ 1,950: <em>LC<sub>NW</sub></em> = <em>LC<sub>NW2</sub></em></p></li>
@@ -524,7 +537,7 @@ Figure 5.7: Number of Weaving Lanes
 <li><p>If <em>LC<sub>NW1</sub></em> ≥ <em>LC<sub>NW2</sub></em>: <em>LC<sub>NW</sub></em> = <em>LC<sub>NW2</sub></em></p></li>
 <li><p>Calculate total lane changing rate:</p></li>
 </ul>
-<p><span class="math display">\[{LC}_{ALL} = {LC}_{W} + {LC}_{NW}\tag{HCM Eq. 13.17}\]</span></p>
+<p><span class="math display">\[{LC}_{ALL} = {LC}_{W} + {LC}_{NW}\tag{HCM Eq. 13-17}\]</span></p>
 </div>
 <div id="step-7" class="section level3 hasAnchor" number="5.5.7">
 <h3><span class="header-section-number">5.5.7</span> Step 7<a href="05-HCM_WeavingSeg.html#step-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -532,19 +545,19 @@ Figure 5.7: Number of Weaving Lanes
 <ul>
 <li>Weaving:</li>
 </ul>
-<p><span class="math display">\[S_{W} = 15 + \left(\frac{FFS - 15}{1 + W} \right)\tag{HCM Eq. 13.19}\]</span>
-<span class="math display">\[W = 0.226\left(\frac{LC_{ALL}}{L_{S}} \right)^{0.789}\tag{HCM Eq. 13.20}\]</span></p>
+<p><span class="math display">\[S_{W} = 15 + \left(\frac{FFS - 15}{1 + W} \right)\tag{HCM Eq. 13-19}\]</span>
+<span class="math display">\[W = 0.226\left(\frac{LC_{ALL}}{L_{S}} \right)^{0.789}\tag{HCM Eq. 13-20}\]</span></p>
 <ul>
 <li>Non-Weaving:</li>
 </ul>
-<p><span class="math display">\[S_{NW} = FFS - \left(0.0072 \times LC_{MIN} \right) - \left(0.0048 \times \frac{v}{N} \right)\tag{HCM Eq. 13.21}\]</span></p>
+<p><span class="math display">\[S_{NW} = FFS - \left(0.0072 \times LC_{MIN} \right) - \left(0.0048 \times \frac{v}{N} \right)\tag{HCM Eq. 13-21}\]</span></p>
 <p>Determine average speed for all vehicles:</p>
-<p><span class="math display">\[S = \frac{v_{W} + v_{NW}}{\left(\frac{v_{W}}{S_{W}} \right) + \left(\frac{v_{NW}}{S_{NW}} \right)}\tag{HCM Eq. 13.22}\]</span></p>
+<p><span class="math display">\[S = \frac{v_{W} + v_{NW}}{\left(\frac{v_{W}}{S_{W}} \right) + \left(\frac{v_{NW}}{S_{NW}} \right)}\tag{HCM Eq. 13-22}\]</span></p>
 </div>
 <div id="step-8" class="section level3 hasAnchor" number="5.5.8">
 <h3><span class="header-section-number">5.5.8</span> Step 8<a href="05-HCM_WeavingSeg.html#step-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calculate density and LOS.</p>
-<p><span class="math display">\[D = \frac{\left(\frac{v}{N} \right)}{S}\tag{HCM Eq. 13.23}\]</span></p>
+<p><span class="math display">\[D = \frac{\left(\frac{v}{N} \right)}{S}\tag{HCM Eq. 13-23}\]</span></p>
 <p><em>v</em> = total demand flow rate in the weaving segment (pc/h), <em>v</em> = <em>v<sub>W</sub></em> + <em>v<sub>NW</sub></em></p>
 <ul>
 <li>Exhibit 13-6 Density (pc/mi/ln) LOS Thresholds</li>
