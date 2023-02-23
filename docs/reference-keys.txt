@@ -180,8 +180,8 @@ step-1-volume-conversion
 step-2-estimate-flow-entering-lanes-1-and-2-v12
 step-2-model-structure-on-ramps
 step-2-model-structure-off-ramps
-step-2-pfm-equations-for-on-ramps
-step-2-pfd-equations-for-off-ramps
+step-2-p_fm-equations-for-on-ramps
+step-2-p_fd-equations-for-off-ramps
 step-3-estimate-capacity-of-ramp-freeway-junction
 step-4-estimate-density-and-determine-los
 step-5-estimation-of-speed

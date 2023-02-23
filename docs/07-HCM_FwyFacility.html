@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 HCM Freeway Facility | CGN 4905/TTE 6205: Freeway Operations and Simulation</title>
   <meta name="description" content="eBook for Freeway Operations and Simulation course" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 HCM Freeway Facility | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="https://swash.essie.ufl.edu" />
 
 
-<meta name="date" content="2023-02-05" />
+<meta name="date" content="2023-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -187,8 +187,8 @@
 <li class="chapter" data-level="6.4.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12"><i class="fa fa-check"></i><b>6.4.2</b> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)</a></li>
 <li class="chapter" data-level="6.4.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps"><i class="fa fa-check"></i><b>6.4.3</b> Step 2: Model Structure (On-ramps)</a></li>
 <li class="chapter" data-level="6.4.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps"><i class="fa fa-check"></i><b>6.4.4</b> Step 2: Model Structure (Off-ramps)</a></li>
-<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps</a></li>
-<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps</a></li>
+<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-p_fm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <span class="math inline">\(P_{FM}\)</span> Equations for On-ramps</a></li>
+<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-p_fd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <span class="math inline">\(P_{FD}\)</span> Equations for Off-ramps</a></li>
 <li class="chapter" data-level="6.4.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-3-estimate-capacity-of-ramp-freeway-junction"><i class="fa fa-check"></i><b>6.4.7</b> Step 3: Estimate Capacity of Ramp-Freeway Junction</a></li>
 <li class="chapter" data-level="6.4.8" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los"><i class="fa fa-check"></i><b>6.4.8</b> Step 4: Estimate Density and Determine LOS</a></li>
 <li class="chapter" data-level="6.4.9" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-5-estimation-of-speed"><i class="fa fa-check"></i><b>6.4.9</b> Step 5: Estimation of Speed</a></li>
@@ -462,7 +462,7 @@ Figure 7.6: Ramp Segmentation 3
 <div id="compute-dc-ratios" class="section level3 hasAnchor" number="7.1.8">
 <h3><span class="header-section-number">7.1.8</span> Compute d/c Ratios<a href="07-HCM_FwyFacility.html#compute-dc-ratios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calculate demand/capacity ratio for each segment for each time period</p>
-<p>If all segment <em>d</em>/<em>c</em> ratios are ≤ 1.0 for a time period, then segment performance measures are calculated according to Chapters 12, 13, and/or 14.</p>
+<p>If all segment <em>d</em>/<em>c</em> ratios are <span class="math inline">\(\leq\)</span> 1.0 for a time period, then segment performance measures are calculated according to Chapters 12, 13, and/or 14.</p>
 <p>If any segment <em>d</em>/<em>c</em> ratio &gt; 1.0 in a given time period, then the oversaturated analysis module is applied for all facility segments during that time period and subsequent time periods until the congestion clears.</p>
 </div>
 <div id="downstream-speed-constraint" class="section level3 hasAnchor" number="7.1.9">
@@ -470,9 +470,9 @@ Figure 7.6: Ramp Segmentation 3
 <p>In case of a slow average speed for a segment upstream of the subject segment, the subject segment speed will be constrained, per Eq. 25-1.</p>
 <p><span class="math display">\[V_{max} = FFS - \left( FFS - v_{prev} \right) \times e^{-0.00162 \times L}\]</span></p>
 <p>where:</p>
-<p><em>V<sub>max</sub></em> = maximum achievable segment speed (mi/h),<br />
+<p><span class="math inline">\(V_{max}\)</span> = maximum achievable segment speed (mi/h),<br />
 <em>FFS</em> = segment free-flow speed (mi/h),<br />
-<em>V<sub>prev</sub></em> = average speed on immediate upstream segment (mi/h), and<br />
+<span class="math inline">\(V_{prev}\)</span> = average speed on immediate upstream segment (mi/h), and<br />
 <em>L</em> = distance from midpoints of the upstream segment and the subject segment (ft).</p>
 </div>
 <div id="density-1" class="section level3 hasAnchor" number="7.1.10">
@@ -481,11 +481,12 @@ Figure 7.6: Ramp Segmentation 3
 <p>Facility density is calculated per Eq. 10-1.</p>
 <p><span class="math display">\[D_{Fwy} = \frac{\sum_{i = 1}^{n}{D_{i} \times L_{i} \times N_{i}}}{\sum_{i = 1}^{n}{L_{i} \times N_{i}}}\]</span></p>
 <p>where:</p>
-<p><em>D<sub>Fwy</sub></em> = average density for the facility in a given 15-min analysis period (pc/mi/ln),<br />
-<em>D<sub>i</sub></em> = density for segment <em>i</em> (pc/mi/ln),<br />
-<em>L<sub>i</sub></em> = length of segment <em>i</em> (miles),<br />
-<em>N<sub>i</sub></em> = number of lanes in segment <em>i</em>, and<br />
+<p><span class="math inline">\(D_{Fwy}\)</span> = average density for the facility in a given 15-min analysis period (pc/mi/ln),<br />
+<span class="math inline">\(D_{i}\)</span> = density for segment <em>i</em> (pc/mi/ln),<br />
+<span class="math inline">\(L_{i}\)</span> = length of segment <em>i</em> (miles),<br />
+<span class="math inline">\(N_{i}\)</span> = number of lanes in segment <em>i</em>, and<br />
 <em>n</em> = number of segments in the defined facility.</p>
+<div style="page-break-after: always;"></div>
 </div>
 <div id="los" class="section level3 hasAnchor" number="7.1.11">
 <h3><span class="header-section-number">7.1.11</span> LOS<a href="07-HCM_FwyFacility.html#los" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -502,8 +503,8 @@ Figure 7.6: Ramp Segmentation 3
 <tbody>
 <tr class="odd">
 <td align="center">A</td>
-<td align="center">≤ 11</td>
-<td align="center">≤ 6</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 11</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 6</td>
 </tr>
 <tr class="even">
 <td align="center">B</td>
@@ -576,22 +577,22 @@ Figure 7.6: Ramp Segmentation 3
 </li>
 <li>Length in miles<br />
 </li>
-<li><em>TravTime<sub>FF</sub></em> in hours<br />
+<li><span class="math inline">\(TravTime_{FF}\)</span> in hours<br />
 </li>
-<li><em>TravTime<sub>Avg</sub></em> in hours<br />
+<li><span class="math inline">\(TravTime_{Avg}\)</span> in hours<br />
 </li>
-<li><em>Speed<sub>FF</sub></em> in mi/h<br />
+<li><span class="math inline">\(Speed_{FF}\)</span> in mi/h<br />
 </li>
-<li><em>Speed<sub>Avg</sub></em> in mi/h</li>
+<li><span class="math inline">\(Speed_{Avg}\)</span> in mi/h</li>
 </ul>
 </div>
 <div id="supporting-calculations-facility" class="section level3 hasAnchor" number="7.1.14">
 <h3><span class="header-section-number">7.1.14</span> Supporting Calculations (Facility)<a href="07-HCM_FwyFacility.html#supporting-calculations-facility" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[{TravTime}_{Avg \text{_}Fwy} = \sum_{Seg=1}^{n}{TravTime}_{Avg \text{_}Seg}\]</span></p>
-<p><span class="math display">\[{TravTime}_{FF \text{_}Fwy} = \sum_{Seg=1}^{n}{TravTime}_{FF \text{_}Seg}\]</span></p>
-<p><span class="math display">\[{Speed}_{Avg \text{_}Fwy}=\frac{{Length}_{{Fwy}}}{{TravTime}_{Avg \text{_}Fwy}}\]</span></p>
+<p><span class="math display">\[{TravTime}_{Avg-Fwy} = \sum_{Seg=1}^{n}{TravTime}_{Avg-Seg}\]</span></p>
+<p><span class="math display">\[{TravTime}_{FF-Fwy} = \sum_{Seg=1}^{n}{TravTime}_{FF-Seg}\]</span></p>
+<p><span class="math display">\[{Speed}_{Avg-Fwy}=\frac{{Length}_{{Fwy}}}{{TravTime}_{Avg-Fwy}}\]</span></p>
 <p>or</p>
-<p><span class="math display">\[{Speed}_{Avg \text{_}Fwy}=\frac{{VMT}_{Fwy}}{{VHT}_{Fwy}}\]</span></p>
+<p><span class="math display">\[{Speed}_{Avg-Fwy}=\frac{{VMT}_{Fwy}}{{VHT}_{Fwy}}\]</span></p>
 <p>Other facility measures are summation of segment measures</p>
 </div>
 </div>
@@ -649,7 +650,7 @@ Figure 7.6: Ramp Segmentation 3
 <h3><span class="header-section-number">7.2.5</span> Time-Space Domain<a href="07-HCM_FwyFacility.html#time-space-domain" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In addition to tracking queue formation and dissipation at active bottlenecks, the oversaturation analysis method has the capability to properly account for hidden bottlenecks. A dynamic illustration of the following figure will be demonstrated in class.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:TimeSpaceMatrix2Image"></span>
-<img src="Images/HCMFwyFacilityOversat/TimeSpaceMatrix.JPG" alt="Time-Space Matrix"  />
+<img src="Images/HCMFwyFacilityOversat/TimeSpaceMatrix.jpg" alt="Time-Space Matrix"  />
 <p class="caption">
 Figure 7.7: Time-Space Matrix
 </p>
@@ -669,7 +670,7 @@ Figure 7.7: Time-Space Matrix
 <p>A “wave” of changing density will propagate upstream or downstream, depending on specific characteristics of colliding traffic streams.</p>
 <p>Demand volume (in units of lanes) for 4 time periods is:<br />
 1) 1.5 (&lt; 2 lanes of bottleneck segment, so no queuing)<br />
-2) 2.5 (&gt; 2 lanes of bottleneck segment, so backward formingshock wave)<br />
+2) 2.5 (&gt; 2 lanes of bottleneck segment, so backward forming shock wave)<br />
 3) 2.0 (= lanes of bottleneck segment, so rear stationary shock wave)<br />
 4) 1.5 (&lt; 2 lanes of bottleneck segment, so forward recovery shock wave)</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shockwaveImage"></span>
@@ -706,11 +707,11 @@ Figure 7.8: Shockwave Diagram
 <p>where:</p>
 <p><span class="math inline">\(S_{B}\)</span> = speed of traffic in bottleneck queue (mi/h)<br />
 <span class="math inline">\(S_{O}\)</span> = speed of traffic at capacity flow rate (mi/h); sometimes referred to as ‘optimal speed’<br />
-<span class="math inline">\(C_{B}\)</span> = bottlenenck capacity (veh/h)<br />
-<span class="math inline">\(C_{N}\)</span> = pre-breakdown capacity flow rate (veh/h); sometimes referred to as ‘normal capacity’<br />
-<span class="math inline">\(k_{j}\)</span> = jam density (veh/mi)</p>
+<span class="math inline">\(C_{B}\)</span> = bottlenenck capacity (veh/h/ln)<br />
+<span class="math inline">\(C_{N}\)</span> = pre-breakdown capacity flow rate (veh/h/ln); sometimes referred to as ‘normal capacity’<br />
+<span class="math inline">\(k_{j}\)</span> = jam density (veh/mi/ln)</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:FlowDensityOverSatImage"></span>
-<img src="Images/HCMFwyFacilityOversat/FlowDensity.JPG" alt="Flow Density Relationship"  />
+<img src="Images/HCMFwyFacilityOversat/FlowDensity.jpg" alt="Flow Density Relationship"  />
 <p class="caption">
 Figure 7.9: Flow Density Relationship
 </p>
@@ -726,10 +727,10 @@ Figure 7.9: Flow Density Relationship
 <p>Queue density on the subject segment during the given time step is calculated on the basis of a linear density‐flow relationship in the congested regime (see Fig. <a href="07-HCM_FwyFacility.html#fig:FlowDensityOverSatImage">7.9</a>). Note that the following equation is equivalent to the <span class="math inline">\(k_{queue}\)</span> equation given above.</p>
 <p><span class="math display">\[KQ=KJ-\frac{(KJ-KC) \times SF}{SC}\tag{HCM Eq. 25-10}\]</span></p>
 <p>where:</p>
-<p><em>KJ</em> = jam density (veh/mi)<br />
-<em>KC</em> = density at capacity (veh/mi)<br />
-<em>SF</em> = segment flow rate (veh/h)<br />
-<em>SC</em> = segment capacity flow rate (veh/h)</p>
+<p><em>KJ</em> = jam density (veh/mi/ln)<br />
+<em>KC</em> = density at capacity (veh/mi/ln)<br />
+<em>SF</em> = segment flow rate (veh/unit time)<br />
+<em>SC</em> = segment capacity flow rate (veh/unit time)</p>
 <p><strong><em>On-Ramp Considerations</em></strong></p>
 <p>For an on-ramp, the demand served is a function of the ramp demand and the available capacity on the mainline. If the available capacity, which is the difference between the capacity of the mainline and the upstream mainline demand, is less than one half of a mainline lane of capacity (in the example shown below, this is 5 veh/time step), then you can serve a maximum of one-half of the lane capacity from the on-ramp (5 veh/ts in the example below). Of course, if the ramp demand is less than this value, then just this lower ramp demand value is served. However, the ramp demand also needs to consider unserved (i.e., queued) vehicles from previous time steps.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:OnRampImage"></span>
@@ -798,14 +799,14 @@ Figure 7.14: Example TTR Analysis Units (Source: Highway Capacity Manual, Chapte
 </p>
 </div>
 <p>A variety of travel time indices are typically used to characterize the results of a TTR analysis.</p>
-<p>Travel time index (<em>TTI</em>) is defined as the ratio of the actual travel time to the free-flow travel time. By definition, TTI is always ≥ 1.0.</p>
-<p>Percentile travel time index (<em>TTI<sub>pp</sub></em>). Represents the percentile TTI in the travel time distribution. For example…</p>
+<p>Travel time index (<em>TTI</em>) is defined as the ratio of the actual travel time to the free-flow travel time. By definition, TTI is always <span class="math inline">\(\geq\)</span> 1.0.</p>
+<p>Percentile travel time index (<span class="math inline">\(TTI_{pp}\)</span>). Represents the percentile TTI in the travel time distribution. For example…</p>
 <ul>
-<li><em>TTI</em><sub>85</sub> means that this observation is exceeded only 15% of the time in the travel time distribution.<br />
+<li><span class="math inline">\(TTI_{85}\)</span> means that this observation is exceeded only 15% of the time in the travel time distribution.<br />
 </li>
-<li><em>TTI</em><sub>50</sub> is the median TTI.<br />
+<li><span class="math inline">\(TTI_{50}\)</span> is the median TTI.<br />
 </li>
-<li><em>TTI</em><sub>95</sub> is the 95th percentile TTI, and is commonly referred to as the planning time index (PTI). Essentially, this is the additional time you should plan for your trip to ensure that you arrive on time all but about once per month (1 out of 20 weekdays).</li>
+<li><span class="math inline">\(TTI_{95}\)</span> is the 95th percentile TTI, and is commonly referred to as the planning time index (PTI). Essentially, this is the additional time you should plan for your trip to ensure that you arrive on time all but about once per month (1 out of 20 weekdays).</li>
 </ul>
 </div>
 </div>

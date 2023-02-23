@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 HCM Basic Freeway Segments | CGN 4905/TTE 6205: Freeway Operations and Simulation</title>
   <meta name="description" content="eBook for Freeway Operations and Simulation course" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 HCM Basic Freeway Segments | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="https://swash.essie.ufl.edu" />
 
 
-<meta name="date" content="2023-02-05" />
+<meta name="date" content="2023-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -187,8 +187,8 @@
 <li class="chapter" data-level="6.4.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12"><i class="fa fa-check"></i><b>6.4.2</b> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)</a></li>
 <li class="chapter" data-level="6.4.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps"><i class="fa fa-check"></i><b>6.4.3</b> Step 2: Model Structure (On-ramps)</a></li>
 <li class="chapter" data-level="6.4.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps"><i class="fa fa-check"></i><b>6.4.4</b> Step 2: Model Structure (Off-ramps)</a></li>
-<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps</a></li>
-<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps</a></li>
+<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-p_fm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <span class="math inline">\(P_{FM}\)</span> Equations for On-ramps</a></li>
+<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-p_fd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <span class="math inline">\(P_{FD}\)</span> Equations for Off-ramps</a></li>
 <li class="chapter" data-level="6.4.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-3-estimate-capacity-of-ramp-freeway-junction"><i class="fa fa-check"></i><b>6.4.7</b> Step 3: Estimate Capacity of Ramp-Freeway Junction</a></li>
 <li class="chapter" data-level="6.4.8" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los"><i class="fa fa-check"></i><b>6.4.8</b> Step 4: Estimate Density and Determine LOS</a></li>
 <li class="chapter" data-level="6.4.9" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-5-estimation-of-speed"><i class="fa fa-check"></i><b>6.4.9</b> Step 5: Estimation of Speed</a></li>
@@ -384,7 +384,7 @@ Figure 4.1: Basic Freeway Segment
 <tbody>
 <tr class="odd">
 <td align="center">A</td>
-<td align="left">≤ 11</td>
+<td align="left"><span class="math inline">\(\leq\)</span> 11</td>
 </tr>
 <tr class="even">
 <td align="center">B</td>
@@ -412,14 +412,14 @@ Figure 4.1: Basic Freeway Segment
 <div id="speed-flow-relationship" class="section level2 hasAnchor" number="4.6">
 <h2><span class="header-section-number">4.6</span> Speed-Flow Relationship<a href="04-HCM_BasicFwySeg.html#speed-flow-relationship" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>(HCM Eq. 12-1)<br />
-<span class="math display">\[S=\left\{\begin{array}{l}
-FFS_{adj}&amp;{\text {if }v_{p} \leq {BP}}\\
-FFS_{adj} - \frac{\left({FFS}_{adj} - \frac{c_{adj}}{D_{c}} \right)\left(v_{p} - {BP} \right)^{2.0}}{\left( c_{adj} - {BP} \right)^{2.0}}&amp;{\text {if } BP &lt; v_{p} \leq c}
+<span class="math display">\[S=\left\{\begin{array}{l l}
+FFS_{adj} &amp; {\text {if }v_p \leq {BP}} \\
+FFS_{adj} - \frac{\left({FFS}_{adj} - \frac{c_{adj}}{D_{c}} \right)\left(v_{p} - {BP} \right)^{2.0}}{\left(c_{adj} - BP \right)^{2.0}} &amp; {\text {if } BP &lt; v_p \leq c}
 \end{array}\right.\]</span></p>
-<p><em>c</em> = Capacity in pc/h/ln,<br />
-<em>v<sub>p</sub></em> = 15-min passenger car equivalent flow rate in pc/h/ln,<br />
-<em>BP</em> = Linear to curvilinear flow rate breakpoint value in pc/h/ln, and<br />
-<em>D<sub>c</sub></em> = Density at capacity (45 pc/mi/ln).</p>
+<p><span class="math inline">\(c\)</span> = Capacity in pc/h/ln,<br />
+<span class="math inline">\(v_p\)</span> = 15-min passenger car equivalent flow rate in pc/h/ln,<br />
+<span class="math inline">\(BP\)</span> = Linear to curvilinear flow rate breakpoint value in pc/h/ln, and<br />
+<span class="math inline">\(D_c\)</span> = Density at capacity (45 pc/mi/ln).</p>
 <p><span class="math display">\[FFS_{adj} = {FFS} \times{SAF}\tag{HCM Exhibit 12-6}\]</span></p>
 <p><span class="math display">\[c = \text{Min}\left\lbrack 2200 + 10\left({FF}S_{adj} - 50 \right),2400 \right\rbrack {~~~~~ 55 \leq {FFS} \leq 75}
 \tag{HCM Exhibit 12-6}\]</span></p>
@@ -479,21 +479,17 @@ Figure 4.2: Basic Freeway Segment Speed-Flow Curves (source: HCM Exhibit 12-16)
 <p><span class="math display">\[FFS = 75.4 - f_{LW} - f_{RLC} - 3.22\left({TRD} \right)^{0.84}\tag{HCM Eq. 12-2}\]</span></p>
 <p><em>FFS</em> = free-flow speed (mi/h)<br />
 75.4 = base free-flow speed (mi/h)<br />
-<em>f<sub>LW</sub></em> = adjustment for lane width from Table 6.3 (Exhibit 12-20) (mi/h)<br />
-<em>f<sub>RLC</sub></em> = adjustment for right-shoulder lateral clearance from Table 6.4 (Exhibit 12-21) (mi/h)<br />
+<span class="math inline">\(f_{LW}\)</span> = adjustment for lane width from Table 6.3 (Exhibit 12-20) (mi/h)<br />
+<span class="math inline">\(f_{RLC}\)</span> = adjustment for right-shoulder lateral clearance from Table 6.4 (Exhibit 12-21) (mi/h)<br />
 <em>TRD</em> = total ramp density (ramps/mi)</p>
 <div id="lane-width-adjustment-factor" class="section level3 hasAnchor" number="4.10.1">
 <h3><span class="header-section-number">4.10.1</span> Lane Width Adjustment Factor<a href="04-HCM_BasicFwySeg.html#lane-width-adjustment-factor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>HCM Exhibit 12-20</p>
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Lane width (ft)</th>
-<th align="center">Reduction in free-flow speed, <em>f<sub>LW</sub></em> (mi/h)</th>
+<th align="center">Reduction in free-flow speed, <span class="math inline">\(f_{LW}\)</span> (mi/h)</th>
 </tr>
 </thead>
 <tbody>
@@ -515,8 +511,7 @@ Figure 4.2: Basic Freeway Segment Speed-Flow Curves (source: HCM Exhibit 12-16)
 <div id="lateral-clearance-adj.-factor" class="section level3 hasAnchor" number="4.10.2">
 <h3><span class="header-section-number">4.10.2</span> Lateral Clearance Adj. Factor<a href="04-HCM_BasicFwySeg.html#lateral-clearance-adj.-factor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>HCM Exhibit 12-21
-Reduction in free-flow speed, <em>f<sub>RLC</sub></em> (mi/h)
-lanes in one direction</p>
+Reduction in free-flow speed, <span class="math inline">\(f_{RLC}\)</span> (mi/h), for the number of lanes in one direction (2-5+)</p>
 <table style="width:100%;">
 <colgroup>
 <col width="13%" />
@@ -531,12 +526,12 @@ lanes in one direction</p>
 <th align="center">   2   </th>
 <th align="center">   3   </th>
 <th align="center">   4   </th>
-<th align="center">   ≥ 5   </th>
+<th align="center">   <span class="math inline">\(\geq\)</span> 5   </th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">≥ 6</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 6</td>
 <td align="center">0.0</td>
 <td align="center">0.0</td>
 <td align="center">0.0</td>
@@ -589,7 +584,7 @@ lanes in one direction</p>
 </div>
 <div id="total-ramp-density" class="section level3 hasAnchor" number="4.10.3">
 <h3><span class="header-section-number">4.10.3</span> Total Ramp Density<a href="04-HCM_BasicFwySeg.html#total-ramp-density" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Number of on- and off-ramps 3-mi upstream and 3-mi downstream of segment midpoint, divided by 6 miles</p>
+<p>Number of on- and off-ramps 3-mi upstream and 3-mi downstream of segment midpoint, divided by 6 miles.</p>
 </div>
 </div>
 <div id="calculate-analysis-flow-rate" class="section level2 hasAnchor" number="4.11">
@@ -651,18 +646,19 @@ lanes in one direction</p>
 <div id="specific-grades" class="section level3 hasAnchor" number="4.11.4">
 <h3><span class="header-section-number">4.11.4</span> Specific Grades<a href="04-HCM_BasicFwySeg.html#specific-grades" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When the analysis segment consists of terrain that cannot be considered as an extended general segment (i.e., level, rolling), Exhibits 12-26, 12-27, and 12-28 can be used to determine PCE values for specific upgrades and/or downgrades.</p>
+<div style="page-break-after: always;"></div>
 <p><strong>Exhibit 12-26</strong> Passenger Car Equivalents (<em>E<sub>T</sub></em>) for Heavy Vehicles<br />
 (30% SUTs/70% TTs) on Specific Grades</p>
 <table>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="31%" />
+<col width="31%" />
+<col width="36%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="center">————————</th>
-<th align="center">——————</th>
+<th align="left">——————-</th>
+<th align="left">—————–</th>
 <th align="center">Percentage of Heavy Vehicles</th>
 </tr>
 </thead>
@@ -695,13 +691,13 @@ lanes in one direction</p>
 <th align="center"><strong>10</strong></th>
 <th align="center"><strong>15</strong></th>
 <th align="center"><strong>20</strong></th>
-<th align="center"><strong>≥ 25</strong></th>
+<th align="center"><strong><span class="math inline">\(\geq\)</span> 25</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">≤ 0</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.62</td>
 <td align="center">2.37</td>
 <td align="center">2.3</td>
@@ -766,7 +762,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">2.62</td>
 <td align="center">2.37</td>
 <td align="center">2.3</td>
@@ -779,7 +775,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">2</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.62</td>
 <td align="center">2.37</td>
 <td align="center">2.3</td>
@@ -844,7 +840,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">5.04</td>
 <td align="center">3.62</td>
 <td align="center">3.32</td>
@@ -857,7 +853,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">2.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.62</td>
 <td align="center">2.37</td>
 <td align="center">2.3</td>
@@ -922,7 +918,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">5.8</td>
 <td align="center">4.02</td>
 <td align="center">3.64</td>
@@ -935,7 +931,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">3.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.62</td>
 <td align="center">2.37</td>
 <td align="center">2.3</td>
@@ -1000,7 +996,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">7.53</td>
 <td align="center">4.92</td>
 <td align="center">4.38</td>
@@ -1013,7 +1009,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">4.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.62</td>
 <td align="center">2.37</td>
 <td align="center">2.3</td>
@@ -1065,7 +1061,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center"></td>
-<td align="center">≥ 1.0</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.0</td>
 <td align="center">9.19</td>
 <td align="center">5.78</td>
 <td align="center">5.08</td>
@@ -1078,7 +1074,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center">5.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.62</td>
 <td align="center">2.37</td>
 <td align="center">2.3</td>
@@ -1130,7 +1126,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.0</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.0</td>
 <td align="center">11.6</td>
 <td align="center">7.04</td>
 <td align="center">6.11</td>
@@ -1143,7 +1139,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">≥ 6</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.62</td>
 <td align="center">2.37</td>
 <td align="center">2.3</td>
@@ -1195,7 +1191,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center"></td>
-<td align="center">≥ 1.0</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.0</td>
 <td align="center">13.02</td>
 <td align="center">7.78</td>
 <td align="center">6.71</td>
@@ -1208,6 +1204,7 @@ lanes in one direction</p>
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 <p><strong>Exhibit 12-27</strong> Passenger Car Equivalents (<em>E<sub>T</sub></em>) for Heavy Vehicles<br />
 (50% SUTs/50% TTs) on Specific Grades</p>
 <table>
@@ -1236,13 +1233,13 @@ lanes in one direction</p>
 <th align="center"><strong>10</strong></th>
 <th align="center"><strong>15</strong></th>
 <th align="center"><strong>20</strong></th>
-<th align="center"><strong>≥ 25</strong></th>
+<th align="center"><strong><span class="math inline">\(\geq\)</span> 25</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">≤ 0</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.67</td>
 <td align="center">2.38</td>
 <td align="center">2.31</td>
@@ -1307,7 +1304,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">2.67</td>
 <td align="center">2.38</td>
 <td align="center">2.31</td>
@@ -1320,7 +1317,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">2</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.67</td>
 <td align="center">2.38</td>
 <td align="center">2.31</td>
@@ -1385,7 +1382,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">4.74</td>
 <td align="center">3.47</td>
 <td align="center">3.19</td>
@@ -1398,7 +1395,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">2.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.67</td>
 <td align="center">2.38</td>
 <td align="center">2.31</td>
@@ -1463,7 +1460,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">5.4</td>
 <td align="center">3.81</td>
 <td align="center">3.47</td>
@@ -1476,7 +1473,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">3.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.67</td>
 <td align="center">2.38</td>
 <td align="center">2.31</td>
@@ -1541,7 +1538,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">6.95</td>
 <td align="center">4.62</td>
 <td align="center">4.13</td>
@@ -1554,7 +1551,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">4.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.67</td>
 <td align="center">2.38</td>
 <td align="center">2.31</td>
@@ -1606,7 +1603,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center"></td>
-<td align="center">≥ 1.0</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.0</td>
 <td align="center">8.53</td>
 <td align="center">5.45</td>
 <td align="center">4.81</td>
@@ -1619,7 +1616,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center">5.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.67</td>
 <td align="center">2.38</td>
 <td align="center">2.31</td>
@@ -1671,7 +1668,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.0</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.0</td>
 <td align="center">10.8</td>
 <td align="center">6.64</td>
 <td align="center">5.78</td>
@@ -1684,7 +1681,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">≥ 6</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.67</td>
 <td align="center">2.38</td>
 <td align="center">2.31</td>
@@ -1736,7 +1733,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center"></td>
-<td align="center">≥ 1.0</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.0</td>
 <td align="center">12.15</td>
 <td align="center">7.35</td>
 <td align="center">6.36</td>
@@ -1749,6 +1746,7 @@ lanes in one direction</p>
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 <p><strong>Exhibit 12-28</strong> Passenger Car Equivalents (<em>E<sub>T</sub></em>) for Heavy Vehicles<br />
 (70% SUTs/30% TTs) on Specific Grades</p>
 <table>
@@ -1782,8 +1780,8 @@ lanes in one direction</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">≤ 0</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.39</td>
 <td align="center">2.18</td>
 <td align="center">2.12</td>
@@ -1848,7 +1846,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">2.39</td>
 <td align="center">2.18</td>
 <td align="center">2.12</td>
@@ -1861,7 +1859,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">2</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.67</td>
 <td align="center">2.32</td>
 <td align="center">2.23</td>
@@ -1926,7 +1924,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">4.58</td>
 <td align="center">3.31</td>
 <td align="center">3.04</td>
@@ -1939,7 +1937,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">2.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.75</td>
 <td align="center">2.36</td>
 <td align="center">2.27</td>
@@ -2004,7 +2002,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">5.26</td>
 <td align="center">3.67</td>
 <td align="center">3.33</td>
@@ -2017,7 +2015,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">3.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">2.93</td>
 <td align="center">2.45</td>
 <td align="center">2.34</td>
@@ -2082,7 +2080,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.5</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.5</td>
 <td align="center">6.83</td>
 <td align="center">4.48</td>
 <td align="center">3.99</td>
@@ -2095,7 +2093,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">4.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">3.13</td>
 <td align="center">2.56</td>
 <td align="center">2.43</td>
@@ -2160,7 +2158,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center">5.5</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">3.37</td>
 <td align="center">2.69</td>
 <td align="center">2.53</td>
@@ -2212,7 +2210,7 @@ lanes in one direction</p>
 </tr>
 <tr class="even">
 <td align="center"></td>
-<td align="center">≥ 1.0</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.0</td>
 <td align="center">10.52</td>
 <td align="center">6.41</td>
 <td align="center">5.57</td>
@@ -2225,7 +2223,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center">≥ 6</td>
-<td align="center">≤ 0.125</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 0.125</td>
 <td align="center">3.51</td>
 <td align="center">2.76</td>
 <td align="center">2.59</td>
@@ -2277,7 +2275,7 @@ lanes in one direction</p>
 </tr>
 <tr class="odd">
 <td align="center"></td>
-<td align="center">≥ 1.0</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 1.0</td>
 <td align="center">11.81</td>
 <td align="center">7.08</td>
 <td align="center">6.11</td>
@@ -2296,16 +2294,16 @@ lanes in one direction</p>
 <div id="heavy-vehicle-factor" class="section level3 hasAnchor" number="4.11.5">
 <h3><span class="header-section-number">4.11.5</span> Heavy Vehicle Factor<a href="04-HCM_BasicFwySeg.html#heavy-vehicle-factor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="math display">\[f_{HV} = \frac{1}{1 + P_{T}\left( E_{T} - 1 \right)}\tag{HCM Eq. 12-10}\]</span></p>
-<p><em>f<sub>HV</sub></em> = heavy-vehicle adjustment factor,<br />
-<em>P<sub>T</sub></em> = proportion of heavy vehicles in the traffic stream, and<br />
-<em>E<sub>T</sub></em> = passenger car equivalent for heavy vehicles, from Table 6.5, 6.6, 6.7, or 6.8 (Exhibits 12-25 – 12-28 HCM).</p>
+<p><span class="math inline">\(f_{HV}\)</span> = heavy-vehicle adjustment factor,<br />
+<span class="math inline">\(P_{T}\)</span> = proportion of heavy vehicles in the traffic stream, and<br />
+<span class="math inline">\(E_{T}\)</span> = passenger car equivalent for heavy vehicles, from Table 6.5, 6.6, 6.7, or 6.8 (Exhibits 12-25 – 12-28 HCM).</p>
 </div>
 </div>
 <div id="calculate-density" class="section level2 hasAnchor" number="4.12">
 <h2><span class="header-section-number">4.12</span> Calculate Density<a href="04-HCM_BasicFwySeg.html#calculate-density" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span class="math display">\[D = \frac{v_{p}}{S}\tag{HCM Eq. 12-11}\]</span></p>
 <p><em>D</em> = density in pc/mi/ln,<br />
-<em>v<sub>p</sub></em> = flow rate in pc/h/ln, and<br />
+<span class="math inline">\(v_{p}\)</span> = flow rate in pc/h/ln, and<br />
 <em>S</em> = average passenger car speed in mi/h.</p>
 <p>LOS Criteria for Basic Freeway Segments (Mannering and Washburn, Table 6.2)</p>
 <table>

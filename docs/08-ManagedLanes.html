@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Managed Lanes Overview | CGN 4905/TTE 6205: Freeway Operations and Simulation</title>
   <meta name="description" content="eBook for Freeway Operations and Simulation course" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Managed Lanes Overview | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="https://swash.essie.ufl.edu" />
 
 
-<meta name="date" content="2023-02-05" />
+<meta name="date" content="2023-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -187,8 +187,8 @@
 <li class="chapter" data-level="6.4.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12"><i class="fa fa-check"></i><b>6.4.2</b> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)</a></li>
 <li class="chapter" data-level="6.4.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps"><i class="fa fa-check"></i><b>6.4.3</b> Step 2: Model Structure (On-ramps)</a></li>
 <li class="chapter" data-level="6.4.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps"><i class="fa fa-check"></i><b>6.4.4</b> Step 2: Model Structure (Off-ramps)</a></li>
-<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps</a></li>
-<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps</a></li>
+<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-p_fm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <span class="math inline">\(P_{FM}\)</span> Equations for On-ramps</a></li>
+<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-p_fd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <span class="math inline">\(P_{FD}\)</span> Equations for Off-ramps</a></li>
 <li class="chapter" data-level="6.4.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-3-estimate-capacity-of-ramp-freeway-junction"><i class="fa fa-check"></i><b>6.4.7</b> Step 3: Estimate Capacity of Ramp-Freeway Junction</a></li>
 <li class="chapter" data-level="6.4.8" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los"><i class="fa fa-check"></i><b>6.4.8</b> Step 4: Estimate Density and Determine LOS</a></li>
 <li class="chapter" data-level="6.4.9" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-5-estimation-of-speed"><i class="fa fa-check"></i><b>6.4.9</b> Step 5: Estimation of Speed</a></li>
@@ -433,7 +433,7 @@ Figure 8.4: Striped HOV Lane Separation
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOVLaneImage9"></span>
-<img src="Images/ManagedLanes/9_HOVlane.png" alt="Striped (buffer) HOV Lane Separation, Ontario Highway 404, Toronto"  />
+<img src="Images/ManagedLanes/9_HOVLane.png" alt="Striped (buffer) HOV Lane Separation, Ontario Highway 404, Toronto"  />
 <p class="caption">
 Figure 8.5: Striped (buffer) HOV Lane Separation, Ontario Highway 404, Toronto
 </p>
@@ -629,37 +629,37 @@ Figure 8.19: Reversible Lanes in center (inbound to downtown Seattle in AM, outb
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage24"></span>
-<img src="Images/ManagedLanes/24_ReversibleLanes.png" alt="Seattle, https://www.wsdot.wa.gov/travel/operations-services/express-lanes/home"  />
+<img src="Images/ManagedLanes/24_Reversiblelanes.png" alt="Seattle, https://www.wsdot.wa.gov/travel/operations-services/express-lanes/home"  />
 <p class="caption">
 Figure 8.20: Seattle, <a href="https://www.wsdot.wa.gov/travel/operations-services/express-lanes/home" class="uri">https://www.wsdot.wa.gov/travel/operations-services/express-lanes/home</a>
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage25"></span>
-<img src="Images/ManagedLanes/25_ReversibleLanes.JPG" alt="Reversible Lanes on I-279 North of Pittsburgh (40.470605, -80.003665) (1)"  />
+<img src="Images/ManagedLanes/25_Reversiblelanes.jpg" alt="Reversible Lanes on I-279 North of Pittsburgh (40.470605, -80.003665) (1)"  />
 <p class="caption">
 Figure 8.21: Reversible Lanes on I-279 North of Pittsburgh (40.470605, -80.003665) (1)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage26"></span>
-<img src="Images/ManagedLanes/26_ReversibleLanes.png" alt="Reversible Lanes on I-279 North of Pittsburgh (40.470605, -80.003665) (2)"  />
+<img src="Images/ManagedLanes/26_Reversiblelanes.png" alt="Reversible Lanes on I-279 North of Pittsburgh (40.470605, -80.003665) (2)"  />
 <p class="caption">
 Figure 8.22: Reversible Lanes on I-279 North of Pittsburgh (40.470605, -80.003665) (2)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage27"></span>
-<img src="Images/ManagedLanes/27_ReversibleLanes.jpg" alt="Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (1)"  />
+<img src="Images/ManagedLanes/27_Reversiblelanes.jpg" alt="Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (1)"  />
 <p class="caption">
 Figure 8.23: Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (1)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage28"></span>
-<img src="Images/ManagedLanes/28_ReversibleLanes.png" alt="Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (2)"  />
+<img src="Images/ManagedLanes/28_Reversiblelanes.png" alt="Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (2)"  />
 <p class="caption">
 Figure 8.24: Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (2)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage29"></span>
-<img src="Images/ManagedLanes/29_ReversibleLanes.png" alt="Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (3)"  />
+<img src="Images/ManagedLanes/29_Reversiblelanes.png" alt="Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (3)"  />
 <p class="caption">
 Figure 8.25: Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740, -123.138292) (3)
 </p>
@@ -668,25 +668,25 @@ Figure 8.25: Reversible Lanes on Lions Gate Bridge, Vancouver, Canada (49.315740
 <li>Zipper method for reversing direction of lanes, Honolulu <a href="http://www.traffictechnologytoday.com/news.php?NewsID=93307" class="uri">http://www.traffictechnologytoday.com/news.php?NewsID=93307</a></li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage30"></span>
-<img src="Images/ManagedLanes/30_ReversibleLanes.png" alt="Reversible Lanes, Zipper (1)"  />
+<img src="Images/ManagedLanes/30_Reversiblelanes.png" alt="Reversible Lanes, Zipper (1)"  />
 <p class="caption">
 Figure 8.26: Reversible Lanes, Zipper (1)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage31"></span>
-<img src="Images/ManagedLanes/31_ReversibleLanes.png" alt="Reversible Lanes, Zipper (2)"  />
+<img src="Images/ManagedLanes/31_Reversiblelanes.png" alt="Reversible Lanes, Zipper (2)"  />
 <p class="caption">
 Figure 8.27: Reversible Lanes, Zipper (2)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage32"></span>
-<img src="Images/ManagedLanes/32_ReversibleLanes.png" alt="Reversible Lanes, Zipper (3)"  />
+<img src="Images/ManagedLanes/32_Reversiblelanes.png" alt="Reversible Lanes, Zipper (3)"  />
 <p class="caption">
 Figure 8.28: Reversible Lanes, Zipper (3)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ReversibleLaneslaneImage33"></span>
-<img src="Images/ManagedLanes/33_ReversibleLanes.png" alt="Reversible Lanes, Zipper (4), Bing images"  />
+<img src="Images/ManagedLanes/33_Reversiblelanes.png" alt="Reversible Lanes, Zipper (4), Bing images"  />
 <p class="caption">
 Figure 8.29: Reversible Lanes, Zipper (4), Bing images
 </p>

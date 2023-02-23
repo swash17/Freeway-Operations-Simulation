@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 HCM Merge/Diverge Segments | CGN 4905/TTE 6205: Freeway Operations and Simulation</title>
   <meta name="description" content="eBook for Freeway Operations and Simulation course" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 HCM Merge/Diverge Segments | CGN 4905/TTE 6205: Freeway Operations and Simulation" />
   <meta property="og:type" content="book" />
@@ -26,7 +26,7 @@
 <meta name="author" content="https://swash.essie.ufl.edu" />
 
 
-<meta name="date" content="2023-02-05" />
+<meta name="date" content="2023-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -187,8 +187,8 @@
 <li class="chapter" data-level="6.4.2" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12"><i class="fa fa-check"></i><b>6.4.2</b> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)</a></li>
 <li class="chapter" data-level="6.4.3" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps"><i class="fa fa-check"></i><b>6.4.3</b> Step 2: Model Structure (On-ramps)</a></li>
 <li class="chapter" data-level="6.4.4" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps"><i class="fa fa-check"></i><b>6.4.4</b> Step 2: Model Structure (Off-ramps)</a></li>
-<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps</a></li>
-<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps</a></li>
+<li class="chapter" data-level="6.4.5" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-p_fm-equations-for-on-ramps"><i class="fa fa-check"></i><b>6.4.5</b> Step 2: <span class="math inline">\(P_{FM}\)</span> Equations for On-ramps</a></li>
+<li class="chapter" data-level="6.4.6" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-2-p_fd-equations-for-off-ramps"><i class="fa fa-check"></i><b>6.4.6</b> Step 2: <span class="math inline">\(P_{FD}\)</span> Equations for Off-ramps</a></li>
 <li class="chapter" data-level="6.4.7" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-3-estimate-capacity-of-ramp-freeway-junction"><i class="fa fa-check"></i><b>6.4.7</b> Step 3: Estimate Capacity of Ramp-Freeway Junction</a></li>
 <li class="chapter" data-level="6.4.8" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los"><i class="fa fa-check"></i><b>6.4.8</b> Step 4: Estimate Density and Determine LOS</a></li>
 <li class="chapter" data-level="6.4.9" data-path="06-HCM_RampSeg.html"><a href="06-HCM_RampSeg.html#step-5-estimation-of-speed"><i class="fa fa-check"></i><b>6.4.9</b> Step 5: Estimation of Speed</a></li>
@@ -355,7 +355,7 @@ Figure 6.1: Merge/Diverge Configurations
 </div>
 <div id="acceldecel-lanes" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Accel/Decel Lanes<a href="06-HCM_RampSeg.html#acceldecel-lanes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A critical geometric parameter influencing operations at a merge or diverge area is the length of the acceleration (<em>L<sub>A</sub></em>) or deceleration (<em>L<sub>D</sub></em>) lane.</p>
+<p>A critical geometric parameter influencing operations at a merge or diverge area is the length of the acceleration (<span class="math inline">\(L_A\)</span>) or deceleration (<span class="math inline">\(L_D\)</span>) lane.</p>
 <p>The length of such lanes is measured from the point at which the left edge of the ramp lanes and the right edge of the freeway lanes converge to the end of the taper segment connecting the ramp to the freeway.</p>
 <p>The point of convergence is typically defined by painted markings or physical barriers, or both.</p>
 <!-- ![](Images/AccelDecelLaneTypes.png) -->
@@ -386,89 +386,90 @@ Figure 6.2: Accel/Decel Lanes
 <p>Volumes must be converted to equivalent maximum flow rates in passenger cars per hour for the peak 15 minutes of the hour of interest.</p>
 <p>This can be accomplished by using the following equation.</p>
 <p><span class="math display">\[v_{p} = \frac{V}{PHF \times f_{HV}}\tag{HCM Eq. 14-1}\]</span></p>
-<p><em>v<sub>p</sub></em> = 15-min passenger car equivalent flow rate in pc/h/ln,<br />
-<em>V</em> = hourly volume in veh/h,<br />
-<em>PHF</em> = peak-hour factor, and<br />
-<em>f<sub>HV</sub></em> = heavy-vehicle adjustment factor.</p>
+<p><span class="math inline">\(v_{p}\)</span> = 15-min passenger car equivalent flow rate in pc/h/ln,<br />
+<span class="math inline">\(V\)</span> = hourly volume in veh/h,<br />
+<span class="math inline">\(PHF\)</span> = peak-hour factor, and<br />
+<span class="math inline">\(f_{HV}\)</span> = heavy-vehicle adjustment factor.</p>
 </div>
 <div id="step-2-estimate-flow-entering-lanes-1-and-2-v12" class="section level3 hasAnchor" number="6.4.2">
 <h3><span class="header-section-number">6.4.2</span> Step 2: Estimate Flow Entering Lanes 1 and 2 (<em>V</em><sub>12</sub>)<a href="06-HCM_RampSeg.html#step-2-estimate-flow-entering-lanes-1-and-2-v12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The flow entering Lanes 1 and 2 (<em>V</em><sub>12</sub>) immediately upstream of the merge influence area or the beginning of the deceleration lane at an off-ramp is estimated.</p>
 <p>This flow is a major determinant of operating characteristics within the ramp influence area.</p>
 <p>Studies have shown that the principal influences on lane distribution of freeway vehicles immediately upstream of merge or diverge areas are the following:</p>
-<p><em>V<sub>F</sub></em> , total freeway flow approaching the merge or diverge area (pc/h)<br />
-<em>V<sub>R</sub></em> , total ramp flow (pc/h)<br />
-<em>L<sub>A</sub></em> or <em>L<sub>D</sub></em> , total length of the acceleration or deceleration lane (ft)<br />
-<em>S<sub>FR</sub></em> , free-flow speed of ramp at point of merge or diverge (mi/h)</p>
+<p><span class="math inline">\(V_{F}\)</span>, total freeway flow approaching the merge or diverge area (pc/h)<br />
+<span class="math inline">\(V_{R}\)</span>, total ramp flow (pc/h)<br />
+<span class="math inline">\(L_{A}\)</span> or <span class="math inline">\(L_{D}\)</span>, total length of the acceleration or deceleration lane (ft)<br />
+<span class="math inline">\(S_{FR}\)</span>, free-flow speed of ramp at point of merge or diverge (mi/h)</p>
 <p>Lane distribution at a given ramp may also be influenced by flows on adjacent upstream and downstream ramps.</p>
 <p>When nearby ramps input vehicles into or remove them from Lane 1, the lane distribution of total vehicles may be significantly altered.</p>
 <ul>
 <li><p>Several variables are critical:</p>
-<p><em>V<sub>U</sub></em> , total flow on an upstream adjacent ramp (pc/h)<br />
-<em>V<sub>D</sub></em> , total flow on a downstream adjacent ramp (pc/h)<br />
-<em>D<sub>U</sub></em> , distance to the adjacent upstream ramp (ft)<br />
-<em>D<sub>D</sub></em> , distance to the adjacent downstream ramp (ft)</p></li>
+<p><span class="math inline">\(V_{U}\)</span>, total flow on an upstream adjacent ramp (pc/h)<br />
+<span class="math inline">\(V_{D}\)</span>, total flow on a downstream adjacent ramp (pc/h)<br />
+<span class="math inline">\(D_{U}\)</span>, distance to the adjacent upstream ramp (ft)<br />
+<span class="math inline">\(D_{D}\)</span>, distance to the adjacent downstream ramp (ft)</p></li>
 </ul>
 <p>Whether upstream or downstream adjacent ramps have a significant influence on lane distribution depends on the size of the freeway, the specific combination of upstream or downstream ramp (or both), and the distances and flows involved.</p>
 </div>
 <div id="step-2-model-structure-on-ramps" class="section level3 hasAnchor" number="6.4.3">
 <h3><span class="header-section-number">6.4.3</span> Step 2: Model Structure (On-ramps)<a href="06-HCM_RampSeg.html#step-2-model-structure-on-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The model form for prediction of <em>V</em><sub>12</sub> immediately upstream of single-lane, right-hand on-ramps is:</p>
+<p>The model form for prediction of <span class="math inline">\(v_{12}\)</span> immediately upstream of single-lane, right-hand on-ramps is:</p>
 <p><span class="math display">\[V_{12} = V_{F} \times P_{FM}\tag{HCM Eq. 14-2}\]</span></p>
-<p><em>P<sub>FM</sub></em> is the proportion of freeway vehicles remaining in Lanes 1 and 2 immediately upstream of an on-ramp</p>
+<p><span class="math inline">\(P_{FM}\)</span> is the proportion of freeway vehicles remaining in Lanes 1 and 2 immediately upstream of an on-ramp</p>
 </div>
 <div id="step-2-model-structure-off-ramps" class="section level3 hasAnchor" number="6.4.4">
 <h3><span class="header-section-number">6.4.4</span> Step 2: Model Structure (Off-ramps)<a href="06-HCM_RampSeg.html#step-2-model-structure-off-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The model for single-lane, right-hand off-ramps must take a different form.</p>
-<p><em>V</em><sub>12</sub> for off-ramps is defined immediately upstream of the beginning of the deceleration lane.</p>
-<p>Thus, <em>V</em><sub>12</sub> must include <em>V<sub>R</sub></em> , the off-ramp flow.</p>
+<p><span class="math inline">\(v_{12}\)</span> for off-ramps is defined immediately upstream of the beginning of the deceleration lane.</p>
+<p>Thus, <span class="math inline">\(v_{12}\)</span> must include <span class="math inline">\(v_{R}\)</span>, the off-ramp flow.</p>
 <p>The main question is the proportion of through vehicles remaining in Lanes 1 and 2 at this point.</p>
 <p>A model expressing this logic is:
 <span class="math display">\[V_{12} = V_{R}+ (V_F-V_R) \times P_{FD}\tag{HCM Eq. 14-8}\]</span></p>
 <p>This model focuses on predicting the choice to be made by approaching freeway drivers not exiting at the ramp (i.e., drivers with a choice to make).</p>
+<div style="page-break-after: always;"></div>
 </div>
-<div id="step-2-pfm-equations-for-on-ramps" class="section level3 hasAnchor" number="6.4.5">
-<h3><span class="header-section-number">6.4.5</span> Step 2: <em>P<sub>FM</sub></em> Equations for On-ramps<a href="06-HCM_RampSeg.html#step-2-pfm-equations-for-on-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="step-2-p_fm-equations-for-on-ramps" class="section level3 hasAnchor" number="6.4.5">
+<h3><span class="header-section-number">6.4.5</span> Step 2: <span class="math inline">\(P_{FM}\)</span> Equations for On-ramps<a href="06-HCM_RampSeg.html#step-2-p_fm-equations-for-on-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>HCM Exhibit 14-8</p>
 <table>
 <colgroup>
-<col width="53%" />
-<col width="46%" />
+<col width="28%" />
+<col width="72%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="center"><b>No. of Freeway Lanes<sup>a</sup></b></th>
-<th align="left"><b>Model(s) for Determining <em>P<sub>FM</sub></em></b></th>
+<th align="center"><strong>No. of Freeway Lanes<span class="math inline">\(^a\)</span></strong></th>
+<th align="left"><strong>Model(s) for Determining <span class="math inline">\(P_{FM}\)</span></strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="center">4</td>
-<td align="left"><em>P<sub>FM</sub></em> = 1.000</td>
+<td align="left"><span class="math inline">\(P_{FM} = 1.000\)</span></td>
 </tr>
 <tr class="even">
-<td align="center">6</td>
-<td align="left"><em>P<sub>FM</sub></em> = 0.5775 + 0.000028<em>L<sub>A</sub></em> (Eq. 14-3)</td>
+<td align="center">6 (Eq. 14-3)</td>
+<td align="left"><span class="math inline">\(P_{FM} = 0.5775 + 0.000028(L_{A})\)</span></td>
 </tr>
 <tr class="odd">
-<td align="center"></td>
-<td align="left"><em>P<sub>FM</sub></em> = 0.7289 - 0.0000135(<em>v<sub>F</sub></em> + <em>v<sub>R</sub></em>) - 0.003296<em>S<sub>FR</sub></em> + 0.000063<em>L<sub>UP</sub></em> (Eq. 14-4)</td>
+<td align="center">6 (Eq. 14-4)</td>
+<td align="left"><span class="math inline">\(P_{FM} = 0.7289 - 0.0000135(v_F + v_R) - 0.003296(S_{FR}) + 0.000063(L_{UP})\)</span></td>
 </tr>
 <tr class="even">
-<td align="center"></td>
-<td align="left"><em>P<sub>FM</sub></em> = 0.5487 + 0.2628(<em>v<sub>D</sub>/L<sub>DOWN</sub></em>) (Eq. 14-5)</td>
+<td align="center">6 (Eq. 14-5)</td>
+<td align="left"><span class="math inline">\(P_{FM} = 0.5487 + 0.2628(v_D/L_{DOWN})\)</span></td>
 </tr>
 <tr class="odd">
-<td align="center">8</td>
-<td align="left">For <em>v<sub>F</sub>/S<sub>FR</sub></em> ≤ 72: <em>P<sub>FM</sub></em> = 0.2178 - 0.000125<em>v<sub>R</sub></em> + 0.01115(<em>L<sub>A</sub></em>/<em>S<sub>FR</sub></em>)</td>
+<td align="center">8 For <span class="math inline">\(v_F/S_{FR} \leq 72\)</span></td>
+<td align="left"><span class="math inline">\(P_{FM} = 0.2178 - 0.000125(v_R) + 0.01115(L_A/S_{FR})\)</span></td>
 </tr>
 <tr class="even">
-<td align="center"></td>
-<td align="left">For <em>v<sub>F</sub>/S<sub>FR</sub></em> &gt; 72: <em>P<sub>FM</sub></em> = 0.2178 - 0.000125<em>v<sub>R</sub></em></td>
+<td align="center">8 For <span class="math inline">\(v_F/S_{FR} &gt; 72\)</span></td>
+<td align="left"><span class="math inline">\(P_{FM} = 0.2178 - 0.000125(v_R)\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Selecting equations for <em>P<sub>FM</sub></em> for six-lane freeways</p>
+<p>Selecting equations for <span class="math inline">\(P_{FM}\)</span> for six-lane freeways</p>
 <table style="width:100%;">
 <colgroup>
 <col width="25%" />
@@ -542,11 +543,11 @@ Figure 6.2: Accel/Decel Lanes
 </tbody>
 </table>
 <p>Notes:<br />
-<sup>a</sup> 4 lanes = two lanes in each direction; 6 lanes = three lanes in each direction; 8 lanes = four lanes in each direction.<br />
+(a) 4 lanes = two lanes in each direction; 6 lanes = three lanes in each direction; 8 lanes = four lanes in each direction.<br />
 If an adjacent diverge on a six-lane freeway is not a one-lane, right-side off-ramp, use Equation 14-3.</p>
 </div>
-<div id="step-2-pfd-equations-for-off-ramps" class="section level3 hasAnchor" number="6.4.6">
-<h3><span class="header-section-number">6.4.6</span> Step 2: <em>P<sub>FD</sub></em> Equations for Off-ramps<a href="06-HCM_RampSeg.html#step-2-pfd-equations-for-off-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="step-2-p_fd-equations-for-off-ramps" class="section level3 hasAnchor" number="6.4.6">
+<h3><span class="header-section-number">6.4.6</span> Step 2: <span class="math inline">\(P_{FD}\)</span> Equations for Off-ramps<a href="06-HCM_RampSeg.html#step-2-p_fd-equations-for-off-ramps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>HCM Exhibit 14-9</p>
 <table>
 <colgroup>
@@ -555,34 +556,34 @@ If an adjacent diverge on a six-lane freeway is not a one-lane, right-side off-r
 </colgroup>
 <thead>
 <tr class="header">
-<th align="center"><strong>No. of Freeway Lanes<sup>a</sup></strong></th>
-<th align="left"><strong>Model(s) for Determining <em>P<sub>FD</sub></em></strong></th>
+<th align="center"><strong>No. of Freeway Lanes<span class="math inline">\(^a\)</span></strong></th>
+<th align="left"><strong>Model(s) for Determining <span class="math inline">\(P_{FD}\)</span></strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="center">4</td>
-<td align="left"><em>P<sub>FD</sub></em> = 1.000</td>
+<td align="left"><span class="math inline">\(P_{FD} = 1.000\)</span></td>
 </tr>
 <tr class="even">
-<td align="center">6</td>
-<td align="left"><em>P<sub>FD</sub></em> = 0.760 - 0.000025<em>v<sub>F</sub></em> - 0.000046<em>v<sub>R</sub></em> (Eq. 14-9)</td>
+<td align="center">6 (Eq. 14-9)</td>
+<td align="left"><span class="math inline">\(P_{FD} = 0.760 - 0.000025(v_F) - 0.000046(v_R)\)</span></td>
 </tr>
 <tr class="odd">
-<td align="center"></td>
-<td align="left"><em>P<sub>FD</sub></em> = 0.717 - 0.000039<em>v<sub>F</sub></em> + 0.604(<em>v<sub>U</sub>/L<sub>UP</sub></em>) when <em>v<sub>U</sub>/L<sub>UP</sub></em> ≤ 0.2<em><sup>b</sup></em> (Eq. 14-10)</td>
+<td align="center">6 (Eq. 14-10)</td>
+<td align="left"><span class="math inline">\(P_{FD} = 0.717 - 0.000039(v_F) + 0.604(v_U/L_{UP}) \text{  when} \text{  } v_U/L_{UP} \leq 0.2^b\)</span></td>
 </tr>
 <tr class="even">
-<td align="center"></td>
-<td align="left"><em>P<sub>FD</sub></em> = 0.616 - 0.000021<em>v<sub>F</sub></em> + 0.124(<em>v<sub>D</sub>/L<sub>DOWN</sub></em>) (Eq. 14-11)</td>
+<td align="center">6 (Eq. 14-11)</td>
+<td align="left"><span class="math inline">\(P_{FD} = 0.616 - 0.000021(v_F) + 0.124(v_D/L_{DOWN})\)</span></td>
 </tr>
 <tr class="odd">
 <td align="center">8</td>
-<td align="left"><em>P<sub>FD</sub></em> = 0.436</td>
+<td align="left"><span class="math inline">\(P_{FD} = 0.436\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Selecting equations for <em>P<sub>FD</sub></em> for six-lane freeways</p>
+<p>Selecting equations for <span class="math inline">\(P_{FD}\)</span> for six-lane freeways</p>
 <table style="width:100%;">
 <colgroup>
 <col width="25%" />
@@ -656,8 +657,8 @@ If an adjacent diverge on a six-lane freeway is not a one-lane, right-side off-r
 </tbody>
 </table>
 <p>Notes:<br />
-<sup>a</sup> 4 lanes = two lanes in each direction; 6 lanes = three lanes in each direction; 8 lanes = four lanes in each direction.<br />
-<sup>b</sup> When <em>v<Sub>U</sub>/L<sub>UP</sub></em> &gt; 0.2, use Equation 14-9.<br />
+(a) 4 lanes = two lanes in each direction; 6 lanes = three lanes in each direction; 8 lanes = four lanes in each direction.<br />
+(b) When <span class="math inline">\(v_U/L_{UP} &gt; 0.2\)</span>, use Equation 14-9.<br />
 If an adjacent ramp on a six-lane freeway is not a one-lane, right-side off-ramp, use Equation 14-9.</p>
 <p><strong>Check Reasonableness of Lane Distribution Estimation</strong><br />
 1. The average flow per lane in the outer lanes of the freeway (lanes other than 1 and 2) should not be higher than 2,700 pc/h/ln.<br />
@@ -665,25 +666,25 @@ If an adjacent ramp on a six-lane freeway is not a one-lane, right-side off-ramp
 <p>Six-Lane Freeway (3 lanes per direction)</p>
 <p><span class="math display">\[v_{3} = v_{F}-v_{12}\tag{HCM Eq. 14-14}\]</span></p>
 <ul>
-<li>If <em>v</em><sub>3</sub> is greater than 2,700 pc/h/ln, use Eq. 14-15:</li>
+<li>If <span class="math inline">\(v_{3}\)</span> is greater than 2,700 pc/h/ln, use Eq. 14-15:</li>
 </ul>
 <p><span class="math display">\[v_{12a} = {v_{F}-2700}\tag{HCM Eq. 14-15}\]</span></p>
 <ul>
-<li>If <em>v</em><sub>3</sub> is greater than 1.5 × (<em>V</em><sub>12</sub>/2), use Eq. 14-16:</li>
+<li>If <span class="math inline">\(v_{3}\)</span> is greater than <span class="math inline">\(1.5 \times \frac{v_{12}}{2}\)</span>, use Eq. 14-16:</li>
 </ul>
 <p><span class="math display">\[v_{12a} = \frac{v_{F}}{1.75}\tag{HCM Eq. 14-16}\]</span></p>
 <ul>
-<li><p>where <em>v</em><sub>12<em>a</em></sub> equals the adjusted flow rate in Lanes 1 and 2 immediately upstream of the ramp influence area (pc/h)</p></li>
-<li><p>If both limitations on outer lane flow rate are violated, the result yielding the highest value of <em>v</em><sub>12<em>a</em></sub> is used. The adjusted value replaces the original value of <em>V</em><sub>12</sub> and the analysis continues.</p></li>
+<li><p>where <span class="math inline">\(v_{12a}\)</span> equals the adjusted flow rate in Lanes 1 and 2 immediately upstream of the ramp influence area (pc/h)</p></li>
+<li><p>If both limitations on outer lane flow rate are violated, the result yielding the highest value of <span class="math inline">\(v_{12a}\)</span> is used. The adjusted value replaces the original value of <span class="math inline">\(v_{12}\)</span> and the analysis continues.</p></li>
 </ul>
 <p>Eight-Lane Freeway (4 lanes per direction)</p>
 <ul>
-<li><p>If <em>v<sub>av34</em></sub> is greater than 2,700 pc/h/ln, use Eq. 14-18:<br />
+<li><p>If <span class="math inline">\(v_{av34}\)</span> is greater than 2,700 pc/h/ln, use Eq. 14-18:<br />
 <span class="math display">\[v_{av34} = {v_{F}-5400}\tag{HCM Eq. 14-18}\]</span></p></li>
-<li><p>If <em>v<sub>av34</em></sub> is greater than 1.5 × (<em>v</em><sub>12</sub>/2), use Eq. 14-19:<br />
+<li><p>If <span class="math inline">\(v_{av34}\)</span> is greater than <span class="math inline">\(1.5 \times \frac{v_{12}}{2}\)</span>, use Eq. 14-19:<br />
 <span class="math display">\[v_{12a} = \frac{v_{F}}{2.5}\tag{HCM Eq. 14-19}\]</span></p></li>
-<li><p>where <em>v</em><sub>12<em>a</em></sub> equals the adjusted flow rate in Lanes 1 and 2 immediately upstream of the ramp influence area (pc/h)</p></li>
-<li><p>If both limitations on outer lane flow rate are violated, the result yielding the highest value of <em>v</em><sub>12<em>a</em></sub> is used. The adjusted value replaces the original value of <em>v</em><sub>12</sub> and the analysis continues.</p></li>
+<li><p>where <span class="math inline">\(v_{12a}\)</span> equals the adjusted flow rate in Lanes 1 and 2 immediately upstream of the ramp influence area (pc/h)</p></li>
+<li><p>If both limitations on outer lane flow rate are violated, the result yielding the highest value of <span class="math inline">\(v_{12a}\)</span> is used. The adjusted value replaces the original value of <span class="math inline">\(v_{12}\)</span> and the analysis continues.</p></li>
 </ul>
 </div>
 <div id="step-3-estimate-capacity-of-ramp-freeway-junction" class="section level3 hasAnchor" number="6.4.7">
@@ -692,9 +693,9 @@ If an adjacent ramp on a six-lane freeway is not a one-lane, right-side off-ramp
 <p>The comparison determines whether the merge or diverge area is likely to break down.</p>
 <p>Capacity is evaluated at two points:</p>
 <ol style="list-style-type: lower-alpha">
-<li>the maximum total flow departing from the merge or diverge area (<em>V<sub>FO</sub></em>) and<br />
+<li>the maximum total flow departing from the merge or diverge area (<span class="math inline">\(V_{FO}\)</span>) and<br />
 </li>
-<li>the maximum total flow that can reasonably enter the merge or diverge influence area (<em>V<sub>R12</em></sub> for on-ramps; <em>V</em><sub>12</sub> for off-ramps).</li>
+<li>the maximum total flow that can reasonably enter the merge or diverge influence area (<span class="math inline">\(V_{R12}\)</span> for on-ramps; <span class="math inline">\(V_{12}\)</span> for off-ramps).</li>
 </ol>
 <p>If demand exceeds either of these two capacity values, breakdown may occur.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:BasicFwySegImage4"></span>
@@ -712,8 +713,8 @@ Figure 6.4: Diverge Volume
 <p><strong>Capacity Values: Merge and Diverge Areas</strong></p>
 <p>The capacity of merge areas is controlled by either of the following two criteria:</p>
 <ol style="list-style-type: lower-alpha">
-<li>the total flow leaving the merge area on the downstream freeway (<em>V<sub>FO</sub></em>) or</li>
-<li>the maximum flow entering the merge influence area (<em>V<sub>R12</sub></em>).</li>
+<li>the total flow leaving the merge area on the downstream freeway (<span class="math inline">\(V_{FO}\)</span>) or</li>
+<li>the maximum flow entering the merge influence area (<span class="math inline">\(V_{R12}\)</span>).</li>
 </ol>
 <p>The total flow leaving the merge area is subject to the constraints of the downstream freeway section.</p>
 <p>There is no evidence that the turbulence of the merge area causes the downstream freeway capacity to be less than that of a basic freeway segment.</p>
@@ -724,7 +725,7 @@ Figure 6.4: Diverge Volume
 <p>Thus,
 <span class="math display">\[V_{R12} = V_{R}+ V_{12}\tag{HCM Eq. 14-20}\]</span></p>
 <p>The capacity values for merge areas are shown in the table (HCM Exhibit 14-10) at the end of this section:</p>
-<p>If the <em>V<sub>R12</em></sub> maximum flow is exceeded, LOS F conditions will not necessarily exist, as traffic flow will redistribute to utilize excess capacity in outer lanes.</p>
+<p>If the <span class="math inline">\(V_{R12}\)</span> maximum flow is exceeded, LOS F conditions will not necessarily exist, as traffic flow will redistribute to utilize excess capacity in outer lanes.</p>
 <p>If the freeway capacity is exceeded, queuing conditions are expected to exist, and LOS is F.</p>
 <p>If LOS F exists, the analysis ends. The freeway facilities procedure can be applied in this case.</p>
 <p>Where stable operations are expected, the next step of the analysis—estimation of density in the merge influence area—is implemented to find the level of service.</p>
@@ -738,9 +739,9 @@ Figure 6.4: Diverge Volume
 </ol>
 <p>The total flow that can leave the diverge area is generally limited by the capacity of the freeway lanes approaching the diverge junction.</p>
 <p>In all appropriate diverge designs, the number of lanes leaving the diverge area is either equal to or one greater than the number entering.</p>
-<p>This departing flow is designated <em>V<sub>FO</sub></em>.</p>
+<p>This departing flow is designated <span class="math inline">\(V_{FO}\)</span>.</p>
 <ul>
-<li>The flow entering Lanes 1 and 2 just upstream of the deceleration lane is simply the flow in Lanes 1 and 2 (<em>V</em><sub>12</sub>).</li>
+<li>The flow entering Lanes 1 and 2 just upstream of the deceleration lane is simply the flow in Lanes 1 and 2 (<span class="math inline">\(v_{12}\)</span>).</li>
 </ul>
 <p>This flow <em>includes</em> the off-ramp flow.</p>
 <p>The table below (HCM Exhibit 14-10) provides capacity values for the first two capacity checks.</p>
@@ -757,7 +758,7 @@ Figure 6.4: Diverge Volume
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">≥70</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 70</td>
 <td align="center">4,800</td>
 <td align="center">7,200</td>
 <td align="center">9,600</td>
@@ -795,13 +796,13 @@ Figure 6.4: Diverge Volume
 <thead>
 <tr class="header">
 <th align="center"><strong>FFS (mi/h)</strong></th>
-<th align="center"><strong>Maximum Desirable Flow Rate (<em>v</em><sub>R12</sub>), in pc/h, Entering Merge Influence Area<sup>b</sup></strong></th>
-<th align="center"><strong>Maximum Desirable Flow Rate (<em>v</em><sub>12</sub>), in pc/h, Entering Diverge Influence Area<sup>b</sup/></strong></th>
+<th align="center"><strong>Maximum Desirable Flow Rate (<span class="math inline">\(v_{R12}\)</span>), in pc/h, Entering Merge Influence Area<span class="math inline">\(^b\)</span></strong></th>
+<th align="center"><strong>Maximum Desirable Flow Rate (<span class="math inline">\(v_{12}\)</span>), in pc/h, Entering Diverge Influence Area<span class="math inline">\(^b\)</span></strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">≥70</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 70</td>
 <td align="center">4,600</td>
 <td align="center">4,400</td>
 </tr>
@@ -823,8 +824,11 @@ Figure 6.4: Diverge Volume
 </tbody>
 </table>
 <p>Notes:</p>
-<p><sup>a</sup>Demand in excess of these capacities results in LOS F.<br />
-<sup>b</sup>Demand in excess of these values alone does not result in LOS F; operations may be worse than predicted by this methodology.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Demand in excess of these capacities results in LOS F.<br />
+</li>
+<li>Demand in excess of these values alone does not result in LOS F; operations may be worse than predicted by this methodology.</li>
+</ol>
 <p>The third limit is most important because it is the primary reason for failure of diverge areas.</p>
 <p>Failure at a diverge is most often related to the capacity of one of the exit legs, usually the ramp.</p>
 <p>The capacity of each exit leg must be checked against the expected demand.</p>
@@ -833,14 +837,9 @@ Figure 6.4: Diverge Volume
 <li>HCM Exhibit 14-12</li>
 </ul>
 <table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
 <thead>
 <tr class="header">
-<th align="center"><strong>Ramp FFS <em>S<sub>FR</sub></em> (mi/h)</strong></th>
+<th align="center"><strong>Ramp FFS, <span class="math inline">\(S_{FR}\)</span> (mi/h)</strong></th>
 <th align="center"><strong>Single-Lane Ramps</strong></th>
 <th align="center"><strong>Two-Lane Ramps</strong></th>
 </tr>
@@ -862,7 +861,7 @@ Figure 6.4: Diverge Volume
 <td align="center">4000</td>
 </tr>
 <tr class="even">
-<td align="center">≥ 20-30</td>
+<td align="center"><span class="math inline">\(\geq\)</span> 20-30</td>
 <td align="center">1900</td>
 <td align="center">3800</td>
 </tr>
@@ -876,7 +875,7 @@ Figure 6.4: Diverge Volume
 </div>
 <div id="step-4-estimate-density-and-determine-los" class="section level3 hasAnchor" number="6.4.8">
 <h3><span class="header-section-number">6.4.8</span> Step 4: Estimate Density and Determine LOS<a href="06-HCM_RampSeg.html#step-4-estimate-density-and-determine-los" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The density within the merge or diverge influence area (<em>D<sub>R</sub></em>) and the level of service based on this value are determined.</p>
+<p>The density within the merge or diverge influence area (<span class="math inline">\(D_{R}\)</span>) and the level of service based on this value are determined.</p>
 <ul>
 <li><p>on-ramp<br />
 <span class="math display">\[D_{R} = 5.475 + 0.00734v_{R}+ 0.0078v_{12} - 0.00627L_A\tag{HCM Eq. 14-22}\]</span></p></li>
@@ -894,7 +893,7 @@ Figure 6.4: Diverge Volume
 <tbody>
 <tr class="odd">
 <td align="center">A</td>
-<td align="center">≤ 10</td>
+<td align="center"><span class="math inline">\(\leq\)</span> 10</td>
 </tr>
 <tr class="even">
 <td align="center">B</td>
@@ -921,7 +920,7 @@ Figure 6.4: Diverge Volume
 </div>
 <div id="step-5-estimation-of-speed" class="section level3 hasAnchor" number="6.4.9">
 <h3><span class="header-section-number">6.4.9</span> Step 5: Estimation of Speed<a href="06-HCM_RampSeg.html#step-5-estimation-of-speed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If desired, the estimation of average travel speed (<em>S<sub>R</sub></em>) within the ramp influence area may be computed.</p>
+<p>If desired, the estimation of average travel speed (<span class="math inline">\(S_{R}\)</span>) within the ramp influence area may be computed.</p>
 <p>This may be useful information, but it should not be used as a measure of level of service unless density is unavailable.</p>
 <p>On-Ramp (HCM Exhibit 14-13)</p>
 <ul>
@@ -946,7 +945,7 @@ Figure 6.4: Diverge Volume
 </ul>
 <p>HCM Exhibit 14-15</p>
 <ul>
-<li>Average flow in outer lanes <em>v<sub>OA</sub></em> (pc/h/ln)</li>
+<li>Average flow in outer lanes <span class="math inline">\(v_{OA}\)</span> (pc/h/ln)</li>
 </ul>
 <p><span class="math display">\[v_{OA} = \frac{v_{f} - v_{12}}{N_{O}}\]</span></p>
 <ul>
@@ -962,39 +961,39 @@ Figure 6.4: Diverge Volume
 <div id="variable-definitions-1" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> Variable Definitions (1)<a href="06-HCM_RampSeg.html#variable-definitions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><em>S<sub>R</em></sub> = average speed of vehicles within the ramp influence area (mi/h); for merge areas, this includes all ramp and freeway vehicles in Lanes 1 and 2; for diverge areas, this includes all vehicles in Lanes 1 and 2;<br />
+<li><span class="math inline">\(S_{R}\)</span> = average speed of vehicles within the ramp influence area (mi/h); for merge areas, this includes all ramp and freeway vehicles in Lanes 1 and 2; for diverge areas, this includes all vehicles in Lanes 1 and 2;<br />
 </li>
-<li><em>S<sub>O</em></sub> = average speed of vehicles in outer lanes of the freeway, adjacent to the 1,500-ft ramp influence area (mi/h);<br />
+<li><span class="math inline">\(S_{O}\)</span> = average speed of vehicles in outer lanes of the freeway, adjacent to the 1,500-ft ramp influence area (mi/h);<br />
 </li>
-<li><em>S</em> = average speed of all vehicles in all lanes within the 1,500-ft length covered by the ramp influence area (mi/h);<br />
+<li><span class="math inline">\(S\)</span> = average speed of all vehicles in all lanes within the 1,500-ft length covered by the ramp influence area (mi/h);<br />
 </li>
-<li><em>FFS</em> = free-flow speed of the freeway (mi/h);<br />
+<li><span class="math inline">\(FFS\)</span> = free-flow speed of the freeway (mi/h);<br />
 </li>
-<li><em>S<sub>FR</sub></em> = free-flow speed of the ramp (mi/h);<br />
+<li><span class="math inline">\(S_{FR}\)</span> = free-flow speed of the ramp (mi/h);<br />
 </li>
-<li><em>L<sub>A</sub></em> = length of acceleration lane (ft);<br />
+<li><span class="math inline">\(L_A\)</span> = length of acceleration lane (ft);<br />
 </li>
-<li><em>L<sub>D</em></sub> = length of deceleration lane (ft);</li>
+<li><span class="math inline">\(L_D\)</span> = length of deceleration lane (ft);</li>
 </ul>
 </div>
 <div id="variable-definitions-2" class="section level2 hasAnchor" number="6.6">
 <h2><span class="header-section-number">6.6</span> Variable Definitions (2)<a href="06-HCM_RampSeg.html#variable-definitions-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><em>v<sub>R</sub></em> = demand flow rate on ramp (pc/h);<br />
+<li><span class="math inline">\(v_R\)</span> = demand flow rate on ramp (pc/h);<br />
 </li>
-<li><em>v</em><sub>12</sub> = demand flow rate in Lanes 1 and 2 of the freeway immediately upstream of the ramp influence area (pc/h);<br />
+<li><span class="math inline">\(v_{12}\)</span> = demand flow rate in Lanes 1 and 2 of the freeway immediately upstream of the ramp influence area (pc/h);<br />
 </li>
-<li><em>v<sub>R12</em></sub> = total demand flow rate entering the on-ramp influence area, including <em>v</em><sub>12</sub> and <em>v<sub>R</sub></em> (pc/h);<br />
+<li><span class="math inline">\(v_{R12}\)</span> = total demand flow rate entering the on-ramp influence area, including <span class="math inline">\(v_{12}\)</span> and <span class="math inline">\(v_R\)</span> (pc/h);<br />
 </li>
-<li><em>v<sub>OA</sub></em> = average demand flow per lane in outer lanes adjacent to the ramp influence area (not including flow in Lanes 1 and 2) (pc/h/ln);<br />
+<li><span class="math inline">\(v_{OA}\)</span> = average demand flow per lane in outer lanes adjacent to the ramp influence area (not including flow in Lanes 1 and 2) (pc/h/ln);<br />
 </li>
-<li><em>v<sub>F</sub></em> = demand flow rate on freeway immediately upstream of the ramp influence area (pc/h);<br />
+<li><span class="math inline">\(v_F\)</span> = demand flow rate on freeway immediately upstream of the ramp influence area (pc/h);<br />
 </li>
-<li><em>N<sub>O</sub></em> = number of outer lanes on the freeway (1 for a six-lane freeway; 2 for an eight-lane freeway) (ln);<br />
+<li><span class="math inline">\(N_O\)</span> = number of outer lanes on the freeway (1 for a six-lane freeway; 2 for an eight-lane freeway) (ln);<br />
 </li>
-<li><em>M<sub>S</sub></em> = speed index for on-ramps (merge areas); this is simply an intermediate computation that simplifies the equations; and<br />
+<li><span class="math inline">\(M_S\)</span> = speed index for on-ramps (merge areas); this is simply an intermediate computation that simplifies the equations; and<br />
 </li>
-<li><em>D<sub>S</sub></em> = speed index for off-ramps (diverge areas); this is simply an intermediate computation that simplifies the equations.</li>
+<li><span class="math inline">\(D_S\)</span> = speed index for off-ramps (diverge areas); this is simply an intermediate computation that simplifies the equations.</li>
 </ul>
 </div>
 <div id="references-2" class="section level2 hasAnchor" number="6.7">
